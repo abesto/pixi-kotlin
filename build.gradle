@@ -1,0 +1,92 @@
+group = 'net.abesto.kotlin.js.pixi'
+version = '0.0.1'
+
+buildscript {
+	ext.kotlinVersion = '0.1-SNAPSHOT'
+	ext.kotlinGradlePluginVersion = '0.1-SNAPSHOT'
+	ext.kotlinHome = "${System.env.HOME}/Library/Application Support/IdeaIC14/Kotlin"
+	ext.kotlincJs = "$kotlinHome/kotlinc/bin/kotlinc-js"
+	ext.kotlinJsLib = "$kotlinHome/kotlinc/lib/kotlin-jslib.jar"
+	ext.kotlinJs = "$kotlinHome/kotlinc/lib/kotlin.js"
+
+	repositories {
+		mavenCentral()
+		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+	}
+	dependencies {
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
+	}
+}
+
+subprojects {
+	apply plugin: 'kotlin'
+
+	task copyKotlinJs(type: Copy) {
+		from "$kotlinJs"
+		into "$projectDir/web/js/lib"
+	}
+
+	repositories {
+		mavenCentral()
+		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+	}
+
+	dependencies {
+		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
+	}
+
+	sourceSets {
+		main.java.srcDirs += 'src/main/kotlin'
+		test.java.srcDirs += 'src/test/kotlin'
+	}
+}
+
+project(':pixi-kotlin') {
+	ext.libraryFiles = [kotlinJsLib]
+
+	dependencies {
+		compile files(kotlinJsLib)
+	}
+
+	task build(overwrite: true) {
+		logger.info "Definitions are not compiled, we only build a source jar"
+	}
+
+	task jarSources(type:Jar){
+		from sourceSets.main.allSource
+		classifier = 'source'
+	}
+}
+
+project(':examples:pairs') {
+	ext.jsFile = "pairs"
+	ext.output = {"$projectDir/web/js/app/${jsFile}.js"}
+	ext.libraryFiles = [kotlinJsLib, project(':pixi-kotlin').tasks.jarSources.archivePath]
+
+	dependencies {
+		compile files(kotlinJsLib)
+		compile project(':pixi-kotlin')
+	}
+
+	task build(overwrite: true) {
+		dependsOn copyKotlinJs
+		dependsOn ':pixi-kotlin:jarSources'
+
+		ext.sources = sourceSets.main.allSource.files
+		inputs.files sources
+
+		outputs.file output()
+
+		doLast {
+			exec {
+				commandLine("bash", kotlincJs, "-verbose", "-version",
+						"-output", output(),
+						"-library-files", libraryFiles.join(','), *sources.toList())
+			}
+		}
+	}
+
+	task test(overwrite: true) {
+		logger.info "JS testing not implemented"
+	}
+}
