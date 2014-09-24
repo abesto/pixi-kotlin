@@ -1,5 +1,6 @@
 #!/bin/bash
 gradle build
+gradle examples:generateIndexHtml
 
 tmpdir=/tmp/pixi-kotlin-gh-pages-build
 mkdir -p $tmpdir
@@ -11,8 +12,9 @@ for example in $(ls examples); do
     fi
     mkdir $tmpdir/$example
     cp -r examples/$example/web/* $tmpdir/$example/
-    echo "<li><a href=\"$example\">$example</a></li>" >> $tmpdir/index.html
 done
+
+cp examples/web/index.html $tmpdir/
 
 git checkout gh-pages -f
 rm -rf *

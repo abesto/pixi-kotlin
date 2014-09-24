@@ -59,6 +59,13 @@ project(':pixi-kotlin') {
 }
 
 project(':examples') {
+	task generateIndexHtml(type: Copy) {
+		from "src/templates"
+		into "web"
+		include("index.html")
+		expand(project: project)
+	}
+
 	subprojects {
 		ext.jsFile = "app"
 		ext.output = { "$projectDir/web/js/app/${jsFile}.js" }
@@ -81,9 +88,11 @@ project(':examples') {
 		ext.originalExampleSourceUrl = "view-source:http://www.goodboydigital.com/pixijs/examples/${project.name}/"
 		ext.originalExampleSourceText = { project.originalExampleSourceUrl }
 		ext.title = "PIXI Example ${project.name}"
-		task generateIndexHtml(type: Copy) {
+		task generateExampleIndexHtml(type: Copy) {
 			from "${project(":examples").projectDir}/src/templates"
 			into "web"
+			include("subproject-index.html")
+			rename("subproject-index.html", "index.html")
 			expand(project: project)
 		}
 
@@ -91,7 +100,7 @@ project(':examples') {
 			dependsOn copyKotlinJs
 			dependsOn ':pixi-kotlin:jarSources'
 			dependsOn copyKotlinSourceIntoWeb
-			dependsOn generateIndexHtml
+			dependsOn generateExampleIndexHtml
 
 			ext.sources = sourceSets.main.allSource.files
 			inputs.files sources
