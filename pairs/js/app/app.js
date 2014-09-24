@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                pairs: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.pairs */ {
+                example_pairs: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_pairs */ {
                   Tile: Kotlin.createClass(function () {
                     return [PIXI.Sprite];
                   }, function $fun(texture) {
@@ -22,7 +22,7 @@
                   },
                   main$animate: function (renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.pairs.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_pairs.animate$f(animate));
                       renderer.v.render(stage.v);
                     };
                   },
@@ -68,10 +68,10 @@
                             canPick.v = false;
                             var tmp$0, tmp$1;
                             if (((tmp$0 = firstTile.v) != null ? tmp$0.theVal : null) === ((tmp$1 = secondTile.v) != null ? tmp$1.theVal : null)) {
-                              window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.pairs.f(firstTile, gameContainer, secondTile, canPick), 1000);
+                              window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_pairs.f(firstTile, gameContainer, secondTile, canPick), 1000);
                             }
                              else {
-                              window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.pairs.f_0(firstTile, secondTile, canPick), 1000);
+                              window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_pairs.f_0(firstTile, secondTile, canPick), 1000);
                             }
                           }
                         }
@@ -111,7 +111,7 @@
                           tile.tint = 0;
                           tile.alpha = 0.5;
                           gameContainer.v.addChild(tile);
-                          tile.mousedown = _.net.abesto.kotlin.js.pixi.examples.pairs.onTilesLoaded$f(canPick, firstTile, secondTile, gameContainer);
+                          tile.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_pairs.onTilesLoaded$f(canPick, firstTile, secondTile, gameContainer);
                           tile.touchstart = tile.mousedown;
                         }
                       }
@@ -136,13 +136,13 @@
                     var tileAtlas = ['images.json'];
                     var loader = new PIXI.AssetLoader(tileAtlas);
                     var gameContainer = {v: new PIXI.DisplayObjectContainer()};
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.pairs.main$animate(renderer, stage);
-                    var onTilesLoaded = _.net.abesto.kotlin.js.pixi.examples.pairs.main$onTilesLoaded(gameContainer, canPick, firstTile, secondTile);
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$animate(renderer, stage);
+                    var onTilesLoaded = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$onTilesLoaded(gameContainer, canPick, firstTile, secondTile);
                     stage.v.addChild(gameContainer.v);
                     document.body.appendChild(renderer.v.view);
-                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.pairs.main$f(onTilesLoaded);
+                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$f(onTilesLoaded);
                     loader.load();
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.pairs.main$f_0(animate));
+                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_pairs.main$f_0(animate));
                   }
                 })
               })
@@ -153,5 +153,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.pairs.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_pairs.main([]);
 }(Kotlin));
