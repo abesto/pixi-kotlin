@@ -56,6 +56,7 @@ native public object PIXI {
     public class Renderer {
         public val view: Element = noImpl
         public fun render(stage: Stage): Unit = noImpl
+        public fun resize(width: Int, height: Int): Unit = noImpl
     }
     public fun autoDetectRenderer(width: Int, height: Int): Renderer = noImpl
 

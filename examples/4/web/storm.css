@@ -1,0 +1,44 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: black;
+}
+
+#rnd {
+	position: absolute;
+	top: 16px;
+	left: 16px;
+}
+
+#photonstorm {
+	position: absolute;
+	bottom: 16px;
+	right: 16px;
+}
+
+#pixi {
+	position: absolute;
+	bottom: 16px;
+	left: 16px;
+}
+
+#sx {
+	position: absolute;
+	top: 16px;
+	right: 16px;
+	width: 200px;
+	height: 48px;
+	font-size: 12px;
+	font-family: Arial;
+	color: rgba(255,255,255,0.8);
+}
+
+#links {
+    position: absolute;
+    left: 16px;
+    top: 64px;
+    background: rgba(255, 255, 255, .7);
+    margin: 0;
+    padding: 15px;
+    list-style: none;
+}
