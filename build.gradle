@@ -71,6 +71,7 @@ project(':examples') {
 		task copyKotlinSourceIntoWeb(type: Copy) {
 			from "src/main/kotlin"
 			into "web/kotlin"
+			rename("main.kt", "main.kt.txt")
 		}
 
 		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name}/"

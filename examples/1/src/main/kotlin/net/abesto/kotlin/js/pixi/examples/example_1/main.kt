@@ -1,4 +1,4 @@
-package net.abesto.kotlin.js.pixi.examples.example1
+package net.abesto.kotlin.js.pixi.examples.example_1
 
 import net.abesto.kotlin.js.pixi.*
 

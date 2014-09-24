@@ -1,4 +1,4 @@
-package net.abesto.kotlin.js.pixi.examples.pairs
+package net.abesto.kotlin.js.pixi.examples.example_pairs
 
 import js.native
 import js.dom.html.document
