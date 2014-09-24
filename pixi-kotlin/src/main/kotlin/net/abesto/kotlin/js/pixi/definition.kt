@@ -28,6 +28,10 @@ native public object PIXI {
     open public class DisplayObjectContainer: DisplayObject() {
         public fun addChild(child: DisplayObject): Unit = noImpl
         public fun removeChild(child: DisplayObject): Unit = noImpl
+
+        public var position: Point = noImpl
+        public var scale: Point = noImpl
+        public var rotation: Double = 0.0
     }
 
     open public class Sprite(texture: Texture): DisplayObjectContainer() {
@@ -37,9 +41,7 @@ native public object PIXI {
 
         public var buttonMode: Boolean = false
         public var interactive: Boolean = false
-        public var rotation: Double = 0.0
         public var anchor: Point = noImpl
-        public var position: Point = noImpl
         public var tint: Int = 0xFFFFFF
         public var alpha: Double = 1.0
 
@@ -59,7 +61,7 @@ native public object PIXI {
 
     public class Texture(baseTexture: BaseTexture, frame: Rectangle) {
         class object {
-            fun fromImage(path: String): Texture = noImpl
+            public fun fromImage(path: String): Texture = noImpl
         }
     }
 
