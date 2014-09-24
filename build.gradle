@@ -58,35 +58,64 @@ project(':pixi-kotlin') {
 	}
 }
 
-project(':examples:pairs') {
-	ext.jsFile = "pairs"
-	ext.output = {"$projectDir/web/js/app/${jsFile}.js"}
-	ext.libraryFiles = [kotlinJsLib, project(':pixi-kotlin').tasks.jarSources.archivePath]
+project(':examples') {
+	subprojects {
+		ext.jsFile = "app"
+		ext.output = { "$projectDir/web/js/app/${jsFile}.js" }
+		ext.libraryFiles = [kotlinJsLib, project(':pixi-kotlin').tasks.jarSources.archivePath]
+		dependencies {
+			compile files(kotlinJsLib)
+			compile project(':pixi-kotlin')
+		}
 
-	dependencies {
-		compile files(kotlinJsLib)
-		compile project(':pixi-kotlin')
-	}
+		task copyKotlinSourceIntoWeb(type: Copy) {
+			from "src/main/kotlin"
+			into "web/kotlin"
+		}
 
-	task build(overwrite: true) {
-		dependsOn copyKotlinJs
-		dependsOn ':pixi-kotlin:jarSources'
+		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name}/"
+		ext.originalExampleText = { project.originalExampleUrl }
+		ext.originalExampleSourceUrl = "view-source:http://www.goodboydigital.com/pixijs/examples/${project.name}/"
+		ext.originalExampleSourceText = { project.originalExampleSourceUrl }
+		ext.title = "PIXI Example ${project.name}"
+		task generateIndexHtml(type: Copy) {
+			from "${project(":examples").projectDir}/src/templates"
+			into "web"
+			expand(project: project)
+		}
 
-		ext.sources = sourceSets.main.allSource.files
-		inputs.files sources
+		task build(overwrite: true) {
+			dependsOn copyKotlinJs
+			dependsOn ':pixi-kotlin:jarSources'
+			dependsOn copyKotlinSourceIntoWeb
+			dependsOn generateIndexHtml
 
-		outputs.file output()
+			ext.sources = sourceSets.main.allSource.files
+			inputs.files sources
 
-		doLast {
-			exec {
-				commandLine("bash", kotlincJs, "-verbose", "-version",
-						"-output", output(),
-						"-library-files", libraryFiles.join(','), *sources.toList())
+			outputs.file output()
+
+			doLast {
+				exec {
+					commandLine("bash", kotlincJs, "-verbose", "-version",
+							"-output", output(),
+							"-library-files", libraryFiles.join(','), *sources.toList())
+				}
 			}
 		}
-	}
 
-	task test(overwrite: true) {
-		logger.info "JS testing not implemented"
+		task test(overwrite: true) {
+			logger.info "JS testing not implemented"
+		}
 	}
 }
+
+project(':examples:pairs') {
+	ext.originalExampleUrl = "http://www.emanueleferonato.com/2014/02/26/complete-html5-concentration-game-made-with-pixi-js/"
+	ext.originalExampleSourceUrl = originalExampleUrl
+	ext.originalExampleSourceText = { "Same as above, scroll down a bit on the page" }
+}
+
+// Examples from http://www.pixijs.com/examples/
+project(':examples:1')
+

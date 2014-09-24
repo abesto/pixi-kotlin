@@ -1,3 +1,3 @@
 rootProject.name = 'pixi-kotlin'
 
-include 'pixi-kotlin', 'examples:pairs'
+include 'pixi-kotlin', 'examples:pairs', 'examples:1'
