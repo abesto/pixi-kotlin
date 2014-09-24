@@ -120,4 +120,4 @@ project(':examples:pairs') {
 // Examples from http://www.pixijs.com/examples/
 project(':examples:1')
 project(':examples:2')
-
+project(':examples:3')

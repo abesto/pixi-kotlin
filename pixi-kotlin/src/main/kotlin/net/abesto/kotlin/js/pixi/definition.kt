@@ -49,6 +49,10 @@ native public object PIXI {
         public var touchstart: Sprite.(InteractionData) -> Unit = undefined
     }
 
+    public class MovieClip(textures: Array<Texture>): Sprite(undefined) {
+        public fun gotoAndPlay(frameNumber: Int): Unit = noImpl
+    }
+
     public class Renderer {
         public val view: Element = noImpl
         public fun render(stage: Stage): Unit = noImpl
@@ -62,6 +66,7 @@ native public object PIXI {
     public class Texture(baseTexture: BaseTexture, frame: Rectangle) {
         class object {
             public fun fromImage(path: String): Texture = noImpl
+            public fun fromFrame(frameId: String): Texture = noImpl
         }
     }
 
