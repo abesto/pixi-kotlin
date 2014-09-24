@@ -1,6 +1,5 @@
 #!/bin/bash
-gradle build
-gradle examples:generateIndexHtml
+gradle build examples:generateIndexHtml
 
 tmpdir=/tmp/pixi-kotlin-gh-pages-build
 mkdir -p $tmpdir
