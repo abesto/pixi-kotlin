@@ -6,7 +6,7 @@ Currently in "no, don't use it, I'm just playing around" state. There's just eno
 
 ## Run the example
 
-Pre-requisite: have a newish version of kotlin in `~/Library/Application Support/IdeaIC14/Kotlin`. This can probably be made more general / nicer. Sorry about the mess.
+Pre-requisite: have a newish version of kotlin (think snapshot, `0.8.986` is known to work) in `~/Library/Application Support/IdeaIC14/Kotlin`. This can probably be made more general / nicer. Sorry about the mess.
 
 ```sh
 git clone https://github.com/abesto/pixi-kotlin.git
