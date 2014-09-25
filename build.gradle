@@ -134,6 +134,8 @@ project(':examples:2')
 project(':examples:3')
 
 project(':examples:4') {
+	ext.title = "Pixi Balls by Photon Storm (Kotlin port)"
+
 	ext.extraHead = """
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 <link rel="stylesheet" href="storm.css">
@@ -144,4 +146,18 @@ project(':examples:4') {
 <a href="http://www.html5gamedevs.com/topic/59-pixijs-has-landed/"><img src="assets/pixi.png" width="56" height="22" id="pixi" title="pixi.js" /></a>
 <input type="button" id="rnd" value="Randomise" />
 <div id="sx">SX: 0<br />SY: 0</div>"""
+}
+
+project(':examples:5') {
+	ext.title = "Pixi Morph by Photon Storm (Kotlin port)"
+
+	ext.extraHead = """
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<link rel="stylesheet" href="storm.css">
+"""
+
+	ext.extraBody = """
+<a href="http://www.photonstorm.com"><img src="assets/photonstorm.png" width="121" height="18" id="photonstorm" title="Photon Storm" /></a>
+<a href="http://www.html5gamedevs.com/topic/59-pixijs-has-landed/"><img src="assets/pixi.png" width="56" height="22" id="pixi" title="pixi.js" /></a>
+"""
 }
