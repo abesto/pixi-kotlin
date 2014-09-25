@@ -6,15 +6,16 @@ Currently in "no, don't use it, I'm just playing around" state. There's just eno
 
 ## Getting started
 
-How to get hacking depends on whether you're working with IntelliJ IDEA on OSX or not.
+How to get hacking depends on whether you're working with IntelliJ IDEA on OSX or not. The currently supported version
+of Kotlin is `0.8.1337`.
 
 ### Using IDEA on OSX
 
 This is the simplest case.
 
  - Install IDEA 14 Community Edition EAP from http://confluence.jetbrains.com/display/IDEADEV/IDEA+14+EAP
- - `Preferences` -> `Appearance and Behavior` -> `Plugins` -> `Browse repositeries...` -> `Manage repositories` -> add `http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml`. This will let you use snapshot builds of the Kotlin plugin.
- - Install the snapshot Kotlin plugin - you want something like `0.8.1356`, definitely not the stable version like `0.8.11`.
+ - Download and install the Kotlin plugin version `0.8.1337` from http://teamcity.jetbrains.com/repository/download/bt345/166078:id/kotlin-plugin-0.8.1337.zip
+ - Import the project as a Gradle project
 
 ### Not on OSX
 
@@ -23,6 +24,7 @@ The path to the Kotlin compiler won't be correct; at the moment it's hard-coded 
 ### Not using IDEA
 
 You can compile the project with Gradle and hack on it using your favorite editor. The only requirement is that the Kotlin compiler should be found by Gradle. No more instructions here for now, if you need help, I'm happy to provide it. If not, have fun figuring things out (Not sarcasm. I mean it. You use Emacs to write Kotlin for a reason.)
+You can get the bundle including the compiler used by the plugin from the link above.
 
 
 ## Running an example

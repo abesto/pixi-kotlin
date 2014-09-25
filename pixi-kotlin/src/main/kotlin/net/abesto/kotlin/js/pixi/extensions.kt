@@ -1,7 +1,9 @@
 package net.abesto.kotlin.js.pixi
 
-import js.jquery.JQuery
-import js.dom.html.Window
+
+import kotlin.js.dom.html.window
+import kotlin.js.dom.html.Window
+import jquery.JQuery
 
 native public fun <T> Array<T>.indexOf(item: T): Int = noImpl
 native public fun <T> Array<T>.push(vararg item: T): Int = noImpl

@@ -1,8 +1,8 @@
 package net.abesto.kotlin.js.pixi
 
+
 import org.w3c.dom.Element
-import js.native
-import js.dom.html.window
+
 
 native val <T> undefined: T = noImpl
 
