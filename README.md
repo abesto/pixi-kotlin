@@ -13,7 +13,7 @@ How to get hacking depends on whether you're working with IntelliJ IDEA on OSX o
 This is the simplest case.
 
  - Install IDEA 14 Community Edition EAP from http://confluence.jetbrains.com/display/IDEADEV/IDEA+14+EAP
- - Preferences -> Appearance and Behavior -> Plugins -> Browse repositeries... -> Manage repositories -> add `http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml. This will let you use snapshot builds of the Kotlin plugin.
+ - `Preferences` -> `Appearance and Behavior` -> `Plugins` -> `Browse repositeries...` -> `Manage repositories` -> add `http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/.lastSuccessful/updatePlugins.xml`. This will let you use snapshot builds of the Kotlin plugin.
  - Install the snapshot Kotlin plugin - you want something like `0.8.1356`, definitely not the stable version like `0.8.11`.
 
 ### Not on OSX
