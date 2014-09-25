@@ -14,7 +14,7 @@ of Kotlin is `0.8.1337`.
 This is the simplest case.
 
  - Install IDEA 14 Community Edition EAP from http://confluence.jetbrains.com/display/IDEADEV/IDEA+14+EAP
- - Download and install the Kotlin plugin version `0.8.1337` from http://teamcity.jetbrains.com/repository/download/bt345/166078:id/kotlin-plugin-0.8.1337.zip
+ - Download and install the Kotlin plugin version `0.8.1337` from http://teamcity.jetbrains.com/guestAuth/repository/download/bt345/166078:id/kotlin-plugin-0.8.1337.zip
  - Import the project as a Gradle project
 
 ### Not on OSX
