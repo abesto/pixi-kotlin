@@ -3,6 +3,7 @@ package net.abesto.kotlin.js.pixi.examples.example_1
 import net.abesto.kotlin.js.pixi.*
 
 import kotlin.js.dom.html.document
+import kotlin.js.dom.html.HTMLElement
 
 
 fun main(args: Array<String>) {

@@ -2,6 +2,7 @@ package net.abesto.kotlin.js.pixi
 
 
 import org.w3c.dom.Element
+import kotlin.js.dom.html5.HTMLCanvasElement
 
 
 native val <T> undefined: T = noImpl
@@ -69,11 +70,11 @@ native public object PIXI {
     }
 
     public class Renderer {
-        public val view: Element = noImpl
+        public val view: HTMLCanvasElement = noImpl
         public fun render(stage: Stage): Unit = noImpl
         public fun resize(width: Int, height: Int): Unit = noImpl
     }
-    public fun autoDetectRenderer(width: Int, height: Int): Renderer = noImpl
+    public fun autoDetectRenderer(width: Int, height: Int, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
 
     //textures
 
