@@ -161,3 +161,5 @@ project(':examples:5') {
 <a href="http://www.html5gamedevs.com/topic/59-pixijs-has-landed/"><img src="assets/pixi.png" width="56" height="22" id="pixi" title="pixi.js" /></a>
 """
 }
+
+project(':examples:6')

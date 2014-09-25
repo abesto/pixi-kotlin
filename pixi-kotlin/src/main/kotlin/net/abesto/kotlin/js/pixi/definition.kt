@@ -7,7 +7,7 @@ import org.w3c.dom.Element
 native val <T> undefined: T = noImpl
 
 native public object PIXI {
-    public class Stage(backgroundColor: Int): DisplayObjectContainer()
+    public class Stage(backgroundColor: Int, interactive: Boolean = false): DisplayObjectContainer()
     //root
 
     public class InteractionData {}
@@ -36,8 +36,14 @@ native public object PIXI {
 
     open public class Sprite(texture: Texture): DisplayObjectContainer() {
         class object {
+            public fun fromImage(path: String): Sprite = noImpl
             public fun fromFrame(imageId: String): Sprite = noImpl
         }
+
+        public fun setTexture(texture: Texture): Unit = noImpl
+
+        deprecated("Instead of using this function you can now simply set the interactive property to true or false")
+        public fun setInteractive(interactive: Boolean): Unit = noImpl
 
         public var buttonMode: Boolean = false
         public var interactive: Boolean = false
@@ -45,8 +51,17 @@ native public object PIXI {
         public var tint: Int = 0xFFFFFF
         public var alpha: Double = 1.0
 
+        public var click: Sprite.(InteractionData) -> Unit = undefined
+        public var tap: Sprite.(InteractionData) -> Unit = undefined
+
         public var mousedown: Sprite.(InteractionData) -> Unit = undefined
+        public var mouseup: Sprite.(InteractionData) -> Unit = undefined
+
+        public var mouseover: Sprite.(InteractionData) -> Unit = undefined
+        public var mouseout: Sprite.(InteractionData) -> Unit = undefined
+
         public var touchstart: Sprite.(InteractionData) -> Unit = undefined
+        public var touchend: Sprite.(InteractionData) -> Unit = undefined
     }
 
     public class MovieClip(textures: Array<Texture>): Sprite(undefined) {
