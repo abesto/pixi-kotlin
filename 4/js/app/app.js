@@ -22,9 +22,8 @@
                   },
                   main$resize: function (w, h, slideX, slideY, renderer) {
                     return function () {
-                      var tmp$0, tmp$1;
-                      w.v = (tmp$0 = $(window).width()) - tmp$0 % 1 - 16;
-                      h.v = (tmp$1 = $(window).height()) - tmp$1 % 1 - 16;
+                      w.v = ($(window).width() | 0) - 16;
+                      h.v = ($(window).height() | 0) - 16;
                       slideX.v = w.v / 2 | 0;
                       slideY.v = h.v / 2 | 0;
                       renderer.v.resize(w.v, h.v);
@@ -83,9 +82,9 @@
                   },
                   main$start: function (renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update) {
                     return function () {
+                      var tmp$0;
                       var ballTexture = PIXI.Texture.fromImage('assets/bubble_32x32.png');
                       document.body.appendChild(renderer.v.view);
-                      var tmp$0;
                       tmp$0 = starCount.v - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         var tempBall = new PIXI.Sprite(ballTexture);

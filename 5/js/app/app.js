@@ -10,9 +10,9 @@
                 example_4: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_4 */ {
                   main$makeObject: function (n, points1, points2, points3) {
                     return function (t) {
+                      var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5, tmp$6, tmp$7, tmp$8, tmp$9, tmp$10, tmp$11, tmp$12, tmp$13, tmp$14, tmp$15, tmp$16, tmp$17;
                       var xd = -90 + Math.round(Math.random() * 180);
                       var td = t;
-                      var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5, tmp$6, tmp$7, tmp$8, tmp$9, tmp$10, tmp$11, tmp$12, tmp$13, tmp$14, tmp$15, tmp$16, tmp$17;
                       if (t === 0) {
                         tmp$0 = n.v - 1;
                         for (var i = 0; i <= tmp$0; i++) {
@@ -161,9 +161,8 @@
                   },
                   main$resize: function (w, h, renderer) {
                     return function () {
-                      var tmp$0, tmp$1;
-                      w.v = (tmp$0 = $(window).width()) - tmp$0 % 1 - 16;
-                      h.v = (tmp$1 = $(window).height()) - tmp$1 % 1 - 16;
+                      w.v = ($(window).width() | 0) - 16;
+                      h.v = ($(window).height() | 0) - 16;
                       renderer.v.resize(w.v, h.v);
                     };
                   },
@@ -174,6 +173,7 @@
                   },
                   main$update: function (d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage) {
                     return function update() {
+                      var tmp$0;
                       var x3d;
                       var y3d;
                       var z3d;
@@ -187,7 +187,6 @@
                       vx.v += 0.0075;
                       vy.v += 0.0075;
                       vz.v += 0.0075;
-                      var tmp$0;
                       tmp$0 = n.v - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         if (points1.v[i] > tpoint1.v[i]) {
@@ -252,10 +251,10 @@
                   },
                   main$start: function (renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update) {
                     return function () {
+                      var tmp$0;
                       var ballTexture = PIXI.Texture.fromImage('assets/pixel.png');
                       document.body.appendChild(renderer.v.view);
                       makeObject(0);
-                      var tmp$0;
                       tmp$0 = n.v - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         tpoint1.v[i] = points1.v[i];

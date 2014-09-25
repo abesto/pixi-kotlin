@@ -15,8 +15,8 @@
                   },
                   main$animate: function (aliens, count, alienContainer, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_2.animate$f(animate));
                       var tmp$0;
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_2.animate$f(animate));
                       tmp$0 = 99;
                       for (var i = 0; i <= tmp$0; i++) {
                         var alien = aliens[i];

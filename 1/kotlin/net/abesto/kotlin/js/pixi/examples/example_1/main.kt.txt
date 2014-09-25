@@ -2,7 +2,7 @@ package net.abesto.kotlin.js.pixi.examples.example_1
 
 import net.abesto.kotlin.js.pixi.*
 
-import js.dom.html.document
+import kotlin.js.dom.html.document
 
 
 fun main(args: Array<String>) {

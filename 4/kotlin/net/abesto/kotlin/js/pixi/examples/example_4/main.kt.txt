@@ -1,10 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_4
 
-import js.dom.html.window
-import js.dom.html.document
-import js.dom.html.HTMLElement
+import kotlin.js.dom.html.document
+import kotlin.js.dom.html.window
+import kotlin.js.dom.html.HTMLElement
+import jquery.jq
 
-import js.jquery.jq
 
 import net.abesto.kotlin.js.pixi.*
 

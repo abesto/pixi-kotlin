@@ -54,6 +54,7 @@
                   },
                   onTilesLoaded$f: function (canPick, firstTile, secondTile, gameContainer) {
                     return function (it) {
+                      var tmp$0, tmp$1;
                       this;
                       if (canPick.v) {
                         if (!this.isSelected) {
@@ -66,7 +67,6 @@
                            else {
                             secondTile.v = this;
                             canPick.v = false;
-                            var tmp$0, tmp$1;
                             if (((tmp$0 = firstTile.v) != null ? tmp$0.theVal : null) === ((tmp$1 = secondTile.v) != null ? tmp$1.theVal : null)) {
                               window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_pairs.f(firstTile, gameContainer, secondTile, canPick), 1000);
                             }
@@ -80,6 +80,7 @@
                   },
                   main$onTilesLoaded: function (gameContainer, canPick, firstTile, secondTile) {
                     return function () {
+                      var tmp$0, tmp$1, tmp$2;
                       var chosenTiles = [];
                       while (chosenTiles.length < 48) {
                         var candidate = Math.floor(Math.random() * 44);
@@ -87,7 +88,6 @@
                           chosenTiles.push(candidate, candidate);
                         }
                       }
-                      var tmp$0, tmp$1;
                       tmp$0 = 95;
                       for (var i = 0; i <= tmp$0; i++) {
                         var from = Math.floor(Math.random() * 48);
@@ -98,7 +98,6 @@
                       }
                       tmp$1 = 7;
                       for (var i_0 = 0; i_0 <= tmp$1; i_0++) {
-                        var tmp$2;
                         tmp$2 = 5;
                         for (var j = 0; j <= tmp$2; j++) {
                           var tile = PIXI.Sprite.fromFrame(chosenTiles[i_0 * 6 + j].toString());

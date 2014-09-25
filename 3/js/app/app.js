@@ -26,8 +26,8 @@
                   },
                   main$onAssetsLoaded: function (stage, animate) {
                     return function () {
-                      var explosionTextures = [];
                       var tmp$0, tmp$1;
+                      var explosionTextures = [];
                       tmp$0 = 25;
                       for (var i = 0; i <= tmp$0; i++) {
                         var texture = PIXI.Texture.fromFrame('Explosion_Sequence_A ' + (i + 1) + '.png');
@@ -43,8 +43,7 @@
                         explosion.rotation = Math.random() * Math.PI;
                         explosion.scale.x = 0.75 + Math.random() * 0.5;
                         explosion.scale.y = explosion.scale.x;
-                        var tmp$2;
-                        explosion.gotoAndPlay((tmp$2 = Math.random() * 27) - tmp$2 % 1);
+                        explosion.gotoAndPlay(Math.random() * 27 | 0);
                         stage.v.addChild(explosion);
                       }
                       requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_3.onAssetsLoaded$f(animate));
