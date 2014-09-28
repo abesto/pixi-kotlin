@@ -1,3 +1,6 @@
+/**
+ * Kotlin bindings for Pixi.js
+ */
 package net.abesto.kotlin.js.pixi
 
 
@@ -9,14 +12,53 @@ native val <T> undefined: T = noImpl
 
 native public object PIXI {
     public class Stage(backgroundColor: Int, interactive: Boolean = false): DisplayObjectContainer()
-    //root
 
-    public class InteractionData {}
+    //src/pixi/root/*.js
+
+    /**
+     * Holds all information related to an Interaction event
+     */
+    public class InteractionData {
+        /**
+         * This will return the local coordinates of the specified displayObject for this InteractionData
+         * @param displayObject The DisplayObject that you would like the local coords off
+         * @return A point containing the coordinates of the InteractionData position relative to the DisplayObject
+         */
+        public fun getLocalPosition(displayObject: DisplayObject): Point = noImpl
+    }
 
     //core
 
-    public class Rectangle(x: Double, y: Double, width: Double, height: Double)
+    /**
+     * the Rectangle object is an area defined by its position, as indicated by its top-left corner point (x, y) and
+     * by its width and its height.
+     * @param x The X coord of the upper-left corner of the rectangle
+     * @param y The Y coord of the upper-left corner of the rectangle
+     * @param width The overall width of this rectangle
+     * @param height The overall height of this rectangle
+     */
+    public class Rectangle(x: Double, y: Double, width: Double, height: Double) {
+        /**
+         * Creates a clone of this Rectangle
+         * @return a copy of the rectangle
+         */
+        public fun clone(): Rectangle = noImpl
 
+        /**
+         * Checks whether the x and y coordinates passed to this function are contained within this Rectangle
+         * @param x The X coordinate of the point to test
+         * @param y The y coordinate of the point to test
+         * @return Whether the x/y coords are within this Rectangle
+         */
+        public fun contains(x: Double, y: Double): Boolean = noImpl
+    }
+
+    /**
+     * The Point object represents a location in a two-dimensional coordinate system, where x represents the horizontal
+     * axis and y represents the vertical axis.
+     * @param x position of the point on the x axis
+     * @param y position of the point on the y axis
+     */
     public class Point {
         public var x: Double = noImpl
         public var y: Double = noImpl

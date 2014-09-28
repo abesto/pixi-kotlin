@@ -57,6 +57,11 @@ project(':pixi-kotlin') {
 		from sourceSets.main.allSource
 		classifier = 'source'
 	}
+
+	kdoc.kdocArgs.docConfig.ignorePackages << "kotlin"
+	kdoc.kdocArgs.docConfig.ignorePackages << "org.w3c"
+	kdoc.kdocArgs.docConfig.title = "pixi-kotlin reference"
+	kdoc.kdocArgs.docConfig.packageSummaryText["net.abesto.kotlin.js.pixi"] = "Kotlin bindings for Pixi.js"
 }
 
 project(':examples') {
