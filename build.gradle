@@ -15,6 +15,7 @@ buildscript {
 	}
 	dependencies {
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
+		classpath 'org.ajoberstar:gradle-git:0.10.1'
 	}
 }
 
@@ -65,6 +66,21 @@ project(':examples') {
 		include("index.html")
 		expand(project: project)
 	}
+
+	apply plugin: 'org.ajoberstar.github-pages'
+	githubPages {
+		repoUri = 'git@github.com:abesto/pixi-kotlin.git'
+		pages {
+			from("${project(":pixi-kotlin").buildDir}/docs/kdoc") { into "kdoc" }
+			from("${project(":pixi-kotlin").projectDir}/resources/docs/kdoc-assets") { into "kdoc" }
+			from generateIndexHtml.outputs.files
+			subprojects.each { example ->
+				from("${example.projectDir}/web") { into example.name }
+			}
+		}
+	}
+	publishGhPages.dependsOn += [generateIndexHtml, project(":pixi-kotlin").kdoc]
+	publishGhPages.dependsOn += subprojects.collect {"${it.name}:generateExampleIndexHtml"}
 
 	subprojects {
 		ext.jsFile = "app"
@@ -190,3 +206,4 @@ project(':examples:7') {
     blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah blah</div>
 """
 }
+
