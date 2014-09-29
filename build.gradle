@@ -60,8 +60,12 @@ project(':pixi-kotlin') {
 
 	kdoc.kdocArgs.docConfig.ignorePackages << "kotlin"
 	kdoc.kdocArgs.docConfig.ignorePackages << "org.w3c"
+	kdoc.kdocArgs.docConfig.ignorePackages << "net.abesto.kotlin.extensions"
 	kdoc.kdocArgs.docConfig.title = "pixi-kotlin reference"
 	kdoc.kdocArgs.docConfig.packageSummaryText["net.abesto.kotlin.js.pixi"] = "Kotlin bindings for Pixi.js"
+	kdoc.kdocArgs.docConfig.addPackageLink("http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/", "kotlin")
+	kdoc.kdocArgs.docConfig.addPackageLink("http://docs.oracle.com/javase/6/docs/api/", "java", "org.w3c.dom", "org.xml.sax", "org.omg", "org.ietf.jgss")
+
 }
 
 project(':examples') {
@@ -104,11 +108,12 @@ project(':examples') {
 
 		ext.extraHead = ""
 		ext.extraBody = ""
+		ext.listTitle = { "Example ${project.name}"}
 		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name}/"
 		ext.originalExampleText = { project.originalExampleUrl }
 		ext.originalExampleSourceUrl = "view-source:http://www.goodboydigital.com/pixijs/examples/${project.name}/"
 		ext.originalExampleSourceText = { project.originalExampleSourceUrl }
-		ext.title = "PIXI Example ${project.name}"
+		ext.title = "pixi.js example ${project.name} (kotlin)"
 		task generateExampleIndexHtml(type: Copy) {
 			from "${project(":examples").projectDir}/src/templates"
 			into "web"
@@ -144,17 +149,20 @@ project(':examples') {
 }
 
 project(':examples:pairs') {
+	description = "Neat little pairs game Emanuele Feronato"
+	ext.listTitle = { "Pairs Game" }
 	ext.originalExampleUrl = "http://www.emanueleferonato.com/2014/02/26/complete-html5-concentration-game-made-with-pixi-js/"
 	ext.originalExampleSourceUrl = originalExampleUrl
 	ext.originalExampleSourceText = { "Same as above, scroll down a bit on the page" }
 }
 
 // Examples from http://www.pixijs.com/examples/
-project(':examples:1')
-project(':examples:2')
-project(':examples:3')
+project(':examples:1') { description = "Basics" }
+project(':examples:2') { description = "Using a Sprite Sheet"}
+project(':examples:3') { description = "MovieClip"}
 
 project(':examples:4') {
+	description = "Lot o' Sprites"
 	ext.title = "Pixi Balls by Photon Storm (Kotlin port)"
 
 	ext.extraHead = """
@@ -170,6 +178,7 @@ project(':examples:4') {
 }
 
 project(':examples:5') {
+	description = "Lot o' Sprites 2"
 	ext.title = "Pixi Morph by Photon Storm (Kotlin port)"
 
 	ext.extraHead = """
@@ -183,9 +192,10 @@ project(':examples:5') {
 """
 }
 
-project(':examples:6')
+project(':examples:6') { description = "Interactivity" }
 
 project(':examples:7') {
+	description = "Transparent Renderer"
 
 	ext.extraHead = """
 <style>

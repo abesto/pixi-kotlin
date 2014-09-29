@@ -20,11 +20,22 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<ul>
-<% project.subprojects.each { example -> %>
-    <li><a href="${example.name}">${example.name}</a></li>
-<%} %>
-</ul>
+<div class="container-fluid">
+    <div class="row">
+    <% project.subprojects.each { example -> %>
+        <div class="col-sm-6 col-md-3">
+            <div class="thumbnail">
+                <a href="${example.name}">
+                    <div class="caption">
+                        <h3>${example.listTitle()}</h3>
+                        <% if (example.description != null) { %><p>${example.description}</p><% } %>
+                    </div>
+                </a>
+            </div>
+        </div>
+    <%  1 } %>
+    </div>
+</div>
 
 <script>
     \$('.dropdown-toggle').dropdown()
