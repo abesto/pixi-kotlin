@@ -89,6 +89,7 @@ project(':examples') {
 		}
 	}
 	publishGhPages.dependsOn += [generateIndexHtml, project(":pixi-kotlin").kdoc]
+	publishGhPages.dependsOn += subprojects.collect {"${it.name}:build"}
 	publishGhPages.dependsOn += subprojects.collect {"${it.name}:generateExampleIndexHtml"}
 
 	subprojects {
