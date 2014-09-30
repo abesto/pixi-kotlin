@@ -1,4 +1,4 @@
-package net.abesto.kotlin.js.pixi.examples.example_6
+package net.abesto.kotlin.js.pixi.examples.example_06
 
 import kotlin.js.dom.html.document
 

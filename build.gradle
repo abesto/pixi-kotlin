@@ -110,10 +110,10 @@ project(':examples') {
 		ext.extraHead = ""
 		ext.extraBody = ""
 		ext.listTitle = { "Example ${project.name}"}
-		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name}/"
+		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name.replaceFirst('^0', '')}/"
 		ext.originalExampleText = { project.originalExampleUrl }
-		ext.originalExampleSourceUrl = "view-source:http://www.goodboydigital.com/pixijs/examples/${project.name}/"
-		ext.originalExampleSourceText = { project.originalExampleSourceUrl }
+		ext.originalExampleSourceUrl = { "view-source:${project.originalExampleUrl}" }
+		ext.originalExampleSourceText = { project.originalExampleSourceUrl() }
 		ext.title = "pixi.js example ${project.name} (kotlin)"
 		task generateExampleIndexHtml(type: Copy) {
 			from "${project(":examples").projectDir}/src/templates"
@@ -153,7 +153,7 @@ project(':examples:pairs') {
 	description = "Neat little pairs game Emanuele Feronato"
 	ext.listTitle = { "Pairs Game" }
 	ext.originalExampleUrl = "http://www.emanueleferonato.com/2014/02/26/complete-html5-concentration-game-made-with-pixi-js/"
-	ext.originalExampleSourceUrl = originalExampleUrl
+	ext.originalExampleSourceUrl = { originalExampleUrl }
 	ext.originalExampleSourceText = { "Same as above, scroll down a bit on the page" }
 }
 
