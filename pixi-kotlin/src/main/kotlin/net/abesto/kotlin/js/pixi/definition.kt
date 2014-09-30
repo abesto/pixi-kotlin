@@ -63,34 +63,16 @@ native public object PIXI {
 
     //display
 
+
     open public class DisplayObject {
         public val parent: DisplayObjectContainer = noImpl
-    }
-
-    open public class DisplayObjectContainer: DisplayObject() {
-        public fun addChild(child: DisplayObject): Unit = noImpl
-        public fun removeChild(child: DisplayObject): Unit = noImpl
 
         public var position: Point = noImpl
         public var scale: Point = noImpl
         public var rotation: Double = 0.0
-    }
-
-    open public class Sprite(texture: Texture): DisplayObjectContainer() {
-        class object {
-            public fun fromImage(path: String): Sprite = noImpl
-            public fun fromFrame(imageId: String): Sprite = noImpl
-        }
-
-        public fun setTexture(texture: Texture): Unit = noImpl
-
-        deprecated("Instead of using this function you can now simply set the interactive property to true or false")
-        public fun setInteractive(interactive: Boolean): Unit = noImpl
 
         public var buttonMode: Boolean = false
         public var interactive: Boolean = false
-        public var anchor: Point = noImpl
-        public var tint: Int = 0xFFFFFF
         public var alpha: Double = 1.0
 
         public var click: Sprite.(InteractionData) -> Unit = undefined
@@ -109,6 +91,26 @@ native public object PIXI {
 
         public var mousemove: Sprite.(InteractionData) -> Unit = undefined
         public var touchmove: Sprite.(InteractionData) -> Unit = undefined
+    }
+
+    open public class DisplayObjectContainer: DisplayObject() {
+        public fun addChild(child: DisplayObject): Unit = noImpl
+        public fun removeChild(child: DisplayObject): Unit = noImpl
+    }
+
+    open public class Sprite(texture: Texture): DisplayObjectContainer() {
+        class object {
+            public fun fromImage(path: String): Sprite = noImpl
+            public fun fromFrame(imageId: String): Sprite = noImpl
+        }
+        public var anchor: Point = noImpl
+        public var tint: Int = 0xFFFFFF
+
+        public fun setTexture(texture: Texture): Unit = noImpl
+
+        deprecated("Instead of using this function you can now simply set the interactive property to true or false")
+        public fun setInteractive(interactive: Boolean): Unit = noImpl
+
     }
 
     public class MovieClip(textures: Array<Texture>): Sprite(undefined) {
@@ -152,3 +154,4 @@ native public object PIXI {
 }
 
 native public fun requestAnimFrame(animation: () -> Unit): Unit = noImpl
+
