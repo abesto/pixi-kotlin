@@ -3,6 +3,7 @@ package net.abesto.kotlin.js.pixi.examples.example_07
 import kotlin.js.dom.html.document
 
 import net.abesto.kotlin.js.pixi.*
+import net.abesto.kotlin.js.extensions.*
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage

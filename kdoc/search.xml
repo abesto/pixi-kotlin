@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <searches>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html</href>
-  <name>ClientRect [net.abesto.kotlin.js.pixi]</name>
-  <kind>class</kind>
-</search>
-<search>
   <href>net/abesto/kotlin/js/pixi/DisplayObject.html</href>
   <name>DisplayObject [net.abesto.kotlin.js.pixi]</name>
   <kind>class</kind>
@@ -13,6 +8,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html</href>
   <name>DisplayObjectContainer [net.abesto.kotlin.js.pixi]</name>
+  <kind>class</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/InteractionData.html</href>
+  <name>InteractionData [net.abesto.kotlin.js.pixi]</name>
   <kind>class</kind>
 </search>
 <search>
@@ -31,8 +31,18 @@
   <kind>class</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html</href>
+  <name>Sprite [net.abesto.kotlin.js.pixi]</name>
+  <kind>class</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html</href>
   <name>Stage [net.abesto.kotlin.js.pixi]</name>
+  <kind>class</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Texture.html</href>
+  <name>Texture [net.abesto.kotlin.js.pixi]</name>
   <kind>class</kind>
 </search>
 <search>
@@ -41,9 +51,39 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#addChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
+  <name>addChild() [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#addChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
   <name>addChild() [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#alpha</href>
+  <name>alpha [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#alpha</href>
+  <name>alpha [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#alpha</href>
+  <name>alpha [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#alpha</href>
+  <name>alpha [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#anchor</href>
+  <name>anchor [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/PIXI.html#autoDetectRenderer(kotlin.Int, kotlin.Int, [ERROR : HTMLCanvasElement]?, kotlin.Boolean, kotlin.Boolean)</href>
@@ -51,14 +91,44 @@
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#bottom</href>
-  <name>bottom [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#buttonMode</href>
+  <name>buttonMode [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#equals(kotlin.Any)</href>
-  <name>equals() [net.abesto.kotlin.js.pixi.ClientRect]</name>
-  <kind>fun</kind>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#buttonMode</href>
+  <name>buttonMode [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#buttonMode</href>
+  <name>buttonMode [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#buttonMode</href>
+  <name>buttonMode [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#click</href>
+  <name>click [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#click</href>
+  <name>click [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#click</href>
+  <name>click [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#click</href>
+  <name>click [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#equals(kotlin.Any)</href>
@@ -68,6 +138,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObject.html#equals(kotlin.Any)</href>
   <name>equals() [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/InteractionData.html#equals(kotlin.Any)</href>
+  <name>equals() [net.abesto.kotlin.js.pixi.InteractionData]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -86,18 +161,23 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#equals(kotlin.Any)</href>
+  <name>equals() [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#equals(kotlin.Any)</href>
   <name>equals() [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/org/w3c/dom/Element-extensions.html#getBoundingClientRect()</href>
-  <name>getBoundingClientRect() [org.w3c.dom.Element]</name>
+  <href>net/abesto/kotlin/js/pixi/Texture.html#equals(kotlin.Any)</href>
+  <name>equals() [net.abesto.kotlin.js.pixi.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#hashCode()</href>
-  <name>hashCode() [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/InteractionData.html#getLocalPosition(net.abesto.kotlin.js.pixi.DisplayObject)</href>
+  <name>getLocalPosition() [net.abesto.kotlin.js.pixi.InteractionData]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -108,6 +188,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObject.html#hashCode()</href>
   <name>hashCode() [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/InteractionData.html#hashCode()</href>
+  <name>hashCode() [net.abesto.kotlin.js.pixi.InteractionData]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -126,23 +211,158 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#hashCode()</href>
+  <name>hashCode() [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#hashCode()</href>
   <name>hashCode() [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#height</href>
-  <name>height [net.abesto.kotlin.js.pixi.ClientRect]</name>
-  <kind>var</kind>
-</search>
-<search>
-  <href>net/abesto/kotlin/js/pixi/kotlin/Array-extensions.html#indexOf(T)</href>
-  <name>indexOf() [kotlin.Array]</name>
+  <href>net/abesto/kotlin/js/pixi/Texture.html#hashCode()</href>
+  <name>hashCode() [net.abesto.kotlin.js.pixi.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#left</href>
-  <name>left [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#interactive</href>
+  <name>interactive [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#interactive</href>
+  <name>interactive [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#interactive</href>
+  <name>interactive [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#interactive</href>
+  <name>interactive [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mousedown</href>
+  <name>mousedown [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mousedown</href>
+  <name>mousedown [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mousedown</href>
+  <name>mousedown [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mousedown</href>
+  <name>mousedown [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mousemove</href>
+  <name>mousemove [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mousemove</href>
+  <name>mousemove [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mousemove</href>
+  <name>mousemove [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mousemove</href>
+  <name>mousemove [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mouseout</href>
+  <name>mouseout [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mouseout</href>
+  <name>mouseout [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mouseout</href>
+  <name>mouseout [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mouseout</href>
+  <name>mouseout [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mouseover</href>
+  <name>mouseover [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mouseover</href>
+  <name>mouseover [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mouseover</href>
+  <name>mouseover [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mouseover</href>
+  <name>mouseover [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mouseup</href>
+  <name>mouseup [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mouseup</href>
+  <name>mouseup [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mouseup</href>
+  <name>mouseup [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mouseup</href>
+  <name>mouseup [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#mouseupoutside</href>
+  <name>mouseupoutside [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#mouseupoutside</href>
+  <name>mouseupoutside [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#mouseupoutside</href>
+  <name>mouseupoutside [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#mouseupoutside</href>
+  <name>mouseupoutside [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>var</kind>
 </search>
 <search>
@@ -156,6 +376,11 @@
   <kind>val</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#parent</href>
+  <name>parent [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>val</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#parent</href>
   <name>parent [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>val</kind>
@@ -166,18 +391,28 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#position</href>
+  <name>position [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#position</href>
+  <name>position [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#position</href>
   <name>position [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/kotlin/Array-extensions.html#push(kotlin.Array)</href>
-  <name>push() [kotlin.Array]</name>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#removeChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
+  <name>removeChild() [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#removeChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
-  <name>removeChild() [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#removeChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
+  <name>removeChild() [net.abesto.kotlin.js.pixi.Sprite]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -196,13 +431,18 @@
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#right</href>
-  <name>right [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#rotation</href>
+  <name>rotation [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#rotation</href>
-  <name>rotation [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#rotation</href>
+  <name>rotation [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#rotation</href>
+  <name>rotation [net.abesto.kotlin.js.pixi.Sprite]</name>
   <kind>var</kind>
 </search>
 <search>
@@ -216,14 +456,54 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#scale</href>
+  <name>scale [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#scale</href>
+  <name>scale [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#scale</href>
   <name>scale [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#toString()</href>
-  <name>toString() [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#setInteractive(kotlin.Boolean)</href>
+  <name>setInteractive() [net.abesto.kotlin.js.pixi.Sprite]</name>
   <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#setTexture(net.abesto.kotlin.js.pixi.Texture)</href>
+  <name>setTexture() [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#tap</href>
+  <name>tap [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#tap</href>
+  <name>tap [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#tap</href>
+  <name>tap [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#tap</href>
+  <name>tap [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#tint</href>
+  <name>tint [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#toString()</href>
@@ -233,6 +513,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObject.html#toString()</href>
   <name>toString() [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/InteractionData.html#toString()</href>
+  <name>toString() [net.abesto.kotlin.js.pixi.InteractionData]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -251,24 +536,104 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#toString()</href>
+  <name>toString() [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#toString()</href>
   <name>toString() [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>fun</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#top</href>
-  <name>top [net.abesto.kotlin.js.pixi.ClientRect]</name>
+  <href>net/abesto/kotlin/js/pixi/Texture.html#toString()</href>
+  <name>toString() [net.abesto.kotlin.js.pixi.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#touchend</href>
+  <name>touchend [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#touchend</href>
+  <name>touchend [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#touchend</href>
+  <name>touchend [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#touchend</href>
+  <name>touchend [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#touchendoutside</href>
+  <name>touchendoutside [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#touchendoutside</href>
+  <name>touchendoutside [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#touchendoutside</href>
+  <name>touchendoutside [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#touchendoutside</href>
+  <name>touchendoutside [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#touchmove</href>
+  <name>touchmove [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#touchmove</href>
+  <name>touchmove [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#touchmove</href>
+  <name>touchmove [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#touchmove</href>
+  <name>touchmove [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#touchstart</href>
+  <name>touchstart [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#touchstart</href>
+  <name>touchstart [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Sprite.html#touchstart</href>
+  <name>touchstart [net.abesto.kotlin.js.pixi.Sprite]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#touchstart</href>
+  <name>touchstart [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/Renderer.html#view</href>
   <name>view [net.abesto.kotlin.js.pixi.Renderer]</name>
   <kind>val</kind>
-</search>
-<search>
-  <href>net/abesto/kotlin/js/pixi/ClientRect.html#width</href>
-  <name>width [net.abesto.kotlin.js.pixi.ClientRect]</name>
-  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/Point.html#x</href>

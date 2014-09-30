@@ -1,6 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_03
 
 import net.abesto.kotlin.js.pixi.*
+import net.abesto.kotlin.js.extensions.*
 
 import kotlin.js.dom.html.document
 

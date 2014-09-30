@@ -7,6 +7,7 @@ import jquery.jq
 
 
 import net.abesto.kotlin.js.pixi.*
+import net.abesto.kotlin.js.extensions.*
 
 
 class Star(var sprite: PIXI.Sprite, var x: Double, var y: Double)

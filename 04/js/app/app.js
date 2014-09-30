@@ -22,8 +22,8 @@
                   },
                   main$resize: function (w, h, slideX, slideY, renderer) {
                     return function () {
-                      w.v = ($(window).width() | 0) - 16;
-                      h.v = ($(window).height() | 0) - 16;
+                      w.v = Kotlin.numberToInt($(window).width()) - 16;
+                      h.v = Kotlin.numberToInt($(window).height()) - 16;
                       slideX.v = w.v / 2 | 0;
                       slideY.v = h.v / 2 | 0;
                       renderer.v.resize(w.v, h.v);

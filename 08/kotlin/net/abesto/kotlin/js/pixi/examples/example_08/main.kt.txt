@@ -1,10 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_08
 
-import net.abesto.kotlin.js.pixi.PIXI
 import kotlin.js.dom.html.window
 import kotlin.js.dom.html.document
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import net.abesto.kotlin.js.pixi.undefined
+import net.abesto.kotlin.js.pixi.PIXI
 
 
 class Bunny: PIXI.Sprite(noImpl) {

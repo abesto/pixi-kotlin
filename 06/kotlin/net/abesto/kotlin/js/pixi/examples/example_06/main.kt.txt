@@ -1,9 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_06
 
 import kotlin.js.dom.html.document
+import kotlin.js.dom.html.window
 
 import net.abesto.kotlin.js.pixi.*
-import kotlin.js.dom.html.window
+import net.abesto.kotlin.js.extensions.*
 
 
 class Button: PIXI.Sprite(noImpl) {
