@@ -74,6 +74,7 @@ project(':examples') {
 		into "web"
 		include("index.html")
 		expand(project: project)
+		outputs.upToDateWhen { false }
 	}
 
 	apply plugin: 'org.ajoberstar.github-pages'
@@ -121,6 +122,7 @@ project(':examples') {
 			include("subproject-index.html")
 			rename("subproject-index.html", "index.html")
 			expand(project: project)
+			outputs.upToDateWhen { false }
 		}
 
 		task build(overwrite: true) {
