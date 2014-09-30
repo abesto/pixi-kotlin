@@ -5,6 +5,7 @@
     <title>Kotlin Examples - PixiJS</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="assets/index.css">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 </head>
@@ -12,7 +13,7 @@
 
 <nav class="navbar navbar-default" role="navigation">
     <a class="navbar-brand" href="#">pixi-kotlin</a>
-    <div class="container-fluid">
+    <div class="container">
         <ul class="nav navbar-nav">
             <li class="active"><a href="/pixi-kotlin/">Examples</a></li>
             <li><a href="/pixi-kotlin/kdoc">Reference</a></li>
@@ -20,12 +21,18 @@
     </div><!-- /.container-fluid -->
 </nav>
 
-<div class="container-fluid">
-    <div class="row">
+<div class="container">
+    <p>
+        These are Pixi.js examples from <a href="http://www.pixijs.com/">http://www.pixijs.com/</a>, ported to Kotlin.
+        Each example contains links to the original example, the original source, the Kotlin source and the JS compiled
+        from Kotlin actually running in the example.
+    </p>
+    <div class="row" id="examples-row">
     <% project.subprojects.each { example -> %>
         <div class="col-sm-6 col-md-3">
             <div class="thumbnail">
                 <a href="${example.name}">
+                    <img src="assets/example-list-thumbs/${example.name}.jpg" alt="${example.listTitle()}"/>
                     <div class="caption">
                         <h3>${example.listTitle()}</h3>
                         <% if (example.description != null) { %><p>${example.description}</p><% } %>

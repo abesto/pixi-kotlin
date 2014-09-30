@@ -80,9 +80,9 @@ project(':examples') {
 	githubPages {
 		repoUri = 'git@github.com:abesto/pixi-kotlin.git'
 		pages {
+			from "${projectDir}/web"
 			from("${project(":pixi-kotlin").buildDir}/docs/kdoc") { into "kdoc" }
 			from("${project(":pixi-kotlin").projectDir}/resources/docs/kdoc-assets") { into "kdoc" }
-			from generateIndexHtml.outputs.files
 			subprojects.each { example ->
 				from("${example.projectDir}/web") { into example.name }
 			}
