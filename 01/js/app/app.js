@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_1: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_1 */ {
+                example_01: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_01 */ {
                   animate$f: function (animate) {
                     return function () {
                       animate();
@@ -15,7 +15,7 @@
                   },
                   main$animate: function (bunny, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_1.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_01.animate$f(animate));
                       bunny.rotation = bunny.rotation + 0.1;
                       renderer.render(stage);
                     };
@@ -30,9 +30,9 @@
                     var renderer = PIXI.autoDetectRenderer(400, 300);
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = new PIXI.Sprite(texture);
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_1.main$animate(bunny, renderer, stage);
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_01.main$animate(bunny, renderer, stage);
                     document.body.appendChild(renderer.view);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_1.main$f(animate));
+                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_01.main$f(animate));
                     bunny.anchor.x = 0.5;
                     bunny.anchor.y = 0.5;
                     bunny.position.x = 200.0;
@@ -48,5 +48,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_1.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_01.main([]);
 }(Kotlin));

@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_2: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_2 */ {
+                example_02: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_02 */ {
                   animate$f: function (animate) {
                     return function () {
                       animate();
@@ -16,7 +16,7 @@
                   main$animate: function (aliens, count, alienContainer, renderer, stage) {
                     return function animate() {
                       var tmp$0;
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_2.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_02.animate$f(animate));
                       tmp$0 = 99;
                       for (var i = 0; i <= tmp$0; i++) {
                         var alien = aliens[i];
@@ -48,7 +48,7 @@
                         aliens.push(alien);
                         alienContainer.addChild(alien);
                       }
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_2.onAssetsLoaded$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_02.onAssetsLoaded$f(animate));
                     };
                   },
                   main$f: function (onAssetsLoaded) {
@@ -67,9 +67,9 @@
                     alienContainer.position.x = 400.0;
                     alienContainer.position.y = 300.0;
                     var count = {v: 0.0};
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_2.main$animate(aliens, count, alienContainer, renderer, stage);
-                    var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_2.main$onAssetsLoaded(alienFrames, aliens, alienContainer, animate);
-                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_2.main$f(onAssetsLoaded);
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_02.main$animate(aliens, count, alienContainer, renderer, stage);
+                    var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_02.main$onAssetsLoaded(alienFrames, aliens, alienContainer, animate);
+                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_02.main$f(onAssetsLoaded);
                     loader.load();
                     document.body.appendChild(renderer.view);
                     stage.addChild(alienContainer);
@@ -83,5 +83,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_2.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_02.main([]);
 }(Kotlin));

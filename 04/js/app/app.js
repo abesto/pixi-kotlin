@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_4: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_4 */ {
+                example_04: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_04 */ {
                   Star: Kotlin.createClass(null, function (sprite, x, y) {
                     this.sprite = sprite;
                     this.x = x;
@@ -57,7 +57,7 @@
                         }
                       }
                       renderer.v.render(stage.v);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_4.update$f(update));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_04.update$f(update));
                     };
                   },
                   main$f: function (resize) {
@@ -92,13 +92,13 @@
                         tempBall.position.y = Math.random() * h.v - slideY.v;
                         tempBall.anchor.x = 0.5;
                         tempBall.anchor.y = 0.5;
-                        stars.v.push(new _.net.abesto.kotlin.js.pixi.examples.example_4.Star(tempBall, tempBall.position.x, tempBall.position.y));
+                        stars.v.push(new _.net.abesto.kotlin.js.pixi.examples.example_04.Star(tempBall, tempBall.position.x, tempBall.position.y));
                         stage.v.addChild(tempBall);
                       }
-                      document.getElementById('rnd').onclick = _.net.abesto.kotlin.js.pixi.examples.example_4.start$f(newWave);
+                      document.getElementById('rnd').onclick = _.net.abesto.kotlin.js.pixi.examples.example_04.start$f(newWave);
                       document.getElementById('sx').innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
                       resize();
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_4.start$f_0(update));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_04.start$f_0(update));
                     };
                   },
                   main$f_1: function (start) {
@@ -117,13 +117,13 @@
                     var stars = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
                     var stage = {v: new PIXI.Stage(0)};
-                    var newWave = _.net.abesto.kotlin.js.pixi.examples.example_4.main$newWave(sx, sy);
-                    var resize = _.net.abesto.kotlin.js.pixi.examples.example_4.main$resize(w, h, slideX, slideY, renderer);
-                    var update = _.net.abesto.kotlin.js.pixi.examples.example_4.main$update(starCount, stars, slideX, slideY, sx, sy, w, h, renderer, stage);
-                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_4.main$f(resize));
-                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_4.main$f_0(resize);
-                    var start = _.net.abesto.kotlin.js.pixi.examples.example_4.main$start(renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update);
-                    $(_.net.abesto.kotlin.js.pixi.examples.example_4.main$f_1(start));
+                    var newWave = _.net.abesto.kotlin.js.pixi.examples.example_04.main$newWave(sx, sy);
+                    var resize = _.net.abesto.kotlin.js.pixi.examples.example_04.main$resize(w, h, slideX, slideY, renderer);
+                    var update = _.net.abesto.kotlin.js.pixi.examples.example_04.main$update(starCount, stars, slideX, slideY, sx, sy, w, h, renderer, stage);
+                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_04.main$f(resize));
+                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_04.main$f_0(resize);
+                    var start = _.net.abesto.kotlin.js.pixi.examples.example_04.main$start(renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update);
+                    $(_.net.abesto.kotlin.js.pixi.examples.example_04.main$f_1(start));
                   }
                 })
               })
@@ -134,5 +134,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_4.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_04.main([]);
 }(Kotlin));

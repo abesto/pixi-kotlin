@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_4: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_4 */ {
+                example_05: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_05 */ {
                   main$makeObject: function (n, points1, points2, points3) {
                     return function (t) {
                       var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5, tmp$6, tmp$7, tmp$8, tmp$9, tmp$10, tmp$11, tmp$12, tmp$13, tmp$14, tmp$15, tmp$16, tmp$17;
@@ -221,7 +221,7 @@
                         balls.v[i].position.y = (h.v / 2 | 0) - 512 * ty / (d.v - tz);
                       }
                       renderer.v.render(stage.v);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_4.update$f(update));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_05.update$f(update));
                     };
                   },
                   nextObject$f: function (nextObject) {
@@ -236,7 +236,7 @@
                         current.v = 0;
                       }
                       makeObject(current.v);
-                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_4.nextObject$f(nextObject), 8000);
+                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_05.nextObject$f(nextObject), 8000);
                     };
                   },
                   start$f: function (nextObject) {
@@ -268,8 +268,8 @@
                         stage.v.addChild(tempBall);
                       }
                       resize();
-                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_4.start$f(nextObject), 5000);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_4.start$f_0(update));
+                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_05.start$f(nextObject), 5000);
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_05.start$f_0(update));
                     };
                   },
                   main$f: function (resize) {
@@ -306,14 +306,14 @@
                     var balls = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
                     var stage = {v: new PIXI.Stage(0)};
-                    var makeObject = _.net.abesto.kotlin.js.pixi.examples.example_4.main$makeObject(n, points1, points2, points3);
-                    var resize = _.net.abesto.kotlin.js.pixi.examples.example_4.main$resize(w, h, renderer);
-                    var update = _.net.abesto.kotlin.js.pixi.examples.example_4.main$update(d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage);
-                    var nextObject = _.net.abesto.kotlin.js.pixi.examples.example_4.main$nextObject(current, objs, makeObject);
-                    var start = _.net.abesto.kotlin.js.pixi.examples.example_4.main$start(renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update);
-                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_4.main$f(resize));
-                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_4.main$f_0(resize);
-                    $(_.net.abesto.kotlin.js.pixi.examples.example_4.main$f_1(start));
+                    var makeObject = _.net.abesto.kotlin.js.pixi.examples.example_05.main$makeObject(n, points1, points2, points3);
+                    var resize = _.net.abesto.kotlin.js.pixi.examples.example_05.main$resize(w, h, renderer);
+                    var update = _.net.abesto.kotlin.js.pixi.examples.example_05.main$update(d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage);
+                    var nextObject = _.net.abesto.kotlin.js.pixi.examples.example_05.main$nextObject(current, objs, makeObject);
+                    var start = _.net.abesto.kotlin.js.pixi.examples.example_05.main$start(renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update);
+                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_05.main$f(resize));
+                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_05.main$f_0(resize);
+                    $(_.net.abesto.kotlin.js.pixi.examples.example_05.main$f_1(start));
                   }
                 })
               })
@@ -324,5 +324,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_4.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_05.main([]);
 }(Kotlin));

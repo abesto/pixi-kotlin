@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_7: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_7 */ {
+                example_07: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_07 */ {
                   animate$f: function (animate) {
                     return function () {
                       animate();
@@ -15,7 +15,7 @@
                   },
                   main$animate: function (bunny, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_7.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_07.animate$f(animate));
                       bunny.v.rotation = bunny.v.rotation + 0.1;
                       renderer.v.render(stage.v);
                     };
@@ -38,8 +38,8 @@
                     bunny.v.position.x = 200.0;
                     bunny.v.position.y = 150.0;
                     stage.v.addChild(bunny.v);
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_7.main$animate(bunny, renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_7.main$f(animate));
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_07.main$animate(bunny, renderer, stage);
+                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_07.main$f(animate));
                   }
                 })
               })
@@ -50,5 +50,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_7.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_07.main([]);
 }(Kotlin));

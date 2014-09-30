@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_6: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_6 */ {
+                example_06: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_06 */ {
                   Button: Kotlin.createClass(function () {
                     return [PIXI.Sprite];
                   }, function $fun() {
@@ -64,7 +64,7 @@
                   },
                   main$animate: function (renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_6.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_06.animate$f(animate));
                       renderer.v.render(stage.v);
                     };
                   },
@@ -97,14 +97,14 @@
                       button.position.x = buttonPositions[i * 2];
                       button.position.y = buttonPositions[i * 2 + 1];
                       button.setInteractive(true);
-                      button.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f(textureButtonDown);
+                      button.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f(textureButtonDown);
                       button.touchstart = button.mousedown;
-                      button.mouseup = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_0(textureButtonOver, textureButton);
+                      button.mouseup = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_0(textureButtonOver, textureButton);
                       button.touchend = button.mousedown;
-                      button.mouseover = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_1(textureButtonOver);
-                      button.mouseout = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_2(textureButton);
-                      button.click = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_3;
-                      button.tap = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_4;
+                      button.mouseover = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_1(textureButtonOver);
+                      button.mouseout = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_2(textureButton);
+                      button.click = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_3;
+                      button.tap = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_4;
                       stage.v.addChild(button);
                       buttons.push(button);
                     }
@@ -116,14 +116,14 @@
                     buttons[4].scale.x = 0.8;
                     buttons[4].scale.y = 1.2;
                     buttons[4].rotation = Math.PI;
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_6.main$animate(renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_6.main$f_5(animate));
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_06.main$animate(renderer, stage);
+                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_06.main$f_5(animate));
                     var pixiLogo = PIXI.Sprite.fromImage('pixi.png');
                     stage.v.addChild(pixiLogo);
                     pixiLogo.position.x = 620.0 - 56;
                     pixiLogo.position.y = 400.0 - 32;
                     pixiLogo.setInteractive(true);
-                    pixiLogo.click = _.net.abesto.kotlin.js.pixi.examples.example_6.main$f_6;
+                    pixiLogo.click = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_6;
                     pixiLogo.tap = pixiLogo.click;
                   }
                 })
@@ -135,5 +135,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_6.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_06.main([]);
 }(Kotlin));

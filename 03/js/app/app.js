@@ -7,7 +7,7 @@
           js: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js */ {
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
-                example_3: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_3 */ {
+                example_03: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_03 */ {
                   animate$f: function (animate) {
                     return function () {
                       animate();
@@ -15,7 +15,7 @@
                   },
                   main$animate: function (renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_3.animate$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_03.animate$f(animate));
                       renderer.v.render(stage.v);
                     };
                   },
@@ -46,7 +46,7 @@
                         explosion.gotoAndPlay(Math.random() * 27 | 0);
                         stage.v.addChild(explosion);
                       }
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_3.onAssetsLoaded$f(animate));
+                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_03.onAssetsLoaded$f(animate));
                     };
                   },
                   main$f: function (onAssetsLoaded) {
@@ -62,9 +62,9 @@
                     var stage = {v: new PIXI.Stage(16777215)};
                     var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
                     document.body.appendChild(renderer.v.view);
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_3.main$animate(renderer, stage);
-                    var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_3.main$onAssetsLoaded(stage, animate);
-                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_3.main$f(onAssetsLoaded);
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_03.main$animate(renderer, stage);
+                    var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_03.main$onAssetsLoaded(stage, animate);
+                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_03.main$f(onAssetsLoaded);
                     loader.load();
                   }
                 })
@@ -76,5 +76,5 @@
     })
   });
   Kotlin.defineModule('app', _);
-  _.net.abesto.kotlin.js.pixi.examples.example_3.main([]);
+  _.net.abesto.kotlin.js.pixi.examples.example_03.main([]);
 }(Kotlin));
