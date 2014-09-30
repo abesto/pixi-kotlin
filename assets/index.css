@@ -1,0 +1,7 @@
+#examples-row a {
+    text-decoration: none;
+}
+
+#examples-row .thumbnail:hover {
+    background-color: #eee;
+}
