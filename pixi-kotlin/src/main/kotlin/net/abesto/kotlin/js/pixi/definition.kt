@@ -63,7 +63,9 @@ native public object PIXI {
 
     //display
 
-    open public class DisplayObject
+    open public class DisplayObject {
+        public val parent: DisplayObjectContainer = noImpl
+    }
 
     open public class DisplayObjectContainer: DisplayObject() {
         public fun addChild(child: DisplayObject): Unit = noImpl
@@ -96,12 +98,17 @@ native public object PIXI {
 
         public var mousedown: Sprite.(InteractionData) -> Unit = undefined
         public var mouseup: Sprite.(InteractionData) -> Unit = undefined
+        public var mouseupoutside: Sprite.(InteractionData) -> Unit = undefined
 
         public var mouseover: Sprite.(InteractionData) -> Unit = undefined
         public var mouseout: Sprite.(InteractionData) -> Unit = undefined
 
         public var touchstart: Sprite.(InteractionData) -> Unit = undefined
         public var touchend: Sprite.(InteractionData) -> Unit = undefined
+        public var touchendoutside: Sprite.(InteractionData) -> Unit = undefined
+
+        public var mousemove: Sprite.(InteractionData) -> Unit = undefined
+        public var touchmove: Sprite.(InteractionData) -> Unit = undefined
     }
 
     public class MovieClip(textures: Array<Texture>): Sprite(undefined) {
