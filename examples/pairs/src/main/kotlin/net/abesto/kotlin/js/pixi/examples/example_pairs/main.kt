@@ -1,9 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_pairs
 
-
-import net.abesto.kotlin.js.pixi.*
 import kotlin.js.dom.html.window
 import kotlin.js.dom.html.document
+
+import net.abesto.kotlin.js.pixi.*
+import net.abesto.kotlin.js.extensions.*
 
 class Tile(texture: PIXI.Texture): PIXI.Sprite(texture) {
     var isSelected: Boolean = false

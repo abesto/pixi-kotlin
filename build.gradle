@@ -60,7 +60,7 @@ project(':pixi-kotlin') {
 
 	kdoc.kdocArgs.docConfig.ignorePackages << "kotlin"
 	kdoc.kdocArgs.docConfig.ignorePackages << "org.w3c"
-	kdoc.kdocArgs.docConfig.ignorePackages << "net.abesto.kotlin.extensions"
+	kdoc.kdocArgs.docConfig.ignorePackages << "net.abesto.kotlin.js.extensions"
 	kdoc.kdocArgs.docConfig.title = "pixi-kotlin reference"
 	kdoc.kdocArgs.docConfig.packageSummaryText["net.abesto.kotlin.js.pixi"] = "Kotlin bindings for Pixi.js"
 	kdoc.kdocArgs.docConfig.addPackageLink("http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/", "kotlin")

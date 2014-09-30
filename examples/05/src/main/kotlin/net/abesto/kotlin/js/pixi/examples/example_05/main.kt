@@ -5,6 +5,7 @@ import kotlin.js.dom.html.document
 import jquery.jq
 
 import net.abesto.kotlin.js.pixi.*
+import net.abesto.kotlin.js.extensions.*
 
 
 fun main(args: Array<String>) {
