@@ -110,7 +110,11 @@ native public object PIXI {
 
         deprecated("Instead of using this function you can now simply set the interactive property to true or false")
         public fun setInteractive(interactive: Boolean): Unit = noImpl
+    }
 
+    open public class TilingSprite(var texture: Texture, var width: Double, var height: Double): DisplayObjectContainer() {
+        var tileScale: Point = noImpl
+        var tilePosition: Point = noImpl
     }
 
     public class MovieClip(textures: Array<Texture>): Sprite(undefined) {

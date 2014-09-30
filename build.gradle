@@ -243,3 +243,21 @@ project(':examples:08') {
 </style>
 """
 }
+
+project(':examples:09') {
+	description = 'Tiling Sprite'
+	ext.extraHead = """
+<style>
+#links {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background: rgba(255, 255, 255, .7);
+    margin: 0;
+    padding: 15px;
+    list-style: none;
+	z-index: 1;
+}
+</style>
+"""
+}
