@@ -158,11 +158,11 @@ project(':examples:pairs') {
 }
 
 // Examples from http://www.pixijs.com/examples/
-project(':examples:1') { description = "Basics" }
-project(':examples:2') { description = "Using a Sprite Sheet"}
-project(':examples:3') { description = "MovieClip"}
+project(':examples:01') { description = "Basics" }
+project(':examples:02') { description = "Using a Sprite Sheet"}
+project(':examples:03') { description = "MovieClip"}
 
-project(':examples:4') {
+project(':examples:04') {
 	description = "Lot o' Sprites"
 	ext.title = "Pixi Balls by Photon Storm (Kotlin port)"
 
@@ -178,7 +178,7 @@ project(':examples:4') {
 <div id="sx">SX: 0<br />SY: 0</div>"""
 }
 
-project(':examples:5') {
+project(':examples:05') {
 	description = "Lot o' Sprites 2"
 	ext.title = "Pixi Morph by Photon Storm (Kotlin port)"
 
@@ -193,9 +193,9 @@ project(':examples:5') {
 """
 }
 
-project(':examples:6') { description = "Interactivity" }
+project(':examples:06') { description = "Interactivity" }
 
-project(':examples:7') {
+project(':examples:07') {
 	description = "Transparent Renderer"
 
 	ext.extraHead = """

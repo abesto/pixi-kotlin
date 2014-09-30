@@ -59,10 +59,7 @@ native public object PIXI {
      * @param x position of the point on the x axis
      * @param y position of the point on the y axis
      */
-    public class Point {
-        public var x: Double = noImpl
-        public var y: Double = noImpl
-    }
+    public class Point(var x: Double, var y: Double)
 
     //display
 
