@@ -146,6 +146,21 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#parent</href>
+  <name>parent [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
+  <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/DisplayObject.html#parent</href>
+  <name>parent [net.abesto.kotlin.js.pixi.DisplayObject]</name>
+  <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/Stage.html#parent</href>
+  <name>parent [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>val</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#position</href>
   <name>position [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
   <kind>var</kind>
