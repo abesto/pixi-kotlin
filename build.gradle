@@ -109,6 +109,7 @@ project(':examples') {
 			rename("main.kt", "main.kt.txt")
 		}
 
+		ext.isFullscreen = false
 		ext.extraHead = ""
 		ext.extraBody = ""
 		ext.listTitle = { "Example ${project.name}"}
@@ -228,42 +229,17 @@ project(':examples:07') {
 
 project(':examples:08') {
 	description = "Multi-touch"
-	ext.extraHead = """
-<style>
-#links {
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    background: rgba(255, 255, 255, .7);
-    margin: 0;
-    padding: 15px;
-    list-style: none;
-	z-index: 1;
-}
-</style>
-"""
+	ext.isFullscreen = true
 }
 
 project(':examples:09') {
 	description = 'Tiling Sprite'
-	ext.extraHead = """
-<style>
-#links {
-    position: absolute;
-    left: 16px;
-    top: 16px;
-    background: rgba(255, 255, 255, .7);
-    margin: 0;
-    padding: 15px;
-    list-style: none;
-	z-index: 1;
-}
-</style>
-"""
+	ext.isFullscreen = true
 }
 
 project(':examples:11') {
 	description = 'Render Textures'
+	ext.isFullscreen = true
 
 	ext.extraBody = """
 <p>Unfortunately something changed in Pixi.JS 1.5.0 that makes this way less funky than the original.

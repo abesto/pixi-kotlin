@@ -1,0 +1,16 @@
+/* Stylesheet for examples that are designed to run in the full viewport */
+#text {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    background: rgba(255, 255, 255, .7);
+    padding: 15px;
+    margin: 0;
+    z-index: 1;
+}
+
+#links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
