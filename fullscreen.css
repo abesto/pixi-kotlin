@@ -4,8 +4,8 @@
     left: 16px;
     top: 16px;
     background: rgba(255, 255, 255, .7);
-    padding: 0;
-    margin: 15px;
+    padding: 15px;
+    margin: 0;
 	z-index: 1;
 }
 
