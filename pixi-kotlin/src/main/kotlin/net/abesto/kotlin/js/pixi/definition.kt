@@ -132,11 +132,15 @@ native public object PIXI {
 
     public class BaseTexture
 
-    public class Texture(baseTexture: BaseTexture, frame: Rectangle) {
+    open public class Texture(baseTexture: BaseTexture, frame: Rectangle) {
         class object {
             public fun fromImage(path: String): Texture = noImpl
             public fun fromFrame(frameId: String): Texture = noImpl
         }
+    }
+
+    public class RenderTexture(width: Int, height: Int): Texture(noImpl, noImpl) {
+        public fun render(stage: Stage, clear: Boolean): Unit = noImpl
     }
 
     //loaders
