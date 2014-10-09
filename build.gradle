@@ -237,6 +237,8 @@ project(':examples:09') {
 	ext.isFullscreen = true
 }
 
+project(':examples:10') { description = "Using text" }
+
 project(':examples:11') {
 	description = 'Render Textures'
 	ext.isFullscreen = true
