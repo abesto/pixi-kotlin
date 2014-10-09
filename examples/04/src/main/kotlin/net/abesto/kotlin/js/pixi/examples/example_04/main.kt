@@ -15,8 +15,8 @@ class Star(var sprite: PIXI.Sprite, var x: Double, var y: Double)
 
 fun main(args: Array<String>) {
     //	Globals, globals everywhere and not a drop to drink
-    var w = 1024
-    var h = 768
+    var w = 1024L
+    var h = 768L
     var starCount = 2500
     var sx = 1.0 + (Math.random() / 20)
     var sy = 1.0 + (Math.random() / 20)
@@ -35,8 +35,8 @@ fun main(args: Array<String>) {
 
     fun resize()
     {
-        w = jq(window).width().toInt() - 16
-        h = jq(window).height().toInt() - 16
+        w = jq(window).width().toLong() - 16
+        h = jq(window).height().toLong() - 16
 
         slideX = w / 2
         slideY = h / 2
@@ -74,11 +74,11 @@ fun main(args: Array<String>) {
 
         renderer.render(stage)
 
-        requestAnimFrame({update()})
+        requestAnimFrame(::update)
     }
 
-    jq(window).resize({resize()})
-    window.onorientationchange = ({resize()})
+    jq(window).resize(::resize)
+    window.onorientationchange = (::resize)
 
     fun start() {
 
@@ -102,7 +102,7 @@ fun main(args: Array<String>) {
         (document.getElementById("rnd") as HTMLElement).onclick = {newWave()}
         (document.getElementById("sx") as HTMLElement).innerHTML = "SX: " + sx + "<br />SY: " + sy
         resize()
-        requestAnimFrame({update()})
+        requestAnimFrame(::update)
     }
     jq({start()})
 }

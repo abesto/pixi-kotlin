@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     var stage = PIXI.Stage(0x97c56e, true)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toInt(), window.innerHeight.toInt(), null)
+    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong(), null)
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
 
     fun animate() {
 
-        requestAnimFrame( {animate()} )
+        requestAnimFrame(::animate)
 
         count += 0.005
         tilingSprite.tileScale.x = 2 + Math.sin(count)
@@ -42,6 +42,6 @@ fun main(args: Array<String>) {
 
         renderer.render(stage)
     }
-    requestAnimFrame( {animate()} )
+    requestAnimFrame(::animate)
 
 }

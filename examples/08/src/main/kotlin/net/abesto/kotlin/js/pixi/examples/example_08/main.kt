@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     // create an new instance of a pixi stage
     var stage = PIXI.Stage(0x97c56e, true)
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toInt(), window.innerHeight.toInt(), null)
+    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong(), null)
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
@@ -94,13 +94,13 @@ fun main(args: Array<String>) {
 
     fun animate() {
 
-        requestAnimFrame( {animate()} )
+        requestAnimFrame(::animate)
 
         // just for fun, lets rotate mr rabbit a little
         //stage.interactionManager.update()
         // render the stage
         renderer.render(stage)
     }
-    requestAnimFrame( {animate()} )
+    requestAnimFrame(::animate)
 
 }

@@ -112,7 +112,7 @@ native public object PIXI {
         public fun setTexture(texture: Texture): Unit = noImpl
 
         deprecated("Instead of using this function you can now simply set the interactive property to true or false")
-        public fun setLongeractive(interactive: Boolean): Unit = noImpl
+        public fun setInteractive(interactive: Boolean): Unit = noImpl
     }
 
     open public class TilingSprite(var texture: Texture, override var width: Double, override var height: Double): DisplayObjectContainer() {

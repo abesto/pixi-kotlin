@@ -69,7 +69,7 @@ fun main(args: Array<String>) {
 
     fun animate() {
 
-        requestAnimFrame( {animate()} )
+        requestAnimFrame(::animate)
 
         for (i in 0..bunnys.size-1)
         {
@@ -92,5 +92,5 @@ fun main(args: Array<String>) {
         renderTexture2.render(stage, false)
         renderer.render(stage)
     }
-    requestAnimFrame({animate()})
+    requestAnimFrame(::animate)
 }

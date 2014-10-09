@@ -19,7 +19,7 @@ fun main(args: Array<String>) {
     val bunny = PIXI.Sprite(texture)
 
     fun animate() {
-        requestAnimFrame({animate()})
+        requestAnimFrame(::animate)
 
         // just for fun, lets rotate mr rabbit a little
         bunny.rotation += 0.1
@@ -31,7 +31,7 @@ fun main(args: Array<String>) {
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
 
-    requestAnimFrame({animate()})
+    requestAnimFrame(::animate)
 
     // center the sprites anchor point
     bunny.anchor.x = 0.5

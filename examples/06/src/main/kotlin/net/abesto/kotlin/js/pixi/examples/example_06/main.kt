@@ -134,14 +134,14 @@ fun main(args: Array<String>) {
     // var button1 =
     fun animate() {
 
-        requestAnimFrame( {animate()} )
+        requestAnimFrame(::animate)
         // render the stage
 
         // do a test..
 
         renderer.render(stage)
     }
-    requestAnimFrame( {animate()} )
+    requestAnimFrame(::animate)
 
 
     // add a logo!
