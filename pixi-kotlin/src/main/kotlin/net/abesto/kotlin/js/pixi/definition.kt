@@ -11,7 +11,7 @@ import kotlin.js.dom.html5.HTMLCanvasElement
 native val <T> undefined: T = noImpl
 
 native public object PIXI {
-    public class Stage(backgroundColor: Int, interactive: Boolean = false): DisplayObjectContainer()
+    public class Stage(backgroundColor: Long, interactive: Boolean = false): DisplayObjectContainer()
 
     //src/pixi/root/*.js
 
@@ -96,6 +96,9 @@ native public object PIXI {
     open public class DisplayObjectContainer: DisplayObject() {
         public fun addChild(child: DisplayObject): Unit = noImpl
         public fun removeChild(child: DisplayObject): Unit = noImpl
+
+        open public var width: Double = noImpl
+        open public var height: Double = noImpl
     }
 
     open public class Sprite(texture: Texture): DisplayObjectContainer() {
@@ -104,29 +107,36 @@ native public object PIXI {
             public fun fromFrame(imageId: String): Sprite = noImpl
         }
         public var anchor: Point = noImpl
-        public var tint: Int = 0xFFFFFF
+        public var tint: Long = 0xFFFFFF
 
         public fun setTexture(texture: Texture): Unit = noImpl
 
         deprecated("Instead of using this function you can now simply set the interactive property to true or false")
-        public fun setInteractive(interactive: Boolean): Unit = noImpl
+        public fun setLongeractive(interactive: Boolean): Unit = noImpl
     }
 
-    open public class TilingSprite(var texture: Texture, var width: Double, var height: Double): DisplayObjectContainer() {
+    open public class TilingSprite(var texture: Texture, override var width: Double, override var height: Double): DisplayObjectContainer() {
         var tileScale: Point = noImpl
         var tilePosition: Point = noImpl
     }
 
-    public class MovieClip(textures: Array<Texture>): Sprite(undefined) {
-        public fun gotoAndPlay(frameNumber: Int): Unit = noImpl
+    public class MovieClip(textures: Array<Texture>): Sprite(noImpl) {
+        public fun gotoAndPlay(frameNumber: Long): Unit = noImpl
     }
 
     public class Renderer {
         public val view: HTMLCanvasElement = noImpl
         public fun render(stage: Stage): Unit = noImpl
-        public fun resize(width: Int, height: Int): Unit = noImpl
+        public fun resize(width: Long, height: Long): Unit = noImpl
     }
-    public fun autoDetectRenderer(width: Int, height: Int, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
+    public fun autoDetectRenderer(width: Long, height: Long, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
+
+    // text
+    public class Text(text: String, style: TextStyle = noImpl): Sprite(noImpl) {
+        public fun setText(text: String): Unit = noImpl
+    }
+
+    public class BitmapText(text: String, style: BitmapTextStyle): DisplayObjectContainer()
 
     //textures
 
@@ -139,7 +149,7 @@ native public object PIXI {
         }
     }
 
-    public class RenderTexture(width: Int, height: Int): Texture(noImpl, noImpl) {
+    public class RenderTexture(width: Long, height: Long): Texture(noImpl, noImpl) {
         public fun render(stage: Stage, clear: Boolean): Unit = noImpl
     }
 
@@ -163,3 +173,19 @@ native public object PIXI {
 
 native public fun requestAnimFrame(animation: () -> Unit): Unit = noImpl
 
+native("Object")
+public class TextStyle {
+    var font: String = noImpl
+    var fill: String = noImpl
+    var align: String = noImpl
+    var stroke: String = noImpl
+    var strokeThickness: Long = noImpl
+    var wordWrap: Boolean = noImpl
+    var wordWrapWidth: Long = noImpl
+}
+
+native("Object")
+open public class BitmapTextStyle {
+    var font: String = noImpl
+    var align: String = noImpl
+}
