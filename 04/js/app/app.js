@@ -22,16 +22,11 @@
                   },
                   main$resize: function (w, h, slideX, slideY, renderer) {
                     return function () {
-                      w.v = Kotlin.numberToInt($(window).width()) - 16;
-                      h.v = Kotlin.numberToInt($(window).height()) - 16;
-                      slideX.v = w.v / 2 | 0;
-                      slideY.v = h.v / 2 | 0;
+                      w.v = Kotlin.numberToLong($(window).width()).subtract(Kotlin.Long.fromInt(16));
+                      h.v = Kotlin.numberToLong($(window).height()).subtract(Kotlin.Long.fromInt(16));
+                      slideX.v = w.v.div(Kotlin.Long.fromInt(2));
+                      slideY.v = h.v.div(Kotlin.Long.fromInt(2));
                       renderer.v.resize(w.v, h.v);
-                    };
-                  },
-                  update$f: function (update) {
-                    return function () {
-                      update();
                     };
                   },
                   main$update: function (starCount, stars, slideX, slideY, sx, sy, w, h, renderer, stage) {
@@ -39,45 +34,30 @@
                       var tmp$0;
                       tmp$0 = starCount.v - 1;
                       for (var i = 0; i <= tmp$0; i++) {
-                        stars.v[i].sprite.position.x = stars.v[i].x + slideX.v;
-                        stars.v[i].sprite.position.y = stars.v[i].y + slideY.v;
+                        stars.v[i].sprite.position.x = stars.v[i].x + slideX.v.toNumber();
+                        stars.v[i].sprite.position.y = stars.v[i].y + slideY.v.toNumber();
                         stars.v[i].x = stars.v[i].x * sx.v;
                         stars.v[i].y = stars.v[i].y * sy.v;
-                        if (stars.v[i].x > w.v) {
-                          stars.v[i].x = stars.v[i].x - w.v;
+                        if (stars.v[i].x > w.v.toNumber()) {
+                          stars.v[i].x = stars.v[i].x - w.v.toNumber();
                         }
-                         else if (stars.v[i].x < -w.v) {
-                          stars.v[i].x = stars.v[i].x + w.v;
+                         else if (stars.v[i].x < w.v.minus().toNumber()) {
+                          stars.v[i].x = stars.v[i].x + w.v.toNumber();
                         }
-                        if (stars.v[i].y > h.v) {
-                          stars.v[i].y = stars.v[i].y - h.v;
+                        if (stars.v[i].y > h.v.toNumber()) {
+                          stars.v[i].y = stars.v[i].y - h.v.toNumber();
                         }
-                         else if (stars.v[i].y < -h.v) {
-                          stars.v[i].y = stars.v[i].y + h.v;
+                         else if (stars.v[i].y < h.v.minus().toNumber()) {
+                          stars.v[i].y = stars.v[i].y + h.v.toNumber();
                         }
                       }
                       renderer.v.render(stage.v);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_04.update$f(update));
-                    };
-                  },
-                  main$f: function (resize) {
-                    return function () {
-                      resize();
-                    };
-                  },
-                  main$f_0: function (resize) {
-                    return function () {
-                      resize();
+                      requestAnimFrame(update);
                     };
                   },
                   start$f: function (newWave) {
                     return function () {
                       newWave();
-                    };
-                  },
-                  start$f_0: function (update) {
-                    return function () {
-                      update();
                     };
                   },
                   main$start: function (renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update) {
@@ -88,8 +68,8 @@
                       tmp$0 = starCount.v - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         var tempBall = new PIXI.Sprite(ballTexture);
-                        tempBall.position.x = Math.random() * w.v - slideX.v;
-                        tempBall.position.y = Math.random() * h.v - slideY.v;
+                        tempBall.position.x = Math.random() * w.v.toNumber() - slideX.v.toNumber();
+                        tempBall.position.y = Math.random() * h.v.toNumber() - slideY.v.toNumber();
                         tempBall.anchor.x = 0.5;
                         tempBall.anchor.y = 0.5;
                         stars.v.push(new _.net.abesto.kotlin.js.pixi.examples.example_04.Star(tempBall, tempBall.position.x, tempBall.position.y));
@@ -98,32 +78,32 @@
                       document.getElementById('rnd').onclick = _.net.abesto.kotlin.js.pixi.examples.example_04.start$f(newWave);
                       document.getElementById('sx').innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
                       resize();
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_04.start$f_0(update));
+                      requestAnimFrame(update);
                     };
                   },
-                  main$f_1: function (start) {
+                  main$f: function (start) {
                     return function () {
                       start();
                     };
                   },
                   main: function (args) {
-                    var w = {v: 1024};
-                    var h = {v: 768};
+                    var w = {v: Kotlin.Long.fromInt(1024)};
+                    var h = {v: Kotlin.Long.fromInt(768)};
                     var starCount = {v: 2500};
                     var sx = {v: 1.0 + Math.random() / 20};
                     var sy = {v: 1.0 + Math.random() / 20};
-                    var slideX = {v: w.v / 2 | 0};
-                    var slideY = {v: h.v / 2 | 0};
+                    var slideX = {v: w.v.div(Kotlin.Long.fromInt(2))};
+                    var slideY = {v: h.v.div(Kotlin.Long.fromInt(2))};
                     var stars = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
-                    var stage = {v: new PIXI.Stage(0)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0))};
                     var newWave = _.net.abesto.kotlin.js.pixi.examples.example_04.main$newWave(sx, sy);
                     var resize = _.net.abesto.kotlin.js.pixi.examples.example_04.main$resize(w, h, slideX, slideY, renderer);
                     var update = _.net.abesto.kotlin.js.pixi.examples.example_04.main$update(starCount, stars, slideX, slideY, sx, sy, w, h, renderer, stage);
-                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_04.main$f(resize));
-                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_04.main$f_0(resize);
+                    $(window).resize(resize);
+                    window.onorientationchange = resize;
                     var start = _.net.abesto.kotlin.js.pixi.examples.example_04.main$start(renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update);
-                    $(_.net.abesto.kotlin.js.pixi.examples.example_04.main$f_1(start));
+                    $(_.net.abesto.kotlin.js.pixi.examples.example_04.main$f(start));
                   }
                 })
               })

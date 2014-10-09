@@ -8,14 +8,9 @@
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
                 example_08: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_08 */ {
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (count, tilingSprite, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_08.animate$f(animate));
+                      requestAnimFrame(animate);
                       count.v += 0.005;
                       tilingSprite.v.tileScale.x = 2 + Math.sin(count.v);
                       tilingSprite.v.tileScale.y = 2 + Math.cos(count.v);
@@ -24,14 +19,9 @@
                       renderer.v.render(stage.v);
                     };
                   },
-                  main$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main: function (args) {
-                    var stage = {v: new PIXI.Stage(9946478, true)};
-                    var renderer = {v: PIXI.autoDetectRenderer(window.innerWidth | 0, window.innerHeight | 0, null)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(9946478), true)};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight), null)};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', '0px', '');
@@ -41,7 +31,7 @@
                     var count = {v: 0.0};
                     stage.v.addChild(tilingSprite.v);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_08.main$animate(count, tilingSprite, renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_08.main$f(animate));
+                    requestAnimFrame(animate);
                   }
                 })
               })

@@ -36,7 +36,7 @@ fun main(args: Array<String>) {
 
     fun animate() {
 
-        requestAnimFrame( {animate()} )
+        requestAnimFrame(::animate)
 
         // just for fun, lets rotate mr rabbit a little
         bunny.rotation += 0.1
@@ -44,5 +44,5 @@ fun main(args: Array<String>) {
         // render the stage
         renderer.render(stage)
     }
-    requestAnimFrame( {animate()} )
+    requestAnimFrame(::animate)
 }

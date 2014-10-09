@@ -98,15 +98,10 @@
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_10.init$animate(count, score, countingText, spinningText, renderer, stage);
                     requestAnimFrame(animate);
                   },
-                  main$f: function (init) {
-                    return function () {
-                      init();
-                    };
-                  },
                   main: function (args) {
                     var tmp$0;
                     var init = _.net.abesto.kotlin.js.pixi.examples.example_10.main$init;
-                    window.WebFontConfig = new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontConfig(new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontFamilies(['Snippet', 'Arvo:700italic', 'Podkova:700']), _.net.abesto.kotlin.js.pixi.examples.example_10.main$f(init));
+                    window.WebFontConfig = new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontConfig(new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontFamilies(['Snippet', 'Arvo:700italic', 'Podkova:700']), init);
                     var wf = document.createElement('script');
                     if (Kotlin.equals('https:', window.location.protocol)) {
                       tmp$0 = 'https';

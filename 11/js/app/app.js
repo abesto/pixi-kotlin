@@ -8,15 +8,10 @@
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
                 example_11: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_11 */ {
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (bunnys, count, count2, renderTexture, renderTexture2, bunnyContainer, stage, outputSprite, renderer) {
                     return function animate() {
                       var tmp$0;
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_11.animate$f(animate));
+                      requestAnimFrame(animate);
                       tmp$0 = bunnys.v.length - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         var bunny = bunnys.v[i];
@@ -36,21 +31,16 @@
                       renderer.v.render(stage.v);
                     };
                   },
-                  main$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main: function (args) {
                     var tmp$0;
-                    var stage = {v: new PIXI.Stage(0)};
-                    var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0))};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
                     renderer.v.view.style.setProperty('width', window.innerWidth.toString() + 'px', '');
                     renderer.v.view.style.setProperty('height', window.innerHeight.toString() + 'px', '');
                     renderer.v.view.style.setProperty('display', 'block', '');
                     document.body.appendChild(renderer.v.view);
-                    var renderTexture = {v: new PIXI.RenderTexture(800, 600)};
-                    var renderTexture2 = {v: new PIXI.RenderTexture(800, 600)};
+                    var renderTexture = {v: new PIXI.RenderTexture(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
+                    var renderTexture2 = {v: new PIXI.RenderTexture(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
                     var currentTexture = renderTexture.v;
                     var outputSprite = {v: new PIXI.Sprite(currentTexture)};
                     outputSprite.v.position.x = 800.0 / 2;
@@ -77,7 +67,7 @@
                     var count = {v: 0.0};
                     var count2 = {v: 0};
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_11.main$animate(bunnys, count, count2, renderTexture, renderTexture2, bunnyContainer, stage, outputSprite, renderer);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_11.main$f(animate));
+                    requestAnimFrame(animate);
                   }
                 })
               })

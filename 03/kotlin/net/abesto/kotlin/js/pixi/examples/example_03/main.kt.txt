@@ -60,18 +60,18 @@ fun main(args: Array<String>) {
             explosion.scale.x = 0.75 + Math.random() * 0.5
             explosion.scale.y = explosion.scale.x
 
-            explosion.gotoAndPlay((Math.random() * 27).toInt());
+            explosion.gotoAndPlay((Math.random() * 27).toLong());
 
             stage.addChild(explosion);
         }
 
         // start animating
-        requestAnimFrame( { animate() } );
+        requestAnimFrame(::animate);
     }
 
 
     // use callback
-    loader.onComplete = { onAssetsLoaded() }
+    loader.onComplete = ::onAssetsLoaded
 
     //begin load
     loader.load();

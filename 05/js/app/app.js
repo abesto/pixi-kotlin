@@ -161,14 +161,9 @@
                   },
                   main$resize: function (w, h, renderer) {
                     return function () {
-                      w.v = Kotlin.numberToInt($(window).width()) - 16;
-                      h.v = Kotlin.numberToInt($(window).height()) - 16;
+                      w.v = Kotlin.numberToLong($(window).width()).subtract(Kotlin.Long.fromInt(16));
+                      h.v = Kotlin.numberToLong($(window).height()).subtract(Kotlin.Long.fromInt(16));
                       renderer.v.resize(w.v, h.v);
-                    };
-                  },
-                  update$f: function (update) {
-                    return function () {
-                      update();
                     };
                   },
                   main$update: function (d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage) {
@@ -217,16 +212,11 @@
                         ox = tx;
                         tx = tx * Math.cos(vz.v) - ty * Math.sin(vz.v);
                         ty = ox * Math.sin(vz.v) + ty * Math.cos(vz.v);
-                        balls.v[i].position.x = 512 * tx / (d.v - tz) + (w.v / 2 | 0);
-                        balls.v[i].position.y = (h.v / 2 | 0) - 512 * ty / (d.v - tz);
+                        balls.v[i].position.x = 512 * tx / (d.v - tz) + w.v.div(Kotlin.Long.fromInt(2)).toNumber();
+                        balls.v[i].position.y = h.v.div(Kotlin.Long.fromInt(2)).toNumber() - 512 * ty / (d.v - tz);
                       }
                       renderer.v.render(stage.v);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_05.update$f(update));
-                    };
-                  },
-                  nextObject$f: function (nextObject) {
-                    return function () {
-                      nextObject();
+                      requestAnimFrame(update);
                     };
                   },
                   main$nextObject: function (current, objs, makeObject) {
@@ -236,17 +226,7 @@
                         current.v = 0;
                       }
                       makeObject(current.v);
-                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_05.nextObject$f(nextObject), 8000);
-                    };
-                  },
-                  start$f: function (nextObject) {
-                    return function () {
-                      nextObject();
-                    };
-                  },
-                  start$f_0: function (update) {
-                    return function () {
-                      update();
+                      window.setTimeout(nextObject, 8000);
                     };
                   },
                   main$start: function (renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update) {
@@ -268,28 +248,13 @@
                         stage.v.addChild(tempBall);
                       }
                       resize();
-                      window.setTimeout(_.net.abesto.kotlin.js.pixi.examples.example_05.start$f(nextObject), 5000);
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_05.start$f_0(update));
-                    };
-                  },
-                  main$f: function (resize) {
-                    return function () {
-                      resize();
-                    };
-                  },
-                  main$f_0: function (resize) {
-                    return function () {
-                      resize();
-                    };
-                  },
-                  main$f_1: function (start) {
-                    return function () {
-                      start();
+                      window.setTimeout(nextObject, 5000);
+                      requestAnimFrame(update);
                     };
                   },
                   main: function (args) {
-                    var w = {v: 1024};
-                    var h = {v: 768};
+                    var w = {v: Kotlin.Long.fromInt(1024)};
+                    var h = {v: Kotlin.Long.fromInt(768)};
                     var n = {v: 2000};
                     var d = {v: 1};
                     var current = {v: 1};
@@ -305,15 +270,15 @@
                     var tpoint3 = {v: []};
                     var balls = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
-                    var stage = {v: new PIXI.Stage(0)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0))};
                     var makeObject = _.net.abesto.kotlin.js.pixi.examples.example_05.main$makeObject(n, points1, points2, points3);
                     var resize = _.net.abesto.kotlin.js.pixi.examples.example_05.main$resize(w, h, renderer);
                     var update = _.net.abesto.kotlin.js.pixi.examples.example_05.main$update(d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage);
                     var nextObject = _.net.abesto.kotlin.js.pixi.examples.example_05.main$nextObject(current, objs, makeObject);
                     var start = _.net.abesto.kotlin.js.pixi.examples.example_05.main$start(renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update);
-                    $(window).resize(_.net.abesto.kotlin.js.pixi.examples.example_05.main$f(resize));
-                    window.onorientationchange = _.net.abesto.kotlin.js.pixi.examples.example_05.main$f_0(resize);
-                    $(_.net.abesto.kotlin.js.pixi.examples.example_05.main$f_1(start));
+                    $(window).resize(resize);
+                    window.onorientationchange = resize;
+                    $(start);
                   }
                 })
               })

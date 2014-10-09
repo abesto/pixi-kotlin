@@ -10,8 +10,8 @@ import net.abesto.kotlin.js.extensions.*
 
 fun main(args: Array<String>) {
 
-    var w = 1024
-    var h = 768
+    var w = 1024L
+    var h = 768L
 
     var n = 2000
     var d = 1
@@ -152,8 +152,8 @@ fun main(args: Array<String>) {
 
     fun resize()
     {
-        w = jq(window).width().toInt() - 16
-        h = jq(window).height().toInt() - 16
+        w = jq(window).width().toLong() - 16
+        h = jq(window).height().toLong() - 16
 
         renderer.resize(w, h)
     }
@@ -205,7 +205,7 @@ fun main(args: Array<String>) {
 
         renderer.render(stage)
 
-        requestAnimFrame({update()})
+        requestAnimFrame(::update)
     }
 
     fun nextObject () {
@@ -219,7 +219,7 @@ fun main(args: Array<String>) {
 
         makeObject(current)
 
-        window.setTimeout({nextObject()}, 8000)
+        window.setTimeout(::nextObject, 8000)
 
     }
 
@@ -248,14 +248,14 @@ fun main(args: Array<String>) {
 
         resize()
 
-        window.setTimeout({nextObject()}, 5000)
+        window.setTimeout(::nextObject, 5000)
 
-        requestAnimFrame({update()})
+        requestAnimFrame(::update)
 
     }
 
-    jq(window).resize({resize()})
-    window.onorientationchange = {resize()}
+    jq(window).resize(::resize)
+    window.onorientationchange = ::resize
 
-    jq({start()})
+    jq(::start)
 }

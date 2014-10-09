@@ -8,26 +8,16 @@
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
                 example_07: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_07 */ {
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (bunny, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_07.animate$f(animate));
+                      requestAnimFrame(animate);
                       bunny.v.rotation = bunny.v.rotation + 0.1;
                       renderer.v.render(stage.v);
                     };
                   },
-                  main$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main: function (args) {
-                    var stage = {v: new PIXI.Stage(6750105)};
-                    var renderer = {v: PIXI.autoDetectRenderer(400, 300, null, true)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(6750105))};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(400), Kotlin.Long.fromInt(300), null, true)};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', document.getElementById('textHolder').getBoundingClientRect().top.toString() + 'px', '');
@@ -39,7 +29,7 @@
                     bunny.v.position.y = 150.0;
                     stage.v.addChild(bunny.v);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_07.main$animate(bunny, renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_07.main$f(animate));
+                    requestAnimFrame(animate);
                   }
                 })
               })

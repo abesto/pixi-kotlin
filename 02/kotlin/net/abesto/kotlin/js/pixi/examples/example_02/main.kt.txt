@@ -75,10 +75,10 @@ fun main(args: Array<String>) {
         }
 
         // start animating
-        requestAnimFrame( { animate() } );
+        requestAnimFrame(::animate);
     }
     // use callback
-    loader.onComplete = { onAssetsLoaded() }
+    loader.onComplete = ::onAssetsLoaded
 
     //begin load
     loader.load();

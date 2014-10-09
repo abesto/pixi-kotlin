@@ -19,11 +19,6 @@
                       renderer.v.render(stage.v);
                     };
                   },
-                  onAssetsLoaded$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$onAssetsLoaded: function (stage, animate) {
                     return function () {
                       var tmp$0, tmp$1;
@@ -43,15 +38,10 @@
                         explosion.rotation = Math.random() * Math.PI;
                         explosion.scale.x = 0.75 + Math.random() * 0.5;
                         explosion.scale.y = explosion.scale.x;
-                        explosion.gotoAndPlay(Math.random() * 27 | 0);
+                        explosion.gotoAndPlay(Kotlin.Long.fromNumber(Math.random() * 27));
                         stage.v.addChild(explosion);
                       }
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_03.onAssetsLoaded$f(animate));
-                    };
-                  },
-                  main$f: function (onAssetsLoaded) {
-                    return function () {
-                      onAssetsLoaded();
+                      requestAnimFrame(animate);
                     };
                   },
                   main: function (args) {
@@ -59,12 +49,12 @@
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     var explosions = [];
                     var count = 0;
-                    var stage = {v: new PIXI.Stage(16777215)};
-                    var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(16777215))};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
                     document.body.appendChild(renderer.v.view);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_03.main$animate(renderer, stage);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_03.main$onAssetsLoaded(stage, animate);
-                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_03.main$f(onAssetsLoaded);
+                    loader.onComplete = onAssetsLoaded;
                     loader.load();
                   }
                 })

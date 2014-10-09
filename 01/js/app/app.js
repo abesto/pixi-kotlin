@@ -8,31 +8,21 @@
             pixi: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi */ {
               examples: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples */ {
                 example_01: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_01 */ {
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (bunny, renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_01.animate$f(animate));
+                      requestAnimFrame(animate);
                       bunny.rotation = bunny.rotation + 0.1;
                       renderer.render(stage);
                     };
                   },
-                  main$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main: function (args) {
-                    var stage = new PIXI.Stage(6750105);
-                    var renderer = PIXI.autoDetectRenderer(400, 300);
+                    var stage = new PIXI.Stage(Kotlin.Long.fromInt(6750105));
+                    var renderer = PIXI.autoDetectRenderer(Kotlin.Long.fromInt(400), Kotlin.Long.fromInt(300));
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = new PIXI.Sprite(texture);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_01.main$animate(bunny, renderer, stage);
                     document.body.appendChild(renderer.view);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_01.main$f(animate));
+                    requestAnimFrame(animate);
                     bunny.anchor.x = 0.5;
                     bunny.anchor.y = 0.5;
                     bunny.position.x = 200.0;

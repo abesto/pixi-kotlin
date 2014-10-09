@@ -29,11 +29,6 @@
                       renderer.render(stage);
                     };
                   },
-                  onAssetsLoaded$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$onAssetsLoaded: function (alienFrames, aliens, alienContainer, animate) {
                     return function () {
                       var tmp$0;
@@ -48,17 +43,12 @@
                         aliens.push(alien);
                         alienContainer.addChild(alien);
                       }
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_02.onAssetsLoaded$f(animate));
-                    };
-                  },
-                  main$f: function (onAssetsLoaded) {
-                    return function () {
-                      onAssetsLoaded();
+                      requestAnimFrame(animate);
                     };
                   },
                   main: function (args) {
-                    var stage = new PIXI.Stage(16777215);
-                    var renderer = PIXI.autoDetectRenderer(800, 600);
+                    var stage = new PIXI.Stage(Kotlin.Long.fromInt(16777215));
+                    var renderer = PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600));
                     var assetsToLoader = ['SpriteSheet.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     var aliens = [];
@@ -69,7 +59,7 @@
                     var count = {v: 0.0};
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_02.main$animate(aliens, count, alienContainer, renderer, stage);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_02.main$onAssetsLoaded(alienFrames, aliens, alienContainer, animate);
-                    loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_02.main$f(onAssetsLoaded);
+                    loader.onComplete = onAssetsLoaded;
                     loader.load();
                     document.body.appendChild(renderer.view);
                     stage.addChild(alienContainer);

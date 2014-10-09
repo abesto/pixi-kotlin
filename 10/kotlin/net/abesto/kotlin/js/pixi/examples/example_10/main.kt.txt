@@ -130,7 +130,7 @@ fun main(args: Array<String>) {
     // Load them google fonts before starting...!
     (window as WebFontWindow).WebFontConfig = WebFontConfig(
             google = WebFontFamilies("Snippet", "Arvo:700italic", "Podkova:700"),
-            active = {init()}
+            active = ::init
     )
     val wf = document.createElement("script")
     wf.setAttribute("src", (if ("https:" == window.location.protocol) { "https" } else { "http" }) +

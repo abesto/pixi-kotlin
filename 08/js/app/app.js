@@ -58,26 +58,16 @@
                       stage.v.addChild(bunny);
                     };
                   },
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_08.animate$f(animate));
+                      requestAnimFrame(animate);
                       renderer.v.render(stage.v);
-                    };
-                  },
-                  main$f: function (animate) {
-                    return function () {
-                      animate();
                     };
                   },
                   main: function (args) {
                     var tmp$0;
-                    var stage = {v: new PIXI.Stage(9946478, true)};
-                    var renderer = {v: PIXI.autoDetectRenderer(window.innerWidth | 0, window.innerHeight | 0, null)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(9946478), true)};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight), null)};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', '0px', '');
@@ -89,7 +79,7 @@
                       createBunny(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
                     }
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_08.main$animate(renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_08.main$f(animate));
+                    requestAnimFrame(animate);
                   }
                 })
               })

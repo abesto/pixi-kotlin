@@ -57,30 +57,20 @@
                   main$f_4: function (data) {
                     console.log('TAP!!');
                   },
-                  animate$f: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
                   main$animate: function (renderer, stage) {
                     return function animate() {
-                      requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_06.animate$f(animate));
+                      requestAnimFrame(animate);
                       renderer.v.render(stage.v);
                     };
                   },
-                  main$f_5: function (animate) {
-                    return function () {
-                      animate();
-                    };
-                  },
-                  main$f_6: function (data) {
+                  main$f_5: function (data) {
                     var win = window.open('https://github.com/GoodBoyDigital/pixi.js', '_blank');
                   },
                   main: function (args) {
                     var tmp$0;
                     var interactive = true;
-                    var stage = {v: new PIXI.Stage(0, interactive)};
-                    var renderer = {v: PIXI.autoDetectRenderer(620, 400)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0), interactive)};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(620), Kotlin.Long.fromInt(400))};
                     document.body.appendChild(renderer.v.view);
                     var background = PIXI.Sprite.fromImage('button_test_BG.jpg');
                     stage.v.addChild(background);
@@ -117,13 +107,13 @@
                     buttons[4].scale.y = 1.2;
                     buttons[4].rotation = Math.PI;
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_06.main$animate(renderer, stage);
-                    requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_06.main$f_5(animate));
+                    requestAnimFrame(animate);
                     var pixiLogo = PIXI.Sprite.fromImage('pixi.png');
                     stage.v.addChild(pixiLogo);
                     pixiLogo.position.x = 620.0 - 56;
                     pixiLogo.position.y = 400.0 - 32;
                     pixiLogo.setInteractive(true);
-                    pixiLogo.click = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_6;
+                    pixiLogo.click = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_5;
                     pixiLogo.tap = pixiLogo.click;
                   }
                 })
