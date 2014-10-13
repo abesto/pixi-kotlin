@@ -40,3 +40,5 @@
   Kotlin.defineModule('app', _);
   _.net.abesto.kotlin.js.pixi.examples.example_01.main([]);
 }(Kotlin));
+
+//@ sourceMappingURL=app.js.map
