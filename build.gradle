@@ -7,6 +7,7 @@ class KotlinJsExtension {
 	String jsFile = "app"
 	String output = "web/js/app/${jsFile}.js"
 	String stdlibJsFile = "web/js/lib/kotlin.js"
+	Boolean generateSourcemap = true
 }
 
 class KotlinJs implements Plugin<Project> {
@@ -54,7 +55,7 @@ class KotlinJs implements Plugin<Project> {
 					def sources = project.sourceSets.main.allSource.files
 					def output = "${project.projectDir}/${project.kotlinJs.output}"
 					inputs.files sources
-					outputs.file output
+					outputs.files output, "${output}.map"
 
 					main "org.jetbrains.jet.cli.js.K2JSCompiler"
 					maxHeapSize = "256M"
@@ -66,11 +67,39 @@ class KotlinJs implements Plugin<Project> {
 							project.findJar("kotlin-runtime")
 					)
 
-					args = ["-verbose", "-version", "-output", output,
-							"-library-files", project.kotlinJs.libraryFiles.join(',')] + sources.toList()
+					if (project.kotlinJs.generateSourcemap) {
+						args "-source-map"
+					}
+					args "-verbose", "-version",
+						 "-output", output, "-library-files", project.kotlinJs.libraryFiles.join(',')
+					args sources.toList()
 				}
 
 				project.tasks.build.dependsOn project.compileKotlinJs
+
+				if (project.kotlinJs.generateSourcemap) {
+					def outputDir = new File(project.kotlinJs.output).parent
+
+					project.task('copyKotlinSources', type: Copy) {
+						from project.sourceSets.main.allSource.files
+						into outputDir
+						rename '(.*)\\.kt', '$1.kt.txt'
+					}
+
+					project.task('updateSourecmapPaths') {
+						dependsOn project.compileKotlinJs
+						doLast {
+							def file = new File("${project.projectDir}/${project.kotlinJs.output}.map")
+							def text = file.text
+							project.sourceSets.main.allSource.files.each {
+								text = text.replace("file://${it}", "${it.name}.txt")
+							}
+							file.write(text)
+						}
+					}
+
+					project.tasks.build.dependsOn project.copyKotlinSources, project.updateSourecmapPaths
+				}
 			}
 		}
 
@@ -165,21 +194,17 @@ project(':examples') {
 		kotlinJs.jsFile = "app"
 		kotlinJs.libraryFiles << project(':pixi-kotlin').tasks.jarSources.archivePath
 
-		task copyKotlinSourceIntoWeb(type: Copy) {
-			from "src/main/kotlin"
-			into "web/kotlin"
-			rename("main.kt", "main.kt.txt")
+		ext {
+			isFullscreen = false
+			extraHead = ""
+			extraBody = ""
+			listTitle = { "Example ${project.name}" }
+			originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name.replaceFirst('^0', '')}/"
+			originalExampleText = { project.originalExampleUrl }
+			originalExampleSourceUrl = { "view-source:${project.originalExampleUrl}" }
+			originalExampleSourceText = { project.originalExampleSourceUrl() }
+			title = "pixi.js example ${project.name} (kotlin)"
 		}
-
-		ext.isFullscreen = false
-		ext.extraHead = ""
-		ext.extraBody = ""
-		ext.listTitle = { "Example ${project.name}"}
-		ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/${project.name.replaceFirst('^0', '')}/"
-		ext.originalExampleText = { project.originalExampleUrl }
-		ext.originalExampleSourceUrl = { "view-source:${project.originalExampleUrl}" }
-		ext.originalExampleSourceText = { project.originalExampleSourceUrl() }
-		ext.title = "pixi.js example ${project.name} (kotlin)"
 		task generateExampleIndexHtml(type: Copy) {
 			from "${project(":examples").projectDir}/src/templates"
 			into "web"
@@ -189,7 +214,7 @@ project(':examples') {
 			outputs.upToDateWhen { false }
 		}
 
-		build.dependsOn ':pixi-kotlin:jarSources', copyKotlinSourceIntoWeb, generateExampleIndexHtml
+		build.dependsOn ':pixi-kotlin:jarSources', generateExampleIndexHtml
 	}
 }
 
