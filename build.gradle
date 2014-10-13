@@ -73,6 +73,17 @@ class KotlinJs implements Plugin<Project> {
 					args "-verbose", "-version",
 						 "-output", output, "-library-files", project.kotlinJs.libraryFiles.join(',')
 					args sources.toList()
+
+					doLast {
+						if (project.kotlinJs.generateSourcemap) {
+							def file = new File("${project.projectDir}/${project.kotlinJs.output}.map")
+							def text = file.text
+							sources.each {
+								text = text.replace("file://${it}", "${it.name}.txt")
+							}
+							file.write(text)
+						}
+					}
 				}
 
 				project.tasks.build.dependsOn project.compileKotlinJs
@@ -86,19 +97,7 @@ class KotlinJs implements Plugin<Project> {
 						rename '(.*)\\.kt', '$1.kt.txt'
 					}
 
-					project.task('updateSourecmapPaths') {
-						dependsOn project.compileKotlinJs
-						doLast {
-							def file = new File("${project.projectDir}/${project.kotlinJs.output}.map")
-							def text = file.text
-							project.sourceSets.main.allSource.files.each {
-								text = text.replace("file://${it}", "${it.name}.txt")
-							}
-							file.write(text)
-						}
-					}
-
-					project.tasks.build.dependsOn project.copyKotlinSources, project.updateSourecmapPaths
+					project.tasks.build.dependsOn project.copyKotlinSources
 				}
 			}
 		}
