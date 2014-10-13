@@ -1,54 +1,117 @@
 group = 'net.abesto.kotlin.js.pixi'
 version = '0.0.1'
 
+class KotlinJsExtension {
+	List<String> libraryFiles = []
+	String kotlinVersion = "0.1-SNAPSHOT"
+	String jsFile = "app"
+	String output = "web/js/app/${jsFile}.js"
+	String stdlibJsFile = "web/js/lib/kotlin.js"
+}
+
+class KotlinJs implements Plugin<Project> {
+	void apply(Project project) {
+		project.configurations { compileKotlinJs }
+
+		project.apply plugin: 'kotlin'
+		project.extensions.create("kotlinJs", KotlinJsExtension)
+
+		if (project.kotlinJs.kotlinVersion == "0.1-SNAPSHOT") {
+			project.repositories {
+				maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
+			}
+		}
+
+		def deps = [
+				"org.jetbrains.kotlin:kotlin-compiler:${project.kotlinJs.kotlinVersion}",
+				"org.jetbrains.kotlin:kotlin-js-library:${project.kotlinJs.kotlinVersion}",
+				"org.jetbrains.kotlin:kotlin-stdlib:${project.kotlinJs.kotlinVersion}"
+		]
+
+		project.dependencies {
+			compileKotlinJs deps  // findJar resolves the configuration, making the user of the plugin unable to add
+			                      // new dependencies, so we need a separate configuration
+			compile deps  // but let's also add the libraries as compile dependencies
+		}
+
+		project.ext.findJar = { artifact -> project.configurations.compileKotlinJs.find { it.name.startsWith(artifact) } }
+		project.kotlinJs.libraryFiles << project.findJar("kotlin-js-library")
+
+		project.task('build', overwrite: true) {}
+
+		project.task('buildKotlinJsStdlib', type: com.eriwen.gradle.js.tasks.CombineJsTask) {
+			source = project.zipTree(project.findJar("kotlin-js-library")).matching{include "*.js"}
+			dest = "${project.projectDir}/${project.kotlinJs.stdlibJsFile}"
+		}
+
+		project.afterEvaluate {
+			if (project.sourceSets.main.allSource.empty) {
+				project.logger.info("No kotlin source files found in project '${project.name}', not compiling anything to JS.")
+			} else {
+				project.task('compileKotlinJs', type: JavaExec) {
+					dependsOn project.buildKotlinJsStdlib
+
+					def sources = project.sourceSets.main.allSource.files
+					def output = "${project.projectDir}/${project.kotlinJs.output}"
+					inputs.files sources
+					outputs.file output
+
+					main "org.jetbrains.jet.cli.js.K2JSCompiler"
+					maxHeapSize = "256M"
+					minHeapSize = "32M"
+					jvmArgs = ["-noverify"]
+
+					classpath = project.files(
+							project.findJar("kotlin-compiler"),
+							project.findJar("kotlin-runtime")
+					)
+
+					args = ["-verbose", "-version", "-output", output,
+							"-library-files", project.kotlinJs.libraryFiles.join(',')] + sources.toList()
+				}
+
+				project.tasks.build.dependsOn project.compileKotlinJs
+			}
+		}
+
+		project.task('test', overwrite: true) {
+			logger.info "KotlinJS testing not implemented"
+		}
+
+		project.sourceSets {
+			main.java.srcDirs += 'src/main/kotlin'
+			test.java.srcDirs += 'src/test/kotlin'
+		}
+	}
+}
+
 buildscript {
-	ext.kotlinVersion = '0.1-SNAPSHOT'
-	ext.kotlinGradlePluginVersion = '0.1-SNAPSHOT'
-	ext.kotlinHome = "${System.env.HOME}/Library/Application Support/IdeaIC14/Kotlin"
-	ext.kotlincJs = "$kotlinHome/kotlinc/bin/kotlinc-js"
-	ext.kotlinJsLib = "$kotlinHome/kotlinc/lib/kotlin-jslib.jar"
-	ext.kotlinJs = "$kotlinHome/kotlinc/lib/kotlin.js"
+	ext {
+		kotlinGradlePluginVersion = '0.1-SNAPSHOT'
+	}
 
 	repositories {
 		mavenCentral()
+		jcenter()
 		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
 	}
 	dependencies {
 		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
+		classpath "com.eriwen:gradle-js-plugin:1.12.1"
 		classpath 'org.ajoberstar:gradle-git:0.10.1'
 	}
 }
 
 subprojects {
-	apply plugin: 'kotlin'
-
-	task copyKotlinJs(type: Copy) {
-		from "$kotlinJs"
-		into "$projectDir/web/js/lib"
-	}
+	apply plugin: KotlinJs
 
 	repositories {
 		mavenCentral()
-		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
 	}
 
-	dependencies {
-		compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-	}
-
-	sourceSets {
-		main.java.srcDirs += 'src/main/kotlin'
-		test.java.srcDirs += 'src/test/kotlin'
-	}
 }
 
 project(':pixi-kotlin') {
-	ext.libraryFiles = [kotlinJsLib]
-
-	dependencies {
-		compile files(kotlinJsLib)
-	}
-
 	task build(overwrite: true) {
 		logger.info "Definitions are not compiled, we only build a source jar"
 	}
@@ -95,13 +158,12 @@ project(':examples') {
 	publishGhPages.dependsOn += subprojects.collect {"${it.name}:generateExampleIndexHtml"}
 
 	subprojects {
-		ext.jsFile = "app"
-		ext.output = { "$projectDir/web/js/app/${jsFile}.js" }
-		ext.libraryFiles = [kotlinJsLib, project(':pixi-kotlin').tasks.jarSources.archivePath]
 		dependencies {
-			compile files(kotlinJsLib)
 			compile project(':pixi-kotlin')
 		}
+
+		kotlinJs.jsFile = "app"
+		kotlinJs.libraryFiles << project(':pixi-kotlin').tasks.jarSources.archivePath
 
 		task copyKotlinSourceIntoWeb(type: Copy) {
 			from "src/main/kotlin"
@@ -127,29 +189,7 @@ project(':examples') {
 			outputs.upToDateWhen { false }
 		}
 
-		task build(overwrite: true) {
-			dependsOn copyKotlinJs
-			dependsOn ':pixi-kotlin:jarSources'
-			dependsOn copyKotlinSourceIntoWeb
-			dependsOn generateExampleIndexHtml
-
-			ext.sources = sourceSets.main.allSource.files
-			inputs.files sources
-
-			outputs.file output()
-
-			doLast {
-				exec {
-					commandLine("bash", kotlincJs, "-verbose", "-version",
-							"-output", output(),
-							"-library-files", libraryFiles.join(','), *sources.toList())
-				}
-			}
-		}
-
-		task test(overwrite: true) {
-			logger.info "JS testing not implemented"
-		}
+		build.dependsOn ':pixi-kotlin:jarSources', copyKotlinSourceIntoWeb, generateExampleIndexHtml
 	}
 }
 
