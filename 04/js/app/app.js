@@ -96,7 +96,7 @@
                     var slideY = {v: h.v.div(Kotlin.Long.fromInt(2))};
                     var stars = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0))};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO)};
                     var newWave = _.net.abesto.kotlin.js.pixi.examples.example_04.main$newWave(sx, sy);
                     var resize = _.net.abesto.kotlin.js.pixi.examples.example_04.main$resize(w, h, slideX, slideY, renderer);
                     var update = _.net.abesto.kotlin.js.pixi.examples.example_04.main$update(starCount, stars, slideX, slideY, sx, sy, w, h, renderer, stage);

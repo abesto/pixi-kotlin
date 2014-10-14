@@ -33,7 +33,7 @@
                   },
                   main: function (args) {
                     var tmp$0;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0))};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO)};
                     var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
                     renderer.v.view.style.setProperty('width', window.innerWidth.toString() + 'px', '');
                     renderer.v.view.style.setProperty('height', window.innerHeight.toString() + 'px', '');

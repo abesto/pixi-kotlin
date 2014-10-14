@@ -404,8 +404,10 @@ var Kotlin = {};
         };
     }
 
-    function createDefinition(members) {
-        var definition = {};
+    function createDefinition(members, definition) {
+        if (typeof definition === "undefined") {
+            definition = {}
+        }
         if (members == null) {
             return definition;
         }
@@ -430,6 +432,8 @@ var Kotlin = {};
         }
         return definition;
     }
+
+    Kotlin.createDefinition = createDefinition;
 
     /**
      * @param {function()|null=} initializer
@@ -698,14 +702,7 @@ var Kotlin = {};
         return hash;
     }
 
-    /**
-     * @interface
-     * @template T
-     */
-    Kotlin.Iterator = Kotlin.createClassNow(null, null, {
-        next: throwAbstractFunctionInvocationError("Iterator#next"),
-        hasNext: throwAbstractFunctionInvocationError("Iterator#hasNext")
-    });
+    var lazyInitClasses = {};
 
     /**
      * @class
@@ -715,7 +712,10 @@ var Kotlin = {};
      * @param {Array.<T>} array
      * @template T
      */
-    var ArrayIterator = Kotlin.createClassNow(Kotlin.Iterator,
+    lazyInitClasses.ArrayIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableIterator];
+        },
         /** @constructs */
         function (array) {
             this.array = array;
@@ -744,7 +744,10 @@ var Kotlin = {};
      * @param {Kotlin.AbstractList.<T>} list
      * @template T
      */
-    var ListIterator = Kotlin.createClassNow(ArrayIterator,
+    lazyInitClasses.ListIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+        },
         /** @constructs */
         function (list) {
             this.list = list;
@@ -755,12 +758,6 @@ var Kotlin = {};
                 return this.list.get(this.index++);
             }
     });
-
-    /**
-     * @interface
-     * @template T
-     */
-    Kotlin.Collection = Kotlin.createClassNow();
 
     Kotlin.Enum = Kotlin.createClassNow(null,
         function () {
@@ -785,7 +782,10 @@ var Kotlin = {};
         }
     );
 
-    Kotlin.AbstractCollection = Kotlin.createClassNow(Kotlin.Collection, null, {
+    lazyInitClasses.AbstractCollection = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableCollection];
+        }, null, {
         addAll_4fm7v2$: function (collection) {
             var modified = false;
             var it = collection.iterator();
@@ -829,7 +829,7 @@ var Kotlin = {};
             return this.size() === 0;
         },
         iterator: function () {
-            return new ArrayIterator(this.toArray());
+            return new Kotlin.ArrayIterator(this.toArray());
         },
         equals_za3rmp$: function (o) {
             if (this.size() !== o.size()) return false;
@@ -871,9 +871,12 @@ var Kotlin = {};
      * @interface // actually it's abstract class
      * @template T
      */
-    Kotlin.AbstractList = Kotlin.createClassNow(Kotlin.AbstractCollection, null, {
+    lazyInitClasses.AbstractList = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableList, Kotlin.AbstractCollection];
+        }, null, {
         iterator: function () {
-            return new ListIterator(this);
+            return new Kotlin.ListIterator(this);
         },
         remove_za3rmp$: function (o) {
             var index = this.indexOf_za3rmp$(o);
@@ -889,7 +892,10 @@ var Kotlin = {};
     });
 
     //TODO: should be JS Array-like (https://developer.mozilla.org/en-US/docs/JavaScript/Guide/Predefined_Core_Objects#Working_with_Array-like_objects)
-    Kotlin.ArrayList = Kotlin.createClassNow(Kotlin.AbstractList,
+    lazyInitClasses.ArrayList = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractList];
+        },
         function () {
             this.array = [];
         }, {
@@ -1043,7 +1049,10 @@ var Kotlin = {};
         Kotlin.System.out().print(s);
     };
 
-    Kotlin.RangeIterator = Kotlin.createClassNow(Kotlin.Iterator,
+    lazyInitClasses.RangeIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+        },
         function (start, end, increment) {
             this.start = start;
             this.end = end;
@@ -1087,7 +1096,14 @@ var Kotlin = {};
             isEmpty: function () {
                 return this.start > this.end;
             },
+            hashCode: function() {
+                return this.isEmpty() ? -1 : (31 * this.start|0 + this.end|0);
+            },
             equals_za3rmp$: isSameNotNullRanges
+        }, {
+            object_initializer$: function () {
+                return { EMPTY : new this(1, 0) };
+            }
     });
 
     Kotlin.NumberProgression = Kotlin.createClassNow(null,
@@ -1101,10 +1117,17 @@ var Kotlin = {};
         },
         isEmpty: function() {
             return this.increment > 0 ? this.start > this.end : this.start < this.end;
-        }
+        },
+        hashCode: function() {
+            return this.isEmpty() ? -1 : (31 * (31 * this.start|0 + this.end|0) + this.increment|0);
+        },
+        equals_za3rmp$: isSameNotNullRanges
     });
 
-    Kotlin.LongRangeIterator = Kotlin.createClassNow(Kotlin.Iterator,
+    lazyInitClasses.LongRangeIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+        },
          function (start, end, increment) {
              this.start = start;
              this.end = end;
@@ -1139,8 +1162,15 @@ var Kotlin = {};
            isEmpty: function () {
                return this.start.compare(this.end) > 0;
            },
-           equals_za3rmp$: isSameNotNullRanges
-       });
+            hashCode: function() {
+                return this.isEmpty() ? -1 : (31 * this.start.toInt() + this.end.toInt());
+            },
+            equals_za3rmp$: isSameNotNullRanges
+       }, {
+           object_initializer$: function () {
+               return { EMPTY : new this(Kotlin.Long.ONE, Kotlin.Long.ZERO) };
+           }
+   });
 
     Kotlin.LongProgression = Kotlin.createClassNow(null,
          function (start, end, increment) {
@@ -1153,10 +1183,17 @@ var Kotlin = {};
              },
              isEmpty: function() {
                  return this.increment.isNegative() ? this.start.compare(this.end) < 0 : this.start.compare(this.end) > 0;
-             }
-         });
+             },
+            hashCode: function() {
+                return this.isEmpty() ? -1 : (31 * (31 * this.start.toInt() + this.end.toInt()) + this.increment.toInt());
+            },
+            equals_za3rmp$: isSameNotNullRanges
+        });
 
-    Kotlin.CharRangeIterator = Kotlin.createClassNow(Kotlin.RangeIterator,
+    lazyInitClasses.CharRangeIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.RangeIterator];
+        },
         function (start, end, increment) {
             Kotlin.RangeIterator.call(this, start, end, increment);
         }, {
@@ -1164,40 +1201,54 @@ var Kotlin = {};
                 var value = this.i;
                 this.i = this.i + this.increment;
                 return String.fromCharCode(value);
-            },
+            }
     });
 
     Kotlin.CharRange = Kotlin.createClassNow(null,
         function (start, end) {
-            this.start = start.charCodeAt(0);
-            this.end = end.charCodeAt(0);
+            this.start = start;
+            this.startCode = start.charCodeAt(0);
+            this.end = end;
+            this.endCode = end.charCodeAt(0);
             this.increment = 1;
         }, {
             contains: function (char) {
-                var code = char.charCodeAt(0)
-                return this.start <= code && code <= this.end;
+                return this.start <= char && char <= this.end;
             },
             iterator: function () {
-                return new Kotlin.CharRangeIterator(this.start, this.end, this.increment);
+                return new Kotlin.CharRangeIterator(this.startCode, this.endCode, this.increment);
             },
             isEmpty: function () {
                 return this.start > this.end;
             },
+            hashCode: function() {
+                return this.isEmpty() ? -1 : (31 * this.startCode|0 + this.endCode|0);
+            },
             equals_za3rmp$: isSameNotNullRanges
+        }, {
+            object_initializer$: function () {
+                return { EMPTY : new this(Kotlin.toChar(1), Kotlin.toChar(0)) };
+            }
     });
 
-    Kotlin.CharNumberProgression = Kotlin.createClassNow(null,
+    Kotlin.CharProgression = Kotlin.createClassNow(null,
         function (start, end, increment) {
-            this.start = start.charCodeAt(0);
-            this.end = end.charCodeAt(0);
+            this.start = start;
+            this.startCode = start.charCodeAt(0);
+            this.end = end;
+            this.endCode = end.charCodeAt(0);
             this.increment = increment;
         }, {
         iterator: function () {
-            return new Kotlin.CharRangeIterator(this.start, this.end, this.increment);
+            return new Kotlin.CharRangeIterator(this.startCode, this.endCode, this.increment);
         },
         isEmpty: function() {
             return this.increment > 0 ? this.start > this.end : this.start < this.end;
-        }
+        },
+        hashCode: function() {
+            return this.isEmpty() ? -1 : (31 * (31 * this.startCode|0 + this.endCode|0) + this.increment|0);
+        },
+        equals_za3rmp$: isSameNotNullRanges
     });
 
     /**
@@ -1356,7 +1407,7 @@ var Kotlin = {};
     };
 
     Kotlin.arrayIterator = function (array) {
-        return new ArrayIterator(array);
+        return new Kotlin.ArrayIterator(array);
     };
 
     Kotlin.jsonFromTuples = function (pairArr) {
@@ -1377,6 +1428,8 @@ var Kotlin = {};
         }
         return obj1;
     };
+
+    Kotlin.createDefinition(lazyInitClasses, Kotlin);
 })();
 /*
  * Copyright 2010-2013 JetBrains s.r.o.
@@ -2633,19 +2686,18 @@ var Kotlin = {};
 
     Kotlin.HashTable = Hashtable;
 
-    /**
-     * @interface
-     * @template Key, Value
-     */
-    Kotlin.Map = Kotlin.createClassNow();
+    var lazyInitClasses = {};
 
-    Kotlin.HashMap = Kotlin.createClassNow(Kotlin.Map,
+    lazyInitClasses.HashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableMap];
+        },
         function () {
             Kotlin.HashTable.call(this);
         }
     );
 
-    Kotlin.ComplexHashMap = Kotlin.HashMap;
+    Object.defineProperty(Kotlin, "ComplexHashMap", { get : function () { return Kotlin.HashMap; }});
 
     /**
      * @class
@@ -2656,7 +2708,10 @@ var Kotlin = {};
      * @param {Array.<Value>} keys
      * @template Key, Value
      */
-    var PrimitiveHashMapValuesIterator = Kotlin.createClassNow(Kotlin.Iterator,
+    lazyInitClasses.PrimitiveHashMapValuesIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+        },
         function (map, keys) {
             this.map = map;
             this.keys = keys;
@@ -2679,12 +2734,15 @@ var Kotlin = {};
      * @param {Kotlin.PrimitiveHashMap.<Key, Value>} map
      * @template Key, Value
      */
-    var PrimitiveHashMapValues = Kotlin.createClassNow(Kotlin.Collection,
+    lazyInitClasses.PrimitiveHashMapValues = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.Collection];
+        },
         function (map) {
             this.map = map;
         }, {
             iterator: function () {
-                return new PrimitiveHashMapValuesIterator(this.map.map, Object.keys(this.map.map));
+                return new Kotlin.PrimitiveHashMapValuesIterator(this.map.map, Object.keys(this.map.map));
             },
             isEmpty: function () {
                 return this.map.$size === 0;
@@ -2701,7 +2759,10 @@ var Kotlin = {};
      * @constructor
      * @template Key, Value
      */
-    Kotlin.AbstractPrimitiveHashMap = Kotlin.createClassNow(Kotlin.Map,
+    lazyInitClasses.AbstractPrimitiveHashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.HashMap];
+        },
         function () {
             this.$size = 0;
             this.map = Object.create(null);
@@ -2775,14 +2836,17 @@ var Kotlin = {};
                 return result;
             },
             values: function () {
-                return new PrimitiveHashMapValues(this);
+                return new Kotlin.PrimitiveHashMapValues(this);
             },
             toJSON: function () {
                 return this.map;
             }
     });
 
-    Kotlin.DefaultPrimitiveHashMap = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashMap,
+    lazyInitClasses.DefaultPrimitiveHashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashMap];
+        },
         function () {
             Kotlin.AbstractPrimitiveHashMap.call(this);
         }, {
@@ -2791,7 +2855,10 @@ var Kotlin = {};
             }
     });
 
-    Kotlin.PrimitiveNumberHashMap = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashMap,
+    lazyInitClasses.PrimitiveNumberHashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashMap];
+        },
         function () {
             Kotlin.AbstractPrimitiveHashMap.call(this);
             this.$keySetClass$ = Kotlin.PrimitiveNumberHashSet;
@@ -2801,7 +2868,10 @@ var Kotlin = {};
             }
     });
 
-    Kotlin.PrimitiveBooleanHashMap = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashMap,
+    lazyInitClasses.PrimitiveBooleanHashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashMap];
+        },
         function () {
             Kotlin.AbstractPrimitiveHashMap.call(this);
         }, {
@@ -2867,12 +2937,19 @@ var Kotlin = {};
         };
     }
 
-    LinkedHashMap.prototype = Object.create(Kotlin.ComplexHashMap);
+    lazyInitClasses.LinkedHashMap = Kotlin.createClass(
+        function () {
+            return [Kotlin.ComplexHashMap];
+        },
+        function () {
+            LinkedHashMap.call(this);
+        }
+    );
 
-    Kotlin.LinkedHashMap = LinkedHashMap;
-
-
-    Kotlin.LinkedHashSet = Kotlin.createClassNow(Kotlin.AbstractCollection,
+    lazyInitClasses.LinkedHashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableSet, Kotlin.HashSet];
+        },
         /** @constructs */
         function () {
             this.map = new Kotlin.LinkedHashMap();
@@ -2886,7 +2963,7 @@ var Kotlin = {};
                 return this.map.containsKey_za3rmp$(element);
             },
             iterator: function () {
-                return new SetIterator(this);
+                return new Kotlin.SetIterator(this);
             },
             add_za3rmp$: function (element) {
                 return this.map.put_wn2jw4$(element, true) == null;
@@ -2902,134 +2979,192 @@ var Kotlin = {};
             }
     });
 
-}());
+    /**
+     * @class
+     * @constructor
+     * @param {Kotlin.Set} set
+     */
+    lazyInitClasses.SetIterator = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableIterator];
+        },
+        function (set) {
+            this.set = set;
+            this.keys = set.toArray();
+            this.index = 0;
+        },
+        /** @lends SetIterator.prototype */
+        {
+            next: function () {
+                return this.keys[this.index++];
+            },
+            hasNext: function () {
+                return this.index < this.keys.length;
+            },
+            remove: function () {
+                this.set.remove_za3rmp$(this.keys[this.index - 1]);
+            }
+    });
 
-/**
- * @interface
- */
-Kotlin.Set = Kotlin.createClassNow(Kotlin.Collection);
-
-/**
- * @class
- * @constructor
- * @param {Kotlin.Set} set
- */
-var SetIterator = Kotlin.createClassNow(Kotlin.Iterator,
-    function (set) {
-        this.set = set;
-        this.keys = set.toArray();
-        this.index = 0;
-    },
-    /** @lends SetIterator.prototype */
-    {
-        next: function () {
-            return this.keys[this.index++];
+    /**
+     * @class
+     * @constructor
+     * @extends {Kotlin.Collection.<T>}
+     * @template T
+     */
+    lazyInitClasses.AbstractPrimitiveHashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.HashSet];
         },
-        hasNext: function () {
-            return this.index < this.keys.length;
-        },
-        remove: function () {
-            this.set.remove_za3rmp$(this.keys[this.index - 1]);
-        }
-});
-
-/**
- * @class
- * @constructor
- * @extends {Kotlin.Collection.<T>}
- * @template T
- */
-Kotlin.AbstractPrimitiveHashSet = Kotlin.createClassNow(Kotlin.AbstractCollection,
-    /** @constructs */
-    function () {
-        this.$size = 0;
-        this.map = {};
-    },
-    /** @lends {Kotlin.AbstractPrimitiveHashSet.prototype} */
-    {
-        size: function () {
-            return this.$size;
-        },
-        contains_za3rmp$: function (key) {
-            return this.map[key] === true;
-        },
-        iterator: function () {
-            return new SetIterator(this);
-        },
-        add_za3rmp$: function (element) {
-            var prevElement = this.map[element];
-            this.map[element] = true;
-            if (prevElement === true) {
-                return false;
-            }
-            else {
-                this.$size++;
-                return true;
-            }
-        },
-        remove_za3rmp$: function (element) {
-            if (this.map[element] === true) {
-                delete this.map[element];
-                this.$size--;
-                return true;
-            }
-            else {
-                return false;
-            }
-        },
-        clear: function () {
+        /** @constructs */
+        function () {
             this.$size = 0;
             this.map = {};
         },
-        convertKeyToKeyType: function (key) {
-            throw new Error("Kotlin.AbstractPrimitiveHashSet.convertKeyToKeyType is abstract");
-        },
-        toArray: function () {
-            var result = Object.keys(this.map);
-            for(var i=0; i<result.length; i++) {
-                result[i] = this.convertKeyToKeyType(result[i]);
+        /** @lends {Kotlin.AbstractPrimitiveHashSet.prototype} */
+        {
+            size: function () {
+                return this.$size;
+            },
+            contains_za3rmp$: function (key) {
+                return this.map[key] === true;
+            },
+            iterator: function () {
+                return new Kotlin.SetIterator(this);
+            },
+            add_za3rmp$: function (element) {
+                var prevElement = this.map[element];
+                this.map[element] = true;
+                if (prevElement === true) {
+                    return false;
+                }
+                else {
+                    this.$size++;
+                    return true;
+                }
+            },
+            remove_za3rmp$: function (element) {
+                if (this.map[element] === true) {
+                    delete this.map[element];
+                    this.$size--;
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            },
+            clear: function () {
+                this.$size = 0;
+                this.map = {};
+            },
+            convertKeyToKeyType: function (key) {
+                throw new Error("Kotlin.AbstractPrimitiveHashSet.convertKeyToKeyType is abstract");
+            },
+            toArray: function () {
+                var result = Object.keys(this.map);
+                for(var i=0; i<result.length; i++) {
+                    result[i] = this.convertKeyToKeyType(result[i]);
+                }
+                return result;
             }
-            return result;
-        }
-});
+    });
 
-Kotlin.DefaultPrimitiveHashSet = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashSet,
-    /** @constructs */
-    function () {
-        Kotlin.AbstractPrimitiveHashSet.call(this);
-    },
-    {
-    /** @lends {Kotlin.DefaultPrimitiveHashSet.prototype} */
-        toArray: function () {
-            return Object.keys(this.map);
-        }
-});
+    var PROTO_NAME = "__proto__";
 
-Kotlin.PrimitiveNumberHashSet = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashSet,
-    /** @constructs */
-    function () {
-        Kotlin.AbstractPrimitiveHashSet.call(this);
-    },
-    /** @lends {Kotlin.PrimitiveNumberHashSet.prototype} */
-    {
-        convertKeyToKeyType: function (key) {
-            return +key;
-        }
-});
+    lazyInitClasses.DefaultPrimitiveHashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashSet];
+        },
+        /** @constructs */
+        function () {
+            var superClass = Kotlin.AbstractPrimitiveHashSet;
 
-Kotlin.PrimitiveBooleanHashSet = Kotlin.createClassNow(Kotlin.AbstractPrimitiveHashSet,
-    /** @constructs */
-    function () {
-        Kotlin.AbstractPrimitiveHashSet.call(this);
-    },
-    /** @lends {Kotlin.PrimitiveBooleanHashSet.prototype} */
-    {
-        convertKeyToKeyType: function (key) {
-            return key == "true";
-        }
-});
+            superClass.call(this);
+            this.super = superClass.prototype;
 
-(function () {
+            this.containsProto = false;
+        },
+        /** @lends {Kotlin.DefaultPrimitiveHashSet.prototype} */
+        {
+            contains_za3rmp$: function (key) {
+                var skey = String(key);
+                if (skey === PROTO_NAME) {
+                    return this.containsProto;
+                }
+
+                return this.super.contains_za3rmp$.call(this, key);
+            },
+            add_za3rmp$: function (element) {
+                var skey = String(element);
+                if (skey === PROTO_NAME) {
+                    var isNewElement = !this.containsProto;
+
+                    if (isNewElement) {
+                        this.containsProto = true;
+                        this.$size++;
+                    }
+
+                    return isNewElement;
+                }
+
+                return this.super.add_za3rmp$.call(this, element);
+            },
+            remove_za3rmp$: function (element) {
+                var skey = String(element);
+                if (skey === PROTO_NAME) {
+                    var contains = this.containsProto;
+
+                    if (contains) {
+                        this.containsProto = false;
+                        this.$size++;
+                    }
+
+                    return contains;
+                }
+
+                return this.super.remove_za3rmp$.call(this, element);
+            },
+            clear: function () {
+                this.$size = 0;
+                this.containsProto = false;
+                this.map = {};
+            },
+            toArray: function () {
+                var elements = Object.keys(this.map);
+                return !this.containsProto ? elements : elements.concat(PROTO_NAME);
+            }
+    });
+
+    lazyInitClasses.PrimitiveNumberHashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashSet];
+        },
+        /** @constructs */
+        function () {
+            Kotlin.AbstractPrimitiveHashSet.call(this);
+        },
+        /** @lends {Kotlin.PrimitiveNumberHashSet.prototype} */
+        {
+            convertKeyToKeyType: function (key) {
+                return +key;
+            }
+    });
+
+    lazyInitClasses.PrimitiveBooleanHashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.AbstractPrimitiveHashSet];
+        },
+        /** @constructs */
+        function () {
+            Kotlin.AbstractPrimitiveHashSet.call(this);
+        },
+        /** @lends {Kotlin.PrimitiveBooleanHashSet.prototype} */
+        {
+            convertKeyToKeyType: function (key) {
+                return key == "true";
+            }
+    });
+
     /**
      * @class
      * @constructor
@@ -3055,7 +3190,7 @@ Kotlin.PrimitiveBooleanHashSet = Kotlin.createClassNow(Kotlin.AbstractPrimitiveH
 
         /** @suppress {checkTypes} */
         this.iterator = function () {
-            return new SetIterator(this);
+            return new Kotlin.SetIterator(this);
         };
 
         this.remove_za3rmp$ = function (o) {
@@ -3158,11 +3293,16 @@ Kotlin.PrimitiveBooleanHashSet = Kotlin.createClassNow(Kotlin.AbstractPrimitiveH
         };
     }
 
-    Kotlin.HashSet = Kotlin.createClassNow(Kotlin.Set,
+    lazyInitClasses.HashSet = Kotlin.createClass(
+        function () {
+            return [Kotlin.modules['stdlib'].kotlin.MutableSet, Kotlin.AbstractCollection];
+        },
         function () {
             HashSet.call(this);
         }
     );
 
-    Kotlin.ComplexHashSet = Kotlin.HashSet;
+    Object.defineProperty(Kotlin, "ComplexHashSet", { get : function () { return Kotlin.HashSet; }});
+
+    Kotlin.createDefinition(lazyInitClasses, Kotlin);
 }());

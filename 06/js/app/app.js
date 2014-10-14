@@ -69,7 +69,7 @@
                   main: function (args) {
                     var tmp$0;
                     var interactive = true;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(0), interactive)};
+                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO, interactive)};
                     var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(620), Kotlin.Long.fromInt(400))};
                     document.body.appendChild(renderer.v.view);
                     var background = PIXI.Sprite.fromImage('button_test_BG.jpg');

@@ -43,8 +43,8 @@
                       var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5;
                       (tmp$0 = firstTile.v) != null ? (tmp$0.isSelected = false) : null;
                       (tmp$1 = secondTile.v) != null ? (tmp$1.isSelected = false) : null;
-                      (tmp$2 = firstTile.v) != null ? (tmp$2.tint = Kotlin.Long.fromInt(0)) : null;
-                      (tmp$3 = secondTile.v) != null ? (tmp$3.tint = Kotlin.Long.fromInt(0)) : null;
+                      (tmp$2 = firstTile.v) != null ? (tmp$2.tint = Kotlin.Long.ZERO) : null;
+                      (tmp$3 = secondTile.v) != null ? (tmp$3.tint = Kotlin.Long.ZERO) : null;
                       (tmp$4 = firstTile.v) != null ? (tmp$4.alpha = 0.5) : null;
                       (tmp$5 = secondTile.v) != null ? (tmp$5.alpha = 0.5) : null;
                       firstTile.v = null;
@@ -107,7 +107,7 @@
                           tile.theVal = chosenTiles[i_0 * 6 + j];
                           tile.position.x = 7 + i_0 * 80;
                           tile.position.y = 7 + j * 80;
-                          tile.tint = Kotlin.Long.fromInt(0);
+                          tile.tint = Kotlin.Long.ZERO;
                           tile.alpha = 0.5;
                           gameContainer.v.addChild(tile);
                           tile.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_pairs.onTilesLoaded$f(canPick, firstTile, secondTile, gameContainer);
