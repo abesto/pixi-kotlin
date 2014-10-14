@@ -336,3 +336,8 @@ You can track any progress on this in issue
 <a href="https://github.com/GoodBoyDigital/pixi.js/issues/1005">pixi.js/1005</a></p>
 """
 }
+
+project(':examples:12') {
+	description = 'Spine: Walking dude'
+	ext.isFullscreen = true
+}

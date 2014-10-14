@@ -14,4 +14,5 @@ native public class WorkaroundKT5887 {
     public val texture: PIXI.Texture = noImpl
     public val assetLoader: PIXI.AssetLoader = noImpl
     public val eventTarget: PIXI.EventTarget = noImpl
+    public val Spine: PIXI.Spine = noImpl
 }

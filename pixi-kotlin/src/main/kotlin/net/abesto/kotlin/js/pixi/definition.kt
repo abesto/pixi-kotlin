@@ -130,6 +130,7 @@ native public object PIXI {
         public fun resize(width: Long, height: Long): Unit = noImpl
     }
     public fun autoDetectRenderer(width: Long, height: Long, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
+    public fun autoDetectRenderer(width: Double, height: Double, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
 
     // text
     public class Text(text: String, style: TextStyle = noImpl): Sprite(noImpl) {
@@ -160,6 +161,28 @@ native public object PIXI {
 
         public var onComplete: () -> Unit = undefined
         public var onProgress: () -> Unit = undefined
+    }
+
+    // extras
+
+    public class Spine(val url: String): DisplayObjectContainer() {
+        class object {
+            class AnimationSkeletonData {
+
+            }
+
+            class AnimationStateData(val skeletonData: AnimationSkeletonData) {
+                public fun setMixByName(fromName: String, toName: String, duration: Double): Unit = noImpl
+            }
+
+            class AnimationState(val data: AnimationStateData) {
+                public fun setAnimationByName(animationName: String, loop: Boolean): Unit = noImpl
+                public fun addAnimationByName(animationName: String, loop: Boolean): Unit = noImpl
+            }
+        }
+
+        val state: AnimationState = noImpl
+        val stateData: AnimationStateData = noImpl
     }
 
     //utils

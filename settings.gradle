@@ -2,4 +2,4 @@ rootProject.name = 'pixi-kotlin'
 
 include 'pixi-kotlin', 'examples:pairs',
 		'examples:01', 'examples:02', 'examples:03', 'examples:04', 'examples:05', 'examples:06', 'examples:07',
-		'examples:08', 'examples:09', 'examples:10', 'examples:11'
+		'examples:08', 'examples:09', 'examples:10', 'examples:11', 'examples:12'
