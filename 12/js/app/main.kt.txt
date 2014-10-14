@@ -48,7 +48,7 @@ fun main(args: Array<String>) {
             spineBoy.state.addAnimationByName("walk", true)
         }
 
-        var logo = PIXI.Sprite.fromImage("../../logo_small.png")
+        var logo = PIXI.Sprite.fromImage("logo_small.png")
         stage.addChild(logo)
 
 

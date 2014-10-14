@@ -29,7 +29,7 @@
                       spineBoy.v.state.setAnimationByName('walk', true);
                       stage.v.addChild(spineBoy.v);
                       stage.v.click = _.net.abesto.kotlin.js.pixi.examples.example_12.onAssetsLoaded$f(spineBoy);
-                      var logo = PIXI.Sprite.fromImage('../../logo_small.png');
+                      var logo = PIXI.Sprite.fromImage('logo_small.png');
                       stage.v.addChild(logo);
                       logo.anchor.x = 1.0;
                       logo.position.x = window.innerWidth;
