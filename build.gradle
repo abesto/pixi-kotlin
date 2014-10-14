@@ -35,17 +35,24 @@ class KotlinJs implements Plugin<Project> {
 			compile deps  // but let's also add the libraries as compile dependencies
 		}
 
-		project.ext.findJar = { artifact -> project.configurations.compileKotlinJs.find { it.name.startsWith(artifact) } }
-		project.kotlinJs.libraryFiles << project.findJar("kotlin-js-library")
+		def findJar = { artifact -> project.configurations.compileKotlinJs.find { it.name.startsWith(artifact) } }
+		project.kotlinJs.libraryFiles << findJar("kotlin-js-library")
 
 		project.task('build', overwrite: true) {}
 
-		project.task('buildKotlinJsStdlib', type: com.eriwen.gradle.js.tasks.CombineJsTask) {
-			source = project.zipTree(project.findJar("kotlin-js-library")).matching{include "*.js"}
-			dest = "${project.projectDir}/${project.kotlinJs.stdlibJsFile}"
+		project.task('test', overwrite: true) {
+			logger.info "KotlinJS testing not implemented"
 		}
 
 		project.afterEvaluate {
+			project.task('buildKotlinJsStdlib', type: com.eriwen.gradle.js.tasks.CombineJsTask) {
+				source = project.zipTree(findJar("kotlin-js-library")).matching{include "*.js"}
+				dest = "${project.projectDir}/${project.kotlinJs.stdlibJsFile}"
+			}
+			project.task('cleanBuildKotlinJsStdlib', type: Delete) {
+				delete project.tasks.buildKotlinJsStdlib.outputs
+			}
+
 			if (project.sourceSets.main.allSource.empty) {
 				project.logger.info("No kotlin source files found in project '${project.name}', not compiling anything to JS.")
 			} else {
@@ -63,8 +70,8 @@ class KotlinJs implements Plugin<Project> {
 					jvmArgs = ["-noverify"]
 
 					classpath = project.files(
-							project.findJar("kotlin-compiler"),
-							project.findJar("kotlin-runtime")
+							findJar("kotlin-compiler"),
+							findJar("kotlin-runtime")
 					)
 
 					if (project.kotlinJs.generateSourcemap) {
@@ -86,7 +93,13 @@ class KotlinJs implements Plugin<Project> {
 					}
 				}
 
+				project.task('cleanCompileKotlinJs', type: Delete) {
+					dependsOn project.cleanBuildKotlinJsStdlib
+					delete project.tasks.compileKotlinJs.outputs
+				}
+
 				project.tasks.build.dependsOn project.compileKotlinJs
+				project.tasks.clean.dependsOn project.cleanCompileKotlinJs
 
 				if (project.kotlinJs.generateSourcemap) {
 					def outputDir = new File(project.kotlinJs.output).parent
@@ -97,18 +110,16 @@ class KotlinJs implements Plugin<Project> {
 						rename '(.*)\\.kt', '$1.kt.txt'
 					}
 
+					project.task('cleanCopyKotlinSources', type: Delete) << {
+						project.sourceSets.main.allSource.files.each {
+							delete "${outputDir}/${it}.txt"
+						}
+					}
+
 					project.tasks.build.dependsOn project.copyKotlinSources
+					project.tasks.clean.dependsOn project.cleanCopyKotlinSources
 				}
 			}
-		}
-
-		project.task('test', overwrite: true) {
-			logger.info "KotlinJS testing not implemented"
-		}
-
-		project.sourceSets {
-			main.java.srcDirs += 'src/main/kotlin'
-			test.java.srcDirs += 'src/test/kotlin'
 		}
 	}
 }
@@ -131,8 +142,6 @@ buildscript {
 }
 
 subprojects {
-	apply plugin: KotlinJs
-
 	repositories {
 		mavenCentral()
 	}
@@ -140,6 +149,8 @@ subprojects {
 }
 
 project(':pixi-kotlin') {
+	apply plugin: 'kotlin'
+
 	task build(overwrite: true) {
 		logger.info "Definitions are not compiled, we only build a source jar"
 	}
@@ -168,6 +179,12 @@ project(':examples') {
 		expand(project: project)
 		outputs.upToDateWhen { false }
 	}
+	task cleanGenerateIndexHtml(type: Delete) {
+		delete "${projectDir}/web/index.html"
+	}
+	task clean() {
+		dependsOn cleanGenerateIndexHtml
+	}
 
 	apply plugin: 'org.ajoberstar.github-pages'
 	githubPages {
@@ -186,6 +203,8 @@ project(':examples') {
 	publishGhPages.dependsOn += subprojects.collect {"${it.name}:generateExampleIndexHtml"}
 
 	subprojects {
+		apply plugin: KotlinJs
+
 		dependencies {
 			compile project(':pixi-kotlin')
 		}
@@ -212,8 +231,12 @@ project(':examples') {
 			expand(project: project)
 			outputs.upToDateWhen { false }
 		}
+		task cleanGenerateExampleIndexHtml(type: Delete) {
+			delete "${generateExampleIndexHtml.destinationDir}/index.html"
+		}
 
 		build.dependsOn ':pixi-kotlin:jarSources', generateExampleIndexHtml
+		clean.dependsOn cleanGenerateExampleIndexHtml
 	}
 }
 
