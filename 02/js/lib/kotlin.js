@@ -16,7 +16,7 @@
 
 var Kotlin = {};
 
-(function () {
+(function (Kotlin) {
     'use strict';
 
     function toArray(obj) {
@@ -475,7 +475,7 @@ var Kotlin = {};
         Object.defineProperty(Kotlin.modules, id, {value: declaration});
     };
 
-})();
+})(Kotlin);
 /**
  * Copyright 2010 Tim Down.
  *
@@ -492,7 +492,7 @@ var Kotlin = {};
  * limitations under the License.
  */
 
-(function () {
+(function (Kotlin) {
     "use strict";
 
     // Shims for String
@@ -770,6 +770,15 @@ var Kotlin = {};
             ordinal: function () {
                 return this.ordinal$;
             },
+            equals_za3rmp$: function (o) {
+                return this === o;
+            },
+            hashCode: function () {
+                return getObjectHashCode(this);
+            },
+            compareTo_za3rmp$: function (o) {
+                return this.ordinal$ < o.ordinal$ ? -1 : this.ordinal$ > o.ordinal$ ? 1 : 0;
+            },
             toString: function () {
                 return this.name();
             }
@@ -1007,46 +1016,87 @@ var Kotlin = {};
         return true;
     };
 
-    Kotlin.System = function () {
-        var output = "";
-
-        var print = function (obj) {
-            if (obj !== undefined) {
-                if (obj === null || typeof obj !== "object") {
-                    output += obj;
-                }
-                else {
-                    output += obj.toString();
-                }
-            }
-        };
-        var println = function (obj) {
-            this.print(obj);
-            output += "\n";
-        };
-
-        return {
-            out: function () {
-                return {
-                    print: print,
-                    println: println
-                };
-            },
-            output: function () {
-                return output;
+    var BaseOutput = Kotlin.createClassNow(null, null, {
+            println: function (a) {
+                if (typeof a !== "undefined") this.print(a);
+                this.print("\n");
             },
             flush: function () {
-                output = "";
             }
-        };
+        }
+    );
+
+    Kotlin.NodeJsOutput = Kotlin.createClassNow(BaseOutput,
+        function(outputStream) {
+            this.outputStream = outputStream;
+        }, {
+            print: function (a) {
+                this.outputStream.write(a);
+            }
+        }
+    );
+
+    Kotlin.OutputToConsoleLog = Kotlin.createClassNow(BaseOutput, null, {
+            print: function (a) {
+                console.log(a);
+            },
+            println: function (a) {
+                this.print(typeof a !== "undefined" ? a : "");
+            }
+        }
+    );
+
+    Kotlin.BufferedOutput = Kotlin.createClassNow(BaseOutput,
+        function() {
+            this.buffer = ""
+        }, {
+            print: function (a) {
+                this.buffer += String(a);
+            },
+            flush: function () {
+                this.buffer = "";
+            }
+        }
+    );
+
+    Kotlin.BufferedOutputToConsoleLog = Kotlin.createClassNow(Kotlin.BufferedOutput,
+        function() {
+            Kotlin.BufferedOutput.call(this);
+        }, {
+            print: function (a) {
+                var s = String(a);
+
+                var i = s.lastIndexOf("\n");
+                if (i != -1) {
+                    this.buffer += s.substr(0, i);
+
+                    this.flush();
+
+                    s = s.substr(i + 1);
+                }
+
+                this.buffer += s;
+            },
+            flush: function () {
+                console.log(this.buffer);
+                this.buffer = "";
+            }
+        }
+    );
+    Kotlin.out = function() {
+        var isNode = typeof process !== 'undefined' && process.versions && !!process.versions.node;
+
+        if (isNode) return new Kotlin.NodeJsOutput(process.stdout);
+
+        return new Kotlin.BufferedOutputToConsoleLog();
     }();
 
     Kotlin.println = function (s) {
-        Kotlin.System.out().println(s);
+        Kotlin.out.println(s);
     };
 
     Kotlin.print = function (s) {
-        Kotlin.System.out().print(s);
+        Kotlin.out.print(s);
     };
 
     lazyInitClasses.RangeIterator = Kotlin.createClass(
@@ -1430,7 +1480,7 @@ var Kotlin = {};
     };
 
     Kotlin.createDefinition(lazyInitClasses, Kotlin);
-})();
+})(Kotlin);
 /*
  * Copyright 2010-2013 JetBrains s.r.o.
  *
@@ -2287,7 +2337,7 @@ var Kotlin = {};
  * limitations under the License.
  */
 
-(function () {
+(function (Kotlin) {
     "use strict";
 
     /**
@@ -3019,7 +3069,7 @@ var Kotlin = {};
         /** @constructs */
         function () {
             this.$size = 0;
-            this.map = {};
+            this.map = Object.create(null);
         },
         /** @lends {Kotlin.AbstractPrimitiveHashSet.prototype} */
         {
@@ -3069,69 +3119,18 @@ var Kotlin = {};
             }
     });
 
-    var PROTO_NAME = "__proto__";
-
     lazyInitClasses.DefaultPrimitiveHashSet = Kotlin.createClass(
         function () {
             return [Kotlin.AbstractPrimitiveHashSet];
         },
         /** @constructs */
         function () {
-            var superClass = Kotlin.AbstractPrimitiveHashSet;
-
-            superClass.call(this);
-            this.super = superClass.prototype;
-
-            this.containsProto = false;
+            Kotlin.AbstractPrimitiveHashSet.call(this);
         },
         /** @lends {Kotlin.DefaultPrimitiveHashSet.prototype} */
         {
-            contains_za3rmp$: function (key) {
-                var skey = String(key);
-                if (skey === PROTO_NAME) {
-                    return this.containsProto;
-                }
-
-                return this.super.contains_za3rmp$.call(this, key);
-            },
-            add_za3rmp$: function (element) {
-                var skey = String(element);
-                if (skey === PROTO_NAME) {
-                    var isNewElement = !this.containsProto;
-
-                    if (isNewElement) {
-                        this.containsProto = true;
-                        this.$size++;
-                    }
-
-                    return isNewElement;
-                }
-
-                return this.super.add_za3rmp$.call(this, element);
-            },
-            remove_za3rmp$: function (element) {
-                var skey = String(element);
-                if (skey === PROTO_NAME) {
-                    var contains = this.containsProto;
-
-                    if (contains) {
-                        this.containsProto = false;
-                        this.$size++;
-                    }
-
-                    return contains;
-                }
-
-                return this.super.remove_za3rmp$.call(this, element);
-            },
-            clear: function () {
-                this.$size = 0;
-                this.containsProto = false;
-                this.map = {};
-            },
             toArray: function () {
-                var elements = Object.keys(this.map);
-                return !this.containsProto ? elements : elements.concat(PROTO_NAME);
+                return Object.keys(this.map);
             }
     });
 
@@ -3305,4 +3304,4 @@ var Kotlin = {};
     Object.defineProperty(Kotlin, "ComplexHashSet", { get : function () { return Kotlin.HashSet; }});
 
     Kotlin.createDefinition(lazyInitClasses, Kotlin);
-}());
+}(Kotlin));
