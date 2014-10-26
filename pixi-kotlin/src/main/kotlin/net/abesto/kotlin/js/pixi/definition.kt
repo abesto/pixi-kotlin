@@ -110,9 +110,6 @@ native public object PIXI {
         public var tint: Long = 0xFFFFFF
 
         public fun setTexture(texture: Texture): Unit = noImpl
-
-        deprecated("Instead of using this function you can now simply set the interactive property to true or false")
-        public fun setInteractive(interactive: Boolean): Unit = noImpl
     }
 
     open public class TilingSprite(var texture: Texture, override var width: Double, override var height: Double): DisplayObjectContainer() {
@@ -129,8 +126,8 @@ native public object PIXI {
         public fun render(stage: Stage): Unit = noImpl
         public fun resize(width: Long, height: Long): Unit = noImpl
     }
-    public fun autoDetectRenderer(width: Long, height: Long, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
-    public fun autoDetectRenderer(width: Double, height: Double, view: HTMLCanvasElement? = null, antialias: Boolean = false, transparent: Boolean = false): Renderer = noImpl
+    public fun autoDetectRenderer(width: Long, height: Long, options: AutoDetectRendererOptions = noImpl): Renderer = noImpl
+    public fun autoDetectRenderer(width: Double, height: Double, options: AutoDetectRendererOptions = noImpl): Renderer = noImpl
 
     // text
     public class Text(text: String, style: TextStyle = noImpl): Sprite(noImpl) {
@@ -196,6 +193,8 @@ native public object PIXI {
 
 native public fun requestAnimFrame(animation: () -> Unit): Unit = noImpl
 
+// TODO add default values, check nullability
+// TODO add documentation
 native("Object")
 public class TextStyle {
     var font: String = noImpl
@@ -207,8 +206,20 @@ public class TextStyle {
     var wordWrapWidth: Long = noImpl
 }
 
+// TODO add default values, check nullability
+// TODO add documentation
 native("Object")
 open public class BitmapTextStyle {
     var font: String = noImpl
     var align: String = noImpl
+}
+
+// TODO add documentation
+native("Object")
+open public class AutoDetectRendererOptions {
+    var view: HTMLCanvasElement? = null
+    var transparent: Boolean = false
+    var antialias: Boolean = false
+    var preserveDrawingBuffer: Boolean = true
+    var resolution: Int = 1
 }

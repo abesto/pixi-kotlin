@@ -57,7 +57,7 @@ fun main(args: Array<String>) {
         logo.scale.x = 0.5
         logo.scale.y = logo.scale.x
         logo.position.y = window.innerHeight - 70
-        logo.setInteractive(true)
+        logo.interactive = true
         logo.buttonMode = true
         logo.click = { window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank") }
         logo.tap = logo.click

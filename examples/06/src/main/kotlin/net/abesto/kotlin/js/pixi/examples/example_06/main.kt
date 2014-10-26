@@ -56,7 +56,7 @@ fun main(args: Array<String>) {
         button.position.y = buttonPositions[i*2 + 1].toDouble()
 
         // make the button interactive..
-        button.setInteractive(true)
+        button.interactive = true
 
         // set the mousedown and touchstart callback..
         button.mousedown = { data ->
@@ -151,7 +151,7 @@ fun main(args: Array<String>) {
     pixiLogo.position.x = 620.0 - 56
     pixiLogo.position.y = 400.0 - 32
 
-    pixiLogo.setInteractive(true)
+    pixiLogo.interactive = true
 
     pixiLogo.click = { data ->
         var win=window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank")
