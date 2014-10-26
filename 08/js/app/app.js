@@ -67,7 +67,7 @@
                   main: function (args) {
                     var tmp$0;
                     var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(9946478), true)};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight), null)};
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight))};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', '0px', '');

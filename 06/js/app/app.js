@@ -86,7 +86,7 @@
                       button.anchor.y = 0.5;
                       button.position.x = buttonPositions[i * 2];
                       button.position.y = buttonPositions[i * 2 + 1];
-                      button.setInteractive(true);
+                      button.interactive = true;
                       button.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f(textureButtonDown);
                       button.touchstart = button.mousedown;
                       button.mouseup = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_0(textureButtonOver, textureButton);
@@ -112,7 +112,7 @@
                     stage.v.addChild(pixiLogo);
                     pixiLogo.position.x = 620.0 - 56;
                     pixiLogo.position.y = 400.0 - 32;
-                    pixiLogo.setInteractive(true);
+                    pixiLogo.interactive = true;
                     pixiLogo.click = _.net.abesto.kotlin.js.pixi.examples.example_06.main$f_5;
                     pixiLogo.tap = pixiLogo.click;
                   }

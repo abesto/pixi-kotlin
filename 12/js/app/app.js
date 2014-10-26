@@ -36,7 +36,7 @@
                       logo.scale.x = 0.5;
                       logo.scale.y = logo.scale.x;
                       logo.position.y = window.innerHeight - 70;
-                      logo.setInteractive(true);
+                      logo.interactive = true;
                       logo.buttonMode = true;
                       logo.click = _.net.abesto.kotlin.js.pixi.examples.example_12.onAssetsLoaded$f_0;
                       logo.tap = logo.click;

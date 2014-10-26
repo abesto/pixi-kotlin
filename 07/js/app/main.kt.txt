@@ -10,7 +10,9 @@ fun main(args: Array<String>) {
     var stage = PIXI.Stage(0x66FF99)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(400, 300, null, true)
+    val rendererOptions = AutoDetectRendererOptions()
+    rendererOptions.transparent = true
+    var renderer = PIXI.autoDetectRenderer(400, 300, rendererOptions)
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)

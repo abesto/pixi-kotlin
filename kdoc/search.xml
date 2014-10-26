@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <searches>
 <search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html</href>
+  <name>AutoDetectRendererOptions [net.abesto.kotlin.js.pixi]</name>
+  <kind>class</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/BitmapTextStyle.html</href>
   <name>BitmapTextStyle [net.abesto.kotlin.js.pixi]</name>
   <kind>class</kind>
@@ -106,7 +111,12 @@
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/PIXI.html#autoDetectRenderer(kotlin.Double, kotlin.Double, [ERROR : HTMLCanvasElement]?, kotlin.Boolean, kotlin.Boolean)</href>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#antialias</href>
+  <name>antialias [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/PIXI.html#autoDetectRenderer(kotlin.Double, kotlin.Double, net.abesto.kotlin.js.pixi.AutoDetectRendererOptions)</href>
   <name>autoDetectRenderer() [net.abesto.kotlin.js.pixi.PIXI]</name>
   <kind>fun</kind>
 </search>
@@ -149,6 +159,11 @@
   <href>net/abesto/kotlin/js/pixi/Stage.html#click</href>
   <name>click [net.abesto.kotlin.js.pixi.Stage]</name>
   <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#equals(kotlin.Any)</href>
+  <name>equals() [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>fun</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/BitmapTextStyle.html#equals(kotlin.Any)</href>
@@ -223,6 +238,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/InteractionData.html#getLocalPosition(net.abesto.kotlin.js.pixi.DisplayObject)</href>
   <name>getLocalPosition() [net.abesto.kotlin.js.pixi.InteractionData]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#hashCode()</href>
+  <name>hashCode() [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -476,6 +496,11 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#preserveDrawingBuffer</href>
+  <name>preserveDrawingBuffer [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#removeChild(net.abesto.kotlin.js.pixi.DisplayObject)</href>
   <name>removeChild() [net.abesto.kotlin.js.pixi.DisplayObjectContainer]</name>
   <kind>fun</kind>
@@ -499,6 +524,11 @@
   <href>net/abesto/kotlin/js/pixi/Renderer.html#resize(kotlin.Long, kotlin.Long)</href>
   <name>resize() [net.abesto.kotlin.js.pixi.Renderer]</name>
   <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#resolution</href>
+  <name>resolution [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/DisplayObjectContainer.html#rotation</href>
@@ -541,11 +571,6 @@
   <kind>var</kind>
 </search>
 <search>
-  <href>net/abesto/kotlin/js/pixi/Sprite.html#setInteractive(kotlin.Boolean)</href>
-  <name>setInteractive() [net.abesto.kotlin.js.pixi.Sprite]</name>
-  <kind>fun</kind>
-</search>
-<search>
   <href>net/abesto/kotlin/js/pixi/Sprite.html#setTexture(net.abesto.kotlin.js.pixi.Texture)</href>
   <name>setTexture() [net.abesto.kotlin.js.pixi.Sprite]</name>
   <kind>fun</kind>
@@ -584,6 +609,11 @@
   <href>net/abesto/kotlin/js/pixi/Sprite.html#tint</href>
   <name>tint [net.abesto.kotlin.js.pixi.Sprite]</name>
   <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#toString()</href>
+  <name>toString() [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>fun</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/BitmapTextStyle.html#toString()</href>
@@ -718,6 +748,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/Stage.html#touchstart</href>
   <name>touchstart [net.abesto.kotlin.js.pixi.Stage]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#transparent</href>
+  <name>transparent [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/AutoDetectRendererOptions.html#view</href>
+  <name>view [net.abesto.kotlin.js.pixi.AutoDetectRendererOptions]</name>
   <kind>var</kind>
 </search>
 <search>

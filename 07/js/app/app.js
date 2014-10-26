@@ -17,7 +17,9 @@
                   },
                   main: function (args) {
                     var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(6750105))};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(400), Kotlin.Long.fromInt(300), null, true)};
+                    var rendererOptions = new Object();
+                    rendererOptions.transparent = true;
+                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(400), Kotlin.Long.fromInt(300), rendererOptions)};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', document.getElementById('textHolder').getBoundingClientRect().top.toString() + 'px', '');

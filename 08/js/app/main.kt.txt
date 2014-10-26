@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     // create an new instance of a pixi stage
     var stage = PIXI.Stage(0x97c56e, true)
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong(), null)
+    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
