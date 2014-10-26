@@ -341,3 +341,9 @@ project(':examples:12') {
 	description = 'Spine: Walking dude'
 	ext.isFullscreen = true
 }
+
+project(':examples:12b') {
+	description = 'Spine: Flying Dragon'
+	ext.isFullscreen = true
+	ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/12-2/"
+}
