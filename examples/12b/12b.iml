@@ -17,9 +17,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pixi-kotlin-pixi-kotlin" exported="" />
-    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-compiler:0.1-SNAPSHOT" level="project" />
     <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-js-library:0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:0.1-SNAPSHOT" level="project" />
-    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-runtime:0.1-SNAPSHOT" level="project" />
   </component>
 </module>

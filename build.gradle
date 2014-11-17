@@ -78,7 +78,8 @@ class KotlinJs implements Plugin<Project> {
 						args "-source-map"
 					}
 					args "-verbose", "-version",
-						 "-output", output, "-library-files", project.kotlinJs.libraryFiles.join(',')
+							"-output", output, "-library-files", project.kotlinJs.libraryFiles.join(','),
+							"-no-stdlib"
 					args sources.toList()
 
 					doLast {
@@ -346,4 +347,10 @@ project(':examples:12b') {
 	description = 'Spine: Flying Dragon'
 	ext.isFullscreen = true
 	ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/12-2/"
+}
+
+project(':examples:12c') {
+	description = 'Spine: Pixi Dude'
+	ext.isFullscreen = true
+	ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/12-3/"
 }
