@@ -1,156 +1,33 @@
 group = 'net.abesto.kotlin.js.pixi'
 version = '0.0.1'
 
-class KotlinJsExtension {
-	List<String> libraryFiles = []
-	String kotlinVersion = "0.1-SNAPSHOT"
-	String jsFile = "app"
-	String output = "web/js/app/${jsFile}.js"
-	String stdlibJsFile = "web/js/lib/kotlin.js"
-	Boolean generateSourcemap = true
-}
-
-class KotlinJs implements Plugin<Project> {
-	void apply(Project project) {
-		project.configurations { compileKotlinJs }
-
-		project.apply plugin: 'kotlin'
-		project.extensions.create("kotlinJs", KotlinJsExtension)
-
-		if (project.kotlinJs.kotlinVersion == "0.1-SNAPSHOT") {
-			project.repositories {
-				maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
-			}
-		}
-
-		def deps = [
-				"org.jetbrains.kotlin:kotlin-compiler:${project.kotlinJs.kotlinVersion}",
-				"org.jetbrains.kotlin:kotlin-js-library:${project.kotlinJs.kotlinVersion}",
-				"org.jetbrains.kotlin:kotlin-stdlib:${project.kotlinJs.kotlinVersion}"
-		]
-
-		project.dependencies {
-			compileKotlinJs deps  // findJar resolves the configuration, making the user of the plugin unable to add
-			                      // new dependencies, so we need a separate configuration
-			compile deps  // but let's also add the libraries as compile dependencies
-		}
-
-		def findJar = { artifact -> project.configurations.compileKotlinJs.find { it.name.startsWith(artifact) } }
-		project.kotlinJs.libraryFiles << findJar("kotlin-js-library")
-
-		project.task('build', overwrite: true) {}
-
-		project.task('test', overwrite: true) {
-			logger.info "KotlinJS testing not implemented"
-		}
-
-		project.afterEvaluate {
-			project.task('buildKotlinJsStdlib', type: com.eriwen.gradle.js.tasks.CombineJsTask) {
-				source = project.zipTree(findJar("kotlin-js-library")).matching{include "*.js"}
-				dest = "${project.projectDir}/${project.kotlinJs.stdlibJsFile}"
-			}
-			project.task('cleanBuildKotlinJsStdlib', type: Delete) {
-				delete project.tasks.buildKotlinJsStdlib.outputs
-			}
-
-			if (project.sourceSets.main.allSource.empty) {
-				project.logger.info("No kotlin source files found in project '${project.name}', not compiling anything to JS.")
-			} else {
-				project.task('compileKotlinJs', type: JavaExec) {
-					dependsOn project.buildKotlinJsStdlib
-
-					def sources = project.sourceSets.main.allSource.files
-					def output = "${project.projectDir}/${project.kotlinJs.output}"
-					inputs.files sources
-					outputs.files output, "${output}.map"
-
-					main "org.jetbrains.jet.cli.js.K2JSCompiler"
-					maxHeapSize = "256M"
-					minHeapSize = "32M"
-					jvmArgs = ["-noverify"]
-
-					classpath = project.files(
-							findJar("kotlin-compiler"),
-							findJar("kotlin-runtime")
-					)
-
-					if (project.kotlinJs.generateSourcemap) {
-						args "-source-map"
-					}
-					args "-verbose", "-version",
-							"-output", output, "-library-files", project.kotlinJs.libraryFiles.join(','),
-							"-no-stdlib"
-					args sources.toList()
-
-					doLast {
-						if (project.kotlinJs.generateSourcemap) {
-							def file = new File("${project.projectDir}/${project.kotlinJs.output}.map")
-							def text = file.text
-							sources.each {
-								text = text.replace("file://${it}", "${it.name}.txt")
-							}
-							file.write(text)
-						}
-					}
-				}
-
-				project.task('cleanCompileKotlinJs', type: Delete) {
-					dependsOn project.cleanBuildKotlinJsStdlib
-					delete project.tasks.compileKotlinJs.outputs
-				}
-
-				project.tasks.build.dependsOn project.compileKotlinJs
-				project.tasks.clean.dependsOn project.cleanCompileKotlinJs
-
-				if (project.kotlinJs.generateSourcemap) {
-					def outputDir = new File(project.kotlinJs.output).parent
-
-					project.task('copyKotlinSources', type: Copy) {
-						from project.sourceSets.main.allSource.files
-						into outputDir
-						rename '(.*)\\.kt', '$1.kt.txt'
-					}
-
-					project.task('cleanCopyKotlinSources', type: Delete) << {
-						project.sourceSets.main.allSource.files.each {
-							delete "${outputDir}/${it}.txt"
-						}
-					}
-
-					project.tasks.build.dependsOn project.copyKotlinSources
-					project.tasks.clean.dependsOn project.cleanCopyKotlinSources
-				}
-			}
-		}
-	}
-}
-
 buildscript {
 	ext {
-		kotlinGradlePluginVersion = '0.1-SNAPSHOT'
+		kotlinVersion = '0.1-SNAPSHOT'
 	}
 
 	repositories {
-		mavenCentral()
+		mavenLocal()
 		jcenter()
 		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
 	}
 	dependencies {
-		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinGradlePluginVersion"
-		classpath "com.eriwen:gradle-js-plugin:1.12.1"
-		classpath 'org.ajoberstar:gradle-git:0.10.1'
+		classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+				"com.eriwen:gradle-js-plugin:1.12.1",
+				'org.ajoberstar:gradle-git:0.10.1'
 	}
 }
 
 subprojects {
 	repositories {
-		mavenCentral()
+		mavenLocal()
+		jcenter()
 	}
 
 }
 
 project(':pixi-kotlin') {
-	apply plugin: 'kotlin'
+	apply plugin: 'kotlin2js'
 
 	task build(overwrite: true) {
 		logger.info "Definitions are not compiled, we only build a source jar"
@@ -159,6 +36,9 @@ project(':pixi-kotlin') {
 	task jarSources(type:Jar){
 		from sourceSets.main.allSource
 		classifier = 'source'
+	}
+	artifacts {
+		compile jarSources
 	}
 
 	kdoc.kdocArgs.docConfig.ignorePackages << "kotlin"
@@ -169,7 +49,6 @@ project(':pixi-kotlin') {
 	kdoc.kdocArgs.docConfig.packageSummaryText["net.abesto.kotlin.js.pixi"] = "Kotlin bindings for Pixi.js"
 	kdoc.kdocArgs.docConfig.addPackageLink("http://jetbrains.github.io/kotlin/versions/snapshot/apidocs/", "kotlin")
 	kdoc.kdocArgs.docConfig.addPackageLink("http://docs.oracle.com/javase/6/docs/api/", "java", "org.w3c.dom", "org.xml.sax", "org.omg", "org.ietf.jgss")
-
 }
 
 project(':examples') {
@@ -204,14 +83,40 @@ project(':examples') {
 	publishGhPages.dependsOn += subprojects.collect {"${it.name}:generateExampleIndexHtml"}
 
 	subprojects {
-		apply plugin: KotlinJs
+		apply plugin: "kotlin2js"
 
 		dependencies {
-			compile project(':pixi-kotlin')
+			compile project(':pixi-kotlin'),
+					"org.jetbrains.kotlin:kotlin-js-library:$kotlinVersion"
 		}
 
-		kotlinJs.jsFile = "app"
-		kotlinJs.libraryFiles << project(':pixi-kotlin').tasks.jarSources.archivePath
+		compileKotlin2Js.kotlinOptions.outputFile = "${projectDir}/web/js/app/app.js"
+		compileKotlin2Js.kotlinOptions.sourceMap = true
+		copyKotlinJs.into "${projectDir}/web/js/lib"
+
+		task('copyKotlinSources', type: Copy) {
+			from project.sourceSets.main.allSource.files
+			into "${projectDir}/web/js/app"
+			rename '(.*)\\.kt', '$1.kt.txt'
+		}
+		tasks.build.dependsOn copyKotlinSources
+
+		task('cleanCopyKotlinSources', type: Delete) {
+			project.sourceSets.main.allSource.files.each {
+				delete "${projectDir}/web/js/app/${it.name}.txt"
+			}
+		}
+		tasks.clean.dependsOn cleanCopyKotlinSources
+
+		task('rewriteSourceMap', dependsOn: compileKotlin2Js) << {
+			def file = new File("${projectDir}/web/js/app/app.js.map")
+			def text = file.text
+			project.sourceSets.main.allSource.files.each {
+				text = text.replace("file://${it}", "${it.name}.txt")
+			}
+			file.write(text)
+		}
+		tasks.build.dependsOn rewriteSourceMap
 
 		ext {
 			isFullscreen = false
