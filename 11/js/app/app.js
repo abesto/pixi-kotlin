@@ -12,7 +12,7 @@
                     return function animate() {
                       var tmp$0;
                       requestAnimFrame(animate);
-                      tmp$0 = bunnys.v.length - 1;
+                      tmp$0 = _.kotlin.get_size_eg9ybj$(bunnys.v) - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         var bunny = bunnys.v[i];
                         bunny.rotation = bunny.rotation + 0.1;
@@ -56,7 +56,7 @@
                     var bunnys = {v: []};
                     tmp$0 = 19;
                     for (var i = 0; i <= tmp$0; i++) {
-                      var bunny = PIXI.Sprite.fromImage(fruits[i % fruits.length]);
+                      var bunny = PIXI.Sprite.fromImage(fruits[i % _.kotlin.get_size_eg9ybj$(fruits)]);
                       bunny.position.x = Math.random() * 400 - 200;
                       bunny.position.y = Math.random() * 400 - 200;
                       bunny.anchor.x = 0.5;

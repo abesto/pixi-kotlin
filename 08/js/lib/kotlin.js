@@ -714,7 +714,7 @@ var Kotlin = {};
      */
     lazyInitClasses.ArrayIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableIterator];
+            return [Kotlin.modules['builtins'].kotlin.MutableIterator];
         },
         /** @constructs */
         function (array) {
@@ -746,7 +746,7 @@ var Kotlin = {};
      */
     lazyInitClasses.ListIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+            return [Kotlin.modules['builtins'].kotlin.Iterator];
         },
         /** @constructs */
         function (list) {
@@ -793,7 +793,7 @@ var Kotlin = {};
 
     lazyInitClasses.AbstractCollection = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableCollection];
+            return [Kotlin.modules['builtins'].kotlin.MutableCollection];
         }, null, {
         addAll_4fm7v2$: function (collection) {
             var modified = false;
@@ -882,7 +882,7 @@ var Kotlin = {};
      */
     lazyInitClasses.AbstractList = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableList, Kotlin.AbstractCollection];
+            return [Kotlin.modules['builtins'].kotlin.MutableList, Kotlin.AbstractCollection];
         }, null, {
         iterator: function () {
             return new Kotlin.ListIterator(this);
@@ -1101,7 +1101,7 @@ var Kotlin = {};
 
     lazyInitClasses.RangeIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+            return [Kotlin.modules['builtins'].kotlin.Iterator];
         },
         function (start, end, increment) {
             this.start = start;
@@ -1176,7 +1176,7 @@ var Kotlin = {};
 
     lazyInitClasses.LongRangeIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+            return [Kotlin.modules['builtins'].kotlin.Iterator];
         },
          function (start, end, increment) {
              this.start = start;
@@ -1450,10 +1450,6 @@ var Kotlin = {};
             result[i] = initFun(i);
         }
         return result;
-    };
-
-    Kotlin.arrayIndices = function (arr) {
-        return new Kotlin.NumberRange(0, arr.length - 1);
     };
 
     Kotlin.arrayIterator = function (array) {
@@ -2740,7 +2736,7 @@ var Kotlin = {};
 
     lazyInitClasses.HashMap = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableMap];
+            return [Kotlin.modules['builtins'].kotlin.MutableMap];
         },
         function () {
             Kotlin.HashTable.call(this);
@@ -2760,7 +2756,7 @@ var Kotlin = {};
      */
     lazyInitClasses.PrimitiveHashMapValuesIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.Iterator];
+            return [Kotlin.modules['builtins'].kotlin.Iterator];
         },
         function (map, keys) {
             this.map = map;
@@ -2786,7 +2782,7 @@ var Kotlin = {};
      */
     lazyInitClasses.PrimitiveHashMapValues = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.Collection];
+            return [Kotlin.modules['builtins'].kotlin.Collection];
         },
         function (map) {
             this.map = map;
@@ -2998,7 +2994,7 @@ var Kotlin = {};
 
     lazyInitClasses.LinkedHashSet = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableSet, Kotlin.HashSet];
+            return [Kotlin.modules['builtins'].kotlin.MutableSet, Kotlin.HashSet];
         },
         /** @constructs */
         function () {
@@ -3036,7 +3032,7 @@ var Kotlin = {};
      */
     lazyInitClasses.SetIterator = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableIterator];
+            return [Kotlin.modules['builtins'].kotlin.MutableIterator];
         },
         function (set) {
             this.set = set;
@@ -3294,7 +3290,7 @@ var Kotlin = {};
 
     lazyInitClasses.HashSet = Kotlin.createClass(
         function () {
-            return [Kotlin.modules['stdlib'].kotlin.MutableSet, Kotlin.AbstractCollection];
+            return [Kotlin.modules['builtins'].kotlin.MutableSet, Kotlin.AbstractCollection];
         },
         function () {
             HashSet.call(this);
