@@ -4,20 +4,24 @@ import kotlin.js.dom.html.window
 import kotlin.js.dom.html.document
 
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import net.abesto.kotlin.js.pixi.PIXI
+import net.abesto.kotlin.js.pixi.InteractionData
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.textures.Texture
 
 
-class Bunny: PIXI.Sprite(noImpl) {
-    var data: PIXI.InteractionData? = null
+class Bunny : Sprite(noImpl) {
+    var data: InteractionData? = null
     var dragging: Boolean = false
 }
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0x97c56e, true)
+    var stage = Stage(0x97c56e, true)
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
+    var renderer = autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
@@ -26,12 +30,11 @@ fun main(args: Array<String>) {
     renderer.view.style.setProperty("left", "0px", "")
 
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("bunny.png")
+    var texture = Texture.fromImage("bunny.png")
 
-    fun createBunny(x: Double, y: Double)
-    {
+    fun createBunny(x: Double, y: Double) {
         // create our little bunny friend..
-        var bunny = PIXI.Sprite(texture)
+        var bunny = Sprite(texture)
         //	bunny.width = 300
         // enable the bunny to be interactive.. this will allow it to respond to mouse and touch events
         bunny.interactive = true
@@ -46,7 +49,8 @@ fun main(args: Array<String>) {
         bunny.scale.y = bunny.scale.x
 
         // use the mousedown and touchstart
-        bunny.mousedown = { data -> this as Bunny
+        bunny.mousedown = { data ->
+            this as Bunny
             //		data.originalEvent.preventDefault()
             // store a refference to the data
             // The reason for this is because of multitouch
@@ -58,7 +62,8 @@ fun main(args: Array<String>) {
         bunny.touchstart = bunny.mousedown
 
         // set the events for when the mouse is released or a touch is released
-        bunny.mouseup = { data -> this as Bunny
+        bunny.mouseup = { data ->
+            this as Bunny
             this.alpha = 1.0
             this.dragging = false
             // set the interaction data to null
@@ -69,11 +74,11 @@ fun main(args: Array<String>) {
         bunny.touchendoutside = bunny.mouseup
 
         // set the callbacks for when the mouse or a touch moves
-        bunny.mousemove = { data -> this as Bunny
-            if(this.dragging)
-            {
+        bunny.mousemove = { data ->
+            this as Bunny
+            if (this.dragging) {
                 // need to get parent coords..
-                var newPosition = this.data!!.getLocalPosition(this.parent)
+                var newPosition = this.data!!.getLocalPosition(this.parent!!)
                 this.position.x = newPosition.x
                 this.position.y = newPosition.y
             }
@@ -87,8 +92,7 @@ fun main(args: Array<String>) {
         // add it to the stage
         stage.addChild(bunny)
     }
-    for (i in 0..9)
-    {
+    for (i in 0..9) {
         createBunny(Math.random() * window.innerWidth, Math.random() * window.innerHeight)
     }
 

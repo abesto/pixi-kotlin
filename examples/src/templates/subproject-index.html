@@ -4,7 +4,9 @@
     <title>${project.title}</title>
     <script src="//cdnjs.cloudflare.com/ajax/libs/pixi.js/2.0.0/pixi.js"></script>
     <script src="js/lib/kotlin.js"></script>
-    <% if (project.isFullscreen) { %><link rel="stylesheet" href="../fullscreen.css"><% } %>
+    <% if (project.isFullscreen) { %>
+    <link rel="stylesheet" href="../fullscreen.css">
+    <% } %>
     <link rel="stylesheet" href="../example.css">
     ${project.extraHead}
 </head>
@@ -12,7 +14,8 @@
 <div id="text">
     <ul id="links">
         <li>Original: <a href="${project.originalExampleUrl}">${project.originalExampleText()}</a></li>
-        <li>Original source: <a href="${project.originalExampleSourceUrl()}">${project.originalExampleSourceText()}</a></li>
+        <li>Original source: <a href="${project.originalExampleSourceUrl()}">${project.originalExampleSourceText()}</a>
+        </li>
         <li>Kotlin source: <a href="js/app/main.kt.txt">js/app/main.kt.txt</a></li>
         <li>Kotlin source compiled to JS: <a href="js/app/app.js">js/app/app.js</a></li>
     </ul>

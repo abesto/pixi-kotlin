@@ -3,17 +3,21 @@ package net.abesto.kotlin.js.pixi.examples.example_11
 import kotlin.js.dom.html.document
 import kotlin.js.dom.html.window
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import net.abesto.kotlin.js.pixi.PIXI
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.textures.RenderTexture
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0x000000)
+    var stage = Stage(0x000000)
 
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(800, 600)
+    var renderer = autoDetectRenderer(800, 600)
 
     renderer.view.style.setProperty("width", "${window.innerWidth}px", "")
     renderer.view.style.setProperty("height", "${window.innerHeight}px", "")
@@ -22,24 +26,24 @@ fun main(args: Array<String>) {
 
     document.body.appendChild(renderer.view)
 
-    var renderTexture = PIXI.RenderTexture(800, 600)
-    var renderTexture2 = PIXI.RenderTexture(800, 600)
+    var renderTexture = RenderTexture(800, 600)
+    var renderTexture2 = RenderTexture(800, 600)
 
     var currentTexture = renderTexture
 
-    var outputSprite = PIXI.Sprite(currentTexture)
-    outputSprite.position.x = 800.0/2
-    outputSprite.position.y = 600.0/2
+    var outputSprite = Sprite(currentTexture)
+    outputSprite.position.x = 800.0 / 2
+    outputSprite.position.y = 600.0 / 2
 
     outputSprite.anchor.x = 0.5
     outputSprite.anchor.y = 0.5
 
     stage.addChild(outputSprite)
 
-    var bunnyContainer = PIXI.DisplayObjectContainer()
+    var bunnyContainer = DisplayObjectContainer()
 
-    bunnyContainer.position.x = 800.0/2
-    bunnyContainer.position.y = 600.0/2
+    bunnyContainer.position.x = 800.0 / 2
+    bunnyContainer.position.y = 600.0 / 2
 
     stage.addChild(bunnyContainer)
     var fruits = array("spinObj_01.png", "spinObj_02.png",
@@ -47,11 +51,10 @@ fun main(args: Array<String>) {
             "spinObj_05.png", "spinObj_06.png",
             "spinObj_07.png", "spinObj_08.png")
 
-    var bunnys: Array<PIXI.Sprite> = array()
+    var bunnys: Array<Sprite> = array()
 
-    for (i in 0..19)
-    {
-        var bunny = PIXI.Sprite.fromImage(fruits[i % fruits.size])
+    for (i in 0..19) {
+        var bunny = Sprite.fromImage(fruits[i % fruits.size()])
         bunny.position.x = Math.random() * 400 - 200
         bunny.position.y = Math.random() * 400 - 200
 
@@ -71,14 +74,13 @@ fun main(args: Array<String>) {
 
         requestAnimFrame(::animate)
 
-        for (i in 0..bunnys.size-1)
-        {
+        for (i in 0..bunnys.size() - 1) {
             var bunny = bunnys[i]
             bunny.rotation += 0.1
         }
 
         count += 0.01
-        count2 ++
+        count2++
 
         var temp = renderTexture
         renderTexture = renderTexture2

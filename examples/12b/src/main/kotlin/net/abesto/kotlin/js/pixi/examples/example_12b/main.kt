@@ -1,9 +1,13 @@
 package net.abesto.kotlin.js.pixi.examples.example_12b
 
 import kotlin.js.dom.html.window
-import net.abesto.kotlin.js.pixi.PIXI
 import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.requestAnimFrame
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.extras.Spine
+import net.abesto.kotlin.js.pixi.display.Sprite
 
 
 fun main(args: Array<String>) {
@@ -12,13 +16,13 @@ fun main(args: Array<String>) {
     val assetsToLoader = array("logo_small.png", "data/dragonBones.json", "data/dragonBones.anim")
 
     // create a new loader
-    val loader = PIXI.AssetLoader(assetsToLoader)
+    val loader = AssetLoader(assetsToLoader)
 
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0xFFFFFF, true)
+    var stage = Stage(0xFFFFFF, true)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)
+    var renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
 
     // set the canvas width and height to fill the screen
     renderer.view.style.setProperty("display", "block", "")
@@ -26,14 +30,13 @@ fun main(args: Array<String>) {
     // add render view to DOM
     document.body.appendChild(renderer.view)
 
-    fun onAssetsLoaded()
-    {
-        var dragon = PIXI.Spine("data/dragonBones.anim")
+    fun onAssetsLoaded() {
+        var dragon = Spine("data/dragonBones.anim")
 
         var scale = 1.0//window.innerHeight / 700;
 
-        dragon.position.x = window.innerWidth/2
-        dragon.position.y =	window.innerHeight/2 + (450 * scale)
+        dragon.position.x = window.innerWidth / 2
+        dragon.position.y = window.innerHeight / 2 + (450 * scale)
 
         dragon.scale.x = scale
         dragon.scale.y = dragon.scale.x
@@ -42,7 +45,7 @@ fun main(args: Array<String>) {
 
         stage.addChild(dragon)
 
-        var logo = PIXI.Sprite.fromImage("logo_small.png")
+        var logo = Sprite.fromImage("logo_small.png")
         stage.addChild(logo)
 
 
@@ -63,7 +66,7 @@ fun main(args: Array<String>) {
     loader.load()
 
     fun animate() {
-        requestAnimFrame( ::animate )
+        requestAnimFrame(::animate)
         renderer.render(stage)
     }
 

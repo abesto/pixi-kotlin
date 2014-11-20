@@ -6,6 +6,10 @@ import jquery.jq
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.textures.Texture
 
 
 fun main(args: Array<String>) {
@@ -26,12 +30,12 @@ fun main(args: Array<String>) {
     var tpoint1: Array<Double> = array()
     var tpoint2: Array<Double> = array()
     var tpoint3: Array<Double> = array()
-    var balls: Array<PIXI.Sprite> = array()
-    var renderer = PIXI.autoDetectRenderer(w, h)
-    var stage = PIXI.Stage(0)
+    var balls: Array<Sprite> = array()
+    var renderer = autoDetectRenderer(w, h)
+    var stage = Stage(0)
 
 
-    fun makeObject ( t: Int) {
+    fun makeObject(t: Int) {
         var xd: Double = (-90 + Math.round(Math.random() * 180)).toDouble()
         val td: Double = t.toDouble()
 
@@ -150,16 +154,14 @@ fun main(args: Array<String>) {
 
     }
 
-    fun resize()
-    {
+    fun resize() {
         w = jq(window).width().toLong() - 16
         h = jq(window).height().toLong() - 16
 
         renderer.resize(w, h)
     }
 
-    fun update()
-    {
+    fun update() {
         var x3d: Double
         var y3d: Double
         var z3d: Double
@@ -168,8 +170,7 @@ fun main(args: Array<String>) {
         var tz: Double
         var ox: Double
 
-        if (d < 250)
-        {
+        if (d < 250) {
             d++
         }
 
@@ -177,14 +178,25 @@ fun main(args: Array<String>) {
         vy += 0.0075
         vz += 0.0075
 
-        for (i in 0..(n-1))
-        {
-            if (points1[i] > tpoint1[i]) { tpoint1[i] = tpoint1[i] + 1 }
-            if (points1[i] < tpoint1[i]) { tpoint1[i] = tpoint1[i] - 1 }
-            if (points2[i] > tpoint2[i]) { tpoint2[i] = tpoint2[i] + 1 }
-            if (points2[i] < tpoint2[i]) { tpoint2[i] = tpoint2[i] - 1 }
-            if (points3[i] > tpoint3[i]) { tpoint3[i] = tpoint3[i] + 1 }
-            if (points3[i] < tpoint3[i]) { tpoint3[i] = tpoint3[i] - 1 }
+        for (i in 0..(n - 1)) {
+            if (points1[i] > tpoint1[i]) {
+                tpoint1[i] = tpoint1[i] + 1
+            }
+            if (points1[i] < tpoint1[i]) {
+                tpoint1[i] = tpoint1[i] - 1
+            }
+            if (points2[i] > tpoint2[i]) {
+                tpoint2[i] = tpoint2[i] + 1
+            }
+            if (points2[i] < tpoint2[i]) {
+                tpoint2[i] = tpoint2[i] - 1
+            }
+            if (points3[i] > tpoint3[i]) {
+                tpoint3[i] = tpoint3[i] + 1
+            }
+            if (points3[i] < tpoint3[i]) {
+                tpoint3[i] = tpoint3[i] - 1
+            }
 
             x3d = tpoint1[i]
             y3d = tpoint2[i]
@@ -199,7 +211,7 @@ fun main(args: Array<String>) {
             ty = (ox * Math.sin(vz)) + (ty * Math.cos(vz))
 
             balls[i].position.x = (512 * tx) / (d - tz) + w / 2
-            balls[i].position.y = (h/2) - (512 * ty) / (d - tz)
+            balls[i].position.y = (h / 2) - (512 * ty) / (d - tz)
 
         }
 
@@ -208,12 +220,11 @@ fun main(args: Array<String>) {
         requestAnimFrame(::update)
     }
 
-    fun nextObject () {
+    fun nextObject() {
 
         current++
 
-        if (current > objs)
-        {
+        if (current > objs) {
             current = 0
         }
 
@@ -225,19 +236,18 @@ fun main(args: Array<String>) {
 
     fun start() {
 
-        var ballTexture = PIXI.Texture.fromImage("assets/pixel.png")
+        var ballTexture = Texture.fromImage("assets/pixel.png")
 
         document.body.appendChild(renderer.view)
 
         makeObject(0)
 
-        for (i in 0..(n-1))
-        {
+        for (i in 0..(n - 1)) {
             tpoint1[i] = points1[i]
             tpoint2[i] = points2[i]
             tpoint3[i] = points3[i]
 
-            var tempBall = PIXI.Sprite(ballTexture)
+            var tempBall = Sprite(ballTexture)
             tempBall.anchor.x = 0.5
             tempBall.anchor.y = 0.5
             tempBall.alpha = 0.5

@@ -1,7 +1,6 @@
 package net.abesto.kotlin.js.extensions
 
 
-import kotlin.js.dom.html.window
 import kotlin.js.dom.html.Window
 import org.w3c.dom.Element
 

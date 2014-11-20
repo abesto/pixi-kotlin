@@ -4,38 +4,42 @@ import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
 
 import kotlin.js.dom.html.document
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    val stage = PIXI.Stage(0xFFFFFF);
+    val stage = Stage(0xFFFFFF)
 
     // create a renderer instance.
-    val renderer = PIXI.autoDetectRenderer(800, 600)
+    val renderer = autoDetectRenderer(800, 600)
 
     // create an array of assets to load
     val assetsToLoader = array("SpriteSheet.json")
 
     // create a new loader
-    val loader = PIXI.AssetLoader(assetsToLoader)
+    val loader = AssetLoader(assetsToLoader)
 
     // holder to store aliens
-    val aliens: Array<PIXI.Sprite> = array()
+    val aliens: Array<Sprite> = array()
     val alienFrames = array("eggHead.png", "flowerTop.png", "helmlok.png", "skully.png")
 
     // create an empty container
-    val alienContainer = PIXI.DisplayObjectContainer()
+    val alienContainer = DisplayObjectContainer()
     alienContainer.position.x = 400.0
     alienContainer.position.y = 300.0
 
     var count: Double = 0.0
 
     fun animate() {
-        requestAnimFrame( { animate() } )
+        requestAnimFrame({ animate() })
 
         // just for fun, lets rotate mr rabbit a little
-        for (i in 0..99)
-        {
+        for (i in 0..99) {
             var alien = aliens[i]
             alien.rotation += 0.1
         }
@@ -52,12 +56,11 @@ fun main(args: Array<String>) {
     fun onAssetsLoaded() {
         // create a texture from an image path
         // add a bunch of aliens
-        for (i in 0..99)
-        {
+        for (i in 0..99) {
             var frameName = alienFrames[i % 4];
 
             // create an alien using the frame name..
-            var alien = PIXI.Sprite.fromFrame(frameName);
+            var alien = Sprite.fromFrame(frameName);
 
             /*
              * fun fact for the day :)

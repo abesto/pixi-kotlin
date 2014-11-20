@@ -4,15 +4,18 @@ import kotlin.js.dom.html.window
 import kotlin.js.dom.html.document
 
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import net.abesto.kotlin.js.pixi.PIXI
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.textures.Texture
+import net.abesto.kotlin.js.pixi.display.TilingSprite
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0x97c56e, true)
+    var stage = Stage(0x97c56e, true)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
+    var renderer = autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
@@ -21,9 +24,9 @@ fun main(args: Array<String>) {
     renderer.view.style.setProperty("left", "0px", "")
 
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("p2.jpeg")
+    var texture = Texture.fromImage("p2.jpeg")
 
-    var tilingSprite = PIXI.TilingSprite(texture, window.innerWidth, window.innerHeight)
+    var tilingSprite = TilingSprite(texture, window.innerWidth, window.innerHeight)
 
     var count = 0.0
 
