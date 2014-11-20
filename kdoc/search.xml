@@ -66,6 +66,11 @@
   <kind>class</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html</href>
+  <name>Options [net.abesto.kotlin.js.pixi.renderers]</name>
+  <kind>class</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/geom/Point.html</href>
   <name>Point [net.abesto.kotlin.js.pixi.geom]</name>
   <kind>class</kind>
@@ -291,6 +296,11 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#antialias</href>
+  <name>antialias [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#assetURLs</href>
   <name>assetURLs [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
   <kind>val</kind>
@@ -424,6 +434,11 @@
   <href>net/abesto/kotlin/js/pixi/text/Text.html#children</href>
   <name>children [net.abesto.kotlin.js.pixi.text.Text]</name>
   <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#clearBeforeRender</href>
+  <name>clearBeforeRender [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#clearBeforeRender</href>
@@ -668,6 +683,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/primitives/Graphics.html#equals(kotlin.Any)</href>
   <name>equals() [net.abesto.kotlin.js.pixi.primitives.Graphics]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#equals(kotlin.Any)</href>
+  <name>equals() [net.abesto.kotlin.js.pixi.renderers.Options]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1138,6 +1158,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/primitives/Graphics.html#hashCode()</href>
   <name>hashCode() [net.abesto.kotlin.js.pixi.primitives.Graphics]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#hashCode()</href>
+  <name>hashCode() [net.abesto.kotlin.js.pixi.renderers.Options]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1871,6 +1896,11 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#preserveDrawingBuffer</href>
+  <name>preserveDrawingBuffer [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#preserveDrawingBuffer</href>
   <name>preserveDrawingBuffer [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
   <kind>var</kind>
@@ -2114,6 +2144,11 @@
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#resize(kotlin.Number, kotlin.Number)</href>
   <name>resize() [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
   <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#resolution</href>
+  <name>resolution [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#resolution</href>
@@ -2926,6 +2961,11 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#toString()</href>
+  <name>toString() [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#toString()</href>
   <name>toString() [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
   <kind>fun</kind>
@@ -3156,6 +3196,11 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#transparent</href>
+  <name>transparent [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#transparent</href>
   <name>transparent [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
   <kind>var</kind>
@@ -3229,6 +3274,11 @@
   <href>net/abesto/kotlin/js/pixi/extras/Spine.html#url</href>
   <name>url [net.abesto.kotlin.js.pixi.extras.Spine]</name>
   <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/renderers/Options.html#view</href>
+  <name>view [net.abesto.kotlin.js.pixi.renderers.Options]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#view</href>
