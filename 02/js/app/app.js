@@ -47,8 +47,8 @@
                     };
                   },
                   main: function (args) {
-                    var stage = new PIXI.Stage(Kotlin.Long.fromInt(16777215));
-                    var renderer = PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600));
+                    var stage = new PIXI.Stage(16777215);
+                    var renderer = PIXI.autoDetectRenderer(800, 600);
                     var assetsToLoader = ['SpriteSheet.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     var aliens = [];

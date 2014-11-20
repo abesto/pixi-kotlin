@@ -28,7 +28,7 @@
                     s.fill = '#cc00ff';
                     s.align = 'center';
                     s.stroke = '#FFFFFF';
-                    s.strokeThickness = Kotlin.Long.fromInt(6);
+                    s.strokeThickness = 6;
                     return s;
                   },
                   init$f_1: function () {
@@ -37,7 +37,7 @@
                     s.fill = '#3e1707';
                     s.align = 'center';
                     s.stroke = '#a4410e';
-                    s.strokeThickness = Kotlin.Long.fromInt(7);
+                    s.strokeThickness = 7;
                     return s;
                   },
                   onAssetsLoaded$f: function () {
@@ -48,7 +48,7 @@
                   },
                   init$onAssetsLoaded: function (stage) {
                     return function () {
-                      var bitmapFontText = new PIXI.BitmapText('bitmap fonts are\n now supported!', _.net.abesto.kotlin.js.pixi.examples.example_10.onAssetsLoaded$f());
+                      var bitmapFontText = new BitmapText('bitmap fonts are\n now supported!', _.net.abesto.kotlin.js.pixi.examples.example_10.onAssetsLoaded$f());
                       bitmapFontText.position.x = 620 - bitmapFontText.width - 20;
                       bitmapFontText.position.y = 20.0;
                       stage.addChild(bitmapFontText);
@@ -68,7 +68,7 @@
                     };
                   },
                   main$init: function () {
-                    var stage = new PIXI.Stage(Kotlin.Long.fromInt(6750105));
+                    var stage = new PIXI.Stage(6750105);
                     var background = PIXI.Sprite.fromImage('textDemoBG.jpg');
                     stage.addChild(background);
                     var count = {v: 0};
@@ -93,7 +93,7 @@
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_10.init$onAssetsLoaded(stage);
                     loader.onComplete = onAssetsLoaded;
                     loader.load();
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(620), Kotlin.Long.fromInt(400))};
+                    var renderer = {v: PIXI.autoDetectRenderer(620, 400)};
                     document.body.appendChild(renderer.v.view);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_10.init$animate(count, score, countingText, spinningText, renderer, stage);
                     requestAnimFrame(animate);

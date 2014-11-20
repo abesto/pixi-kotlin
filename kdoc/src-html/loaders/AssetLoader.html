@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html><head><title>AssetLoader.kt xref</title><link rel='stylesheet' type='text/css' href='highlight.css'></link></head><body><table style='white-space: pre; font-size: 10pt; font-family: Monaco, monospace'><tr><td style='margin-right: 1.5em; text-align: right'><a href='#1' name='1'>1</a>
+<a href='#2' name='2'>2</a>
+<a href='#3' name='3'>3</a>
+<a href='#4' name='4'>4</a>
+<a href='#5' name='5'>5</a>
+<a href='#6' name='6'>6</a>
+<a href='#7' name='7'>7</a>
+<a href='#8' name='8'>8</a>
+<a href='#9' name='9'>9</a>
+<a href='#10' name='10'>10</a>
+<a href='#11' name='11'>11</a>
+<a href='#12' name='12'>12</a>
+<a href='#13' name='13'>13</a>
+<a href='#14' name='14'>14</a>
+<a href='#15' name='15'>15</a>
+<a href='#16' name='16'>16</a>
+<a href='#17' name='17'>17</a>
+<a href='#18' name='18'>18</a>
+<a href='#19' name='19'>19</a>
+<a href='#20' name='20'>20</a>
+<a href='#21' name='21'>21</a>
+<a href='#22' name='22'>22</a>
+<a href='#23' name='23'>23</a>
+<a href='#24' name='24'>24</a>
+<a href='#25' name='25'>25</a>
+<a href='#26' name='26'>26</a>
+<a href='#27' name='27'>27</a>
+<a href='#28' name='28'>28</a>
+<a href='#29' name='29'>29</a>
+<a href='#30' name='30'>30</a>
+<a href='#31' name='31'>31</a>
+<a href='#32' name='32'>32</a>
+<a href='#33' name='33'>33</a>
+<a href='#34' name='34'>34</a>
+</td><td><span class='hl-keyword'>package</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>loaders</span><span>
+
+</span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>utils</span><span class='DOT'>.</span><span class='IDENTIFIER'>EventTarget</span><span>
+
+</span><span class='KDOC_START'>/**</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> A Class that loads a bunch of images / sprite sheet / bitmap font files. Once the</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> assets have been loaded they are added to the PIXI Texture cache and can be accessed</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> easily through PIXI.Texture.fromImage() and PIXI.Sprite.fromImage()</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> When all items have been loaded this class will dispatch a 'onLoaded' event</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> As each individual item is loaded this class will dispatch a 'onProgress' event</span><span>
+ </span><span class='KDOC_END'>*/</span><span>
+</span><span class='IDENTIFIER'>native</span><span class='LPAR'>(</span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>PIXI.AssetLoader</span><span class='CLOSING_QUOTE'>&quot;</span><span class='RPAR'>)</span><span>
+</span><span class='public'>public</span><span> </span><span class='hl-keyword'>class</span><span> </span><span class='IDENTIFIER'>AssetLoader</span><span class='LPAR'>(</span><span>
+        </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> An array of image/sprite sheet urls that you would like loaded</span><span>
+         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'>  supported. Supported image formats include 'jpeg', 'jpg', 'png', 'gif'. Supported</span><span>
+         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'>  sprite sheet data formats only include 'JSON' at this time. Supported bitmap font</span><span>
+         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'>  data formats include 'xml' and 'fnt'.</span><span>
+         </span><span class='KDOC_END'>*/</span><span>
+        </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>assetURLs</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Array</span><span class='LT'>&lt;</span><span class='IDENTIFIER'>String</span><span class='GT'>&gt;</span><span class='COMMA'>,</span><span>
+
+        </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Whether requests should be treated as crossorigin </span><span class='KDOC_END'>*/</span><span>
+        </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>crossorigin</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span class='RPAR'>)</span><span> </span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>EventTarget</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span> </span><span class='LBRACE'>{</span><span>
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Starts loading the assets sequentially</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>load</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Fired when all the assets have loaded </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>onComplete</span><span class='COLON'>:</span><span> </span><span class='LPAR'>(</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Fired when an item has loaded </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>onProgress</span><span class='COLON'>:</span><span> </span><span class='LPAR'>(</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+</span><span class='RBRACE'>}</span><span>
+
+</span></td></tr></table></body></html>

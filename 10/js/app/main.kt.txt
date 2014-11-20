@@ -1,12 +1,16 @@
 package net.abesto.kotlin.js.pixi.examples.example_10
 
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import net.abesto.kotlin.js.pixi.PIXI
 import kotlin.js.dom.html.Window
 import kotlin.js.dom.html.window
 import kotlin.js.dom.html.document
-import net.abesto.kotlin.js.pixi.BitmapTextStyle
 import net.abesto.kotlin.js.pixi.TextStyle
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.text.Text
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.text.BitmapText
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
 
 class WebFontFamilies(vararg val families: String)
 
@@ -23,20 +27,19 @@ native trait WebFontWindow : Window {
 
 
 fun main(args: Array<String>) {
-    fun init()
-    {
+    fun init() {
         // create an new instance of a pixi stage
-        val stage = PIXI.Stage(0x66FF99)
+        val stage = Stage(0x66FF99)
 
         // add a shiney background..
-        var background = PIXI.Sprite.fromImage("textDemoBG.jpg")
+        var background = Sprite.fromImage("textDemoBG.jpg")
         stage.addChild(background)
 
         var count = 0
         var score = 0
 
         // create some white text using the Snippet webfont
-        var textSample = PIXI.Text("Pixi.js can has\nmultiline text!",
+        var textSample = Text("Pixi.js can has\nmultiline text!",
                 {
                     val s = TextStyle()
                     s.font = "35px Snippet"
@@ -48,7 +51,7 @@ fun main(args: Array<String>) {
         textSample.position.y = 20.0
 
         // create a text object with a nice stroke
-        var spinningText = PIXI.Text("I'm fun!", {
+        var spinningText = Text("I'm fun!", {
             val s = TextStyle()
             s.font = "bold 60px Podkova"
             s.fill = "#cc00ff"
@@ -64,7 +67,7 @@ fun main(args: Array<String>) {
         spinningText.position.y = 400.0 / 2
 
         // create a text object that will be updated..
-        var countingText = PIXI.Text("COUNT 4EVAR: 0", {
+        var countingText = Text("COUNT 4EVAR: 0", {
             val s = TextStyle()
             s.font = "bold italic 60px Arvo"
             s.fill = "#3e1707"
@@ -81,13 +84,12 @@ fun main(args: Array<String>) {
         stage.addChild(countingText)
         // create a new loader
         var assetsToLoader = array("desyrel.fnt")
-        var loader = PIXI.AssetLoader(assetsToLoader)
+        var loader = AssetLoader(assetsToLoader)
 
         // use callback
-        fun onAssetsLoaded()
-        {
-            val bitmapFontText = PIXI.BitmapText("bitmap fonts are\n now supported!", {
-                val s = BitmapTextStyle()
+        fun onAssetsLoaded() {
+            val bitmapFontText = BitmapText("bitmap fonts are\n now supported!", {
+                val s = BitmapText.Style()
                 s.font = "35px Desyrel"
                 s.align = "right"
                 s
@@ -104,15 +106,14 @@ fun main(args: Array<String>) {
 
 
         // create a renderer instance
-        var renderer = PIXI.autoDetectRenderer(620, 400)
+        var renderer = autoDetectRenderer(620, 400)
         // add the renderer view element to the DOM
         document.body.appendChild(renderer.view)
 
         fun animate() {
             requestAnimFrame(::animate)
             count++
-            if(count == 50)
-            {
+            if (count == 50) {
                 count = 0
                 score++
                 // update the text...
@@ -133,7 +134,11 @@ fun main(args: Array<String>) {
             active = ::init
     )
     val wf = document.createElement("script")
-    wf.setAttribute("src", (if ("https:" == window.location.protocol) { "https" } else { "http" }) +
+    wf.setAttribute("src", (if ("https:" == window.location.protocol) {
+        "https"
+    } else {
+        "http"
+    }) +
             "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js")
     wf.setAttribute("type", "text/javascript")
     wf.setAttribute("async", "true")

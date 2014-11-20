@@ -1,17 +1,21 @@
 package net.abesto.kotlin.js.pixi.examples.example_12
 
 import kotlin.js.dom.html.window
-import net.abesto.kotlin.js.pixi.PIXI
 import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.requestAnimFrame
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.extras.Spine
+import net.abesto.kotlin.js.pixi.display.Sprite
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0xFFFFFF, true)
+    var stage = Stage(0xFFFFFF, true)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)
+    var renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
 
     // set the canvas width and height to fill the screen
     renderer.view.style.setProperty("display", "block", "")
@@ -23,13 +27,12 @@ fun main(args: Array<String>) {
     val assetsToLoader = array("data/spineboy.json", "data/spineboy.anim")
 
     // create a new loader
-    val loader = PIXI.AssetLoader(assetsToLoader)
+    val loader = AssetLoader(assetsToLoader)
 
-    fun onAssetsLoaded()
-    {
-        var spineBoy = PIXI.Spine("data/spineboy.anim")
+    fun onAssetsLoaded() {
+        var spineBoy = Spine("data/spineboy.anim")
 
-        spineBoy.position.x = window.innerWidth/2
+        spineBoy.position.x = window.innerWidth / 2
         spineBoy.position.y = window.innerHeight
 
         spineBoy.scale.x = window.innerHeight / 400
@@ -48,7 +51,7 @@ fun main(args: Array<String>) {
             spineBoy.state.addAnimationByName("walk", true)
         }
 
-        var logo = PIXI.Sprite.fromImage("logo_small.png")
+        var logo = Sprite.fromImage("logo_small.png")
         stage.addChild(logo)
 
 
@@ -69,7 +72,7 @@ fun main(args: Array<String>) {
     loader.load()
 
     fun animate() {
-        requestAnimFrame( ::animate )
+        requestAnimFrame(::animate)
         renderer.render(stage)
     }
     requestAnimFrame(::animate)

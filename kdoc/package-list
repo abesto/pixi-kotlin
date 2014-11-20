@@ -1,1 +1,11 @@
 net.abesto.kotlin.js.pixi
+net.abesto.kotlin.js.pixi.display
+net.abesto.kotlin.js.pixi.extras
+net.abesto.kotlin.js.pixi.filters
+net.abesto.kotlin.js.pixi.geom
+net.abesto.kotlin.js.pixi.loaders
+net.abesto.kotlin.js.pixi.primitives
+net.abesto.kotlin.js.pixi.renderers
+net.abesto.kotlin.js.pixi.text
+net.abesto.kotlin.js.pixi.textures
+net.abesto.kotlin.js.pixi.utils

@@ -1,9 +1,13 @@
 package net.abesto.kotlin.js.pixi.examples.example_12c
 
 import kotlin.js.dom.html.window
-import net.abesto.kotlin.js.pixi.PIXI
 import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.requestAnimFrame
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.extras.Spine
 
 
 fun main(args: Array<String>) {
@@ -12,16 +16,16 @@ fun main(args: Array<String>) {
     val assetsToLoader = array("logo_small.png", "data/PixieSpineData.json", "data/Pixie.json", "data/iP4_BGtile.jpg", "data/iP4_ground.png")
 
     // create a new loader
-    val loader = PIXI.AssetLoader(assetsToLoader)
+    val loader = AssetLoader(assetsToLoader)
 
     //begin load
     loader.load()
 
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0xFFFFFF, true)
+    var stage = Stage(0xFFFFFF, true)
 
     // create a renderer instance
-    var renderer = PIXI.autoDetectRenderer(1024, 640)
+    var renderer = autoDetectRenderer(1024, 640)
 
     // set the canvas width and height to fill the screen
     renderer.view.style.setProperty("display", "block", "")
@@ -32,10 +36,10 @@ fun main(args: Array<String>) {
     document.body.appendChild(renderer.view)
 
     var postition = 0.0
-    var background: PIXI.Sprite
-    var background2: PIXI.Sprite
-    var foreground: PIXI.Sprite
-    var foreground2: PIXI.Sprite
+    var background: Sprite
+    var background2: Sprite
+    var foreground: Sprite
+    var foreground2: Sprite
 
     fun animate() {
 
@@ -43,49 +47,48 @@ fun main(args: Array<String>) {
 
         background.position.x = -(postition * 0.6)
         background.position.x %= 1286 * 2
-        if(background.position.x<0)background.position.x += 1286 * 2
+        if (background.position.x < 0) background.position.x += 1286 * 2
         background.position.x -= 1286
 
         background2.position.x = -(postition * 0.6) + 1286
         background2.position.x %= 1286 * 2
-        if(background2.position.x<0)background2.position.x += 1286 * 2
+        if (background2.position.x < 0) background2.position.x += 1286 * 2
         background2.position.x -= 1286
 
         foreground.position.x = -postition
         foreground.position.x %= 1286 * 2
-        if(foreground.position.x<0)foreground.position.x += 1286 * 2
+        if (foreground.position.x < 0) foreground.position.x += 1286 * 2
         foreground.position.x -= 1286
 
         foreground2.position.x = -postition + 1286
         foreground2.position.x %= 1286 * 2
-        if(foreground2.position.x<0)foreground2.position.x += 1286 * 2
+        if (foreground2.position.x < 0) foreground2.position.x += 1286 * 2
         foreground2.position.x -= 1286
 
-        requestAnimFrame( ::animate )
+        requestAnimFrame(::animate)
 
         renderer.render(stage)
     }
 
-    fun onAssetsLoaded()
-    {
-        background = PIXI.Sprite.fromImage("data/iP4_BGtile.jpg")
-        background2 = PIXI.Sprite.fromImage("data/iP4_BGtile.jpg")
+    fun onAssetsLoaded() {
+        background = Sprite.fromImage("data/iP4_BGtile.jpg")
+        background2 = Sprite.fromImage("data/iP4_BGtile.jpg")
         stage.addChild(background)
         stage.addChild(background2)
 
-        foreground = PIXI.Sprite.fromImage("data/iP4_ground.png")
-        foreground2 = PIXI.Sprite.fromImage("data/iP4_ground.png")
+        foreground = Sprite.fromImage("data/iP4_ground.png")
+        foreground2 = Sprite.fromImage("data/iP4_ground.png")
         stage.addChild(foreground)
         stage.addChild(foreground2)
         foreground.position.y = 640 - foreground2.height
         foreground2.position.y = foreground.position.y
 
-        val pixie = PIXI.Spine("data/PixieSpineData.json")
+        val pixie = Spine("data/PixieSpineData.json")
 
         val scale = 0.3//window.innerHeight / 700
 
-        pixie.position.x = 1024.0/3
-        pixie.position.y =	500.0
+        pixie.position.x = 1024.0 / 3
+        pixie.position.y = 500.0
 
         pixie.scale.x = scale
         pixie.scale.y = scale
@@ -105,7 +108,7 @@ fun main(args: Array<String>) {
         }
         stage.touchstart = stage.mousedown
 
-        var logo = PIXI.Sprite.fromImage("../../logo_small.png")
+        var logo = Sprite.fromImage("../../logo_small.png")
         stage.addChild(logo)
 
 

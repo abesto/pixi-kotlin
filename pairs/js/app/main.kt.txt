@@ -5,8 +5,14 @@ import kotlin.js.dom.html.document
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.textures.Texture
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.loaders.AssetLoader
+import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 
-class Tile(texture: PIXI.Texture): PIXI.Sprite(texture) {
+class Tile(texture: Texture) : Sprite(texture) {
     var isSelected: Boolean = false
     var theVal: Int = 0
 }
@@ -19,26 +25,26 @@ fun main(args: Array<String>) {
     // can the player pick up a tile?
     var canPick = true
     // create an new instance of a pixi stage with a grey background
-    var stage = PIXI.Stage(0x888888)
+    var stage = Stage(0x888888)
     // create a renderer instance width=640 height=480
-    var renderer = PIXI.autoDetectRenderer(640, 480)
+    var renderer = autoDetectRenderer(640, 480)
     // importing a texture atlas created with texturepacker
     var tileAtlas = array("images.json")
     // create a new loader
-    var loader = PIXI.AssetLoader(tileAtlas)
+    var loader = AssetLoader(tileAtlas)
     // create an empty container
-    var gameContainer = PIXI.DisplayObjectContainer()
+    var gameContainer = DisplayObjectContainer()
     // add the container to the stage
 
     fun animate() {
-        requestAnimFrame({animate()})
+        requestAnimFrame({ animate() })
         renderer.render(stage)
     }
 
     fun onTilesLoaded() {
         // choose 24 random tile images
         var chosenTiles: Array<Int> = array()
-        while (chosenTiles.size < 48) {
+        while (chosenTiles.size() < 48) {
             var candidate = Math.floor(Math.random() * 44);
             if (chosenTiles.indexOf(candidate) == -1) {
                 chosenTiles.push(candidate, candidate)
@@ -56,7 +62,7 @@ fun main(args: Array<String>) {
         for (i in 0..7) {
             for (j in 0..5) {
                 // new sprite
-                var tile: Tile = PIXI.Sprite.fromFrame(chosenTiles[i * 6 + j].toString()) as Tile
+                var tile: Tile = Sprite.fromFrame(chosenTiles[i * 6 + j].toString()) as Tile
                 // buttonmode+interactive = acts like a button
                 tile.buttonMode = true
                 tile.interactive = true
@@ -134,8 +140,8 @@ fun main(args: Array<String>) {
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
     // use callback
-    loader.onComplete = {onTilesLoaded()}
+    loader.onComplete = { onTilesLoaded() }
     //begin load
     loader.load()
-    requestAnimFrame({animate()})
+    requestAnimFrame({ animate() })
 }

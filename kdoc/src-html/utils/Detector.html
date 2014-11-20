@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html><head><title>Detector.kt xref</title><link rel='stylesheet' type='text/css' href='highlight.css'></link></head><body><table style='white-space: pre; font-size: 10pt; font-family: Monaco, monospace'><tr><td style='margin-right: 1.5em; text-align: right'><a href='#1' name='1'>1</a>
+<a href='#2' name='2'>2</a>
+<a href='#3' name='3'>3</a>
+<a href='#4' name='4'>4</a>
+<a href='#5' name='5'>5</a>
+<a href='#6' name='6'>6</a>
+<a href='#7' name='7'>7</a>
+<a href='#8' name='8'>8</a>
+<a href='#9' name='9'>9</a>
+<a href='#10' name='10'>10</a>
+<a href='#11' name='11'>11</a>
+<a href='#12' name='12'>12</a>
+<a href='#13' name='13'>13</a>
+<a href='#14' name='14'>14</a>
+<a href='#15' name='15'>15</a>
+<a href='#16' name='16'>16</a>
+<a href='#17' name='17'>17</a>
+<a href='#18' name='18'>18</a>
+<a href='#19' name='19'>19</a>
+<a href='#20' name='20'>20</a>
+<a href='#21' name='21'>21</a>
+<a href='#22' name='22'>22</a>
+<a href='#23' name='23'>23</a>
+<a href='#24' name='24'>24</a>
+</td><td><span class='hl-keyword'>package</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>utils</span><span>
+
+</span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>renderers</span><span class='DOT'>.</span><span class='IDENTIFIER'>Renderer</span><span>
+
+</span><span class='KDOC_START'>/**</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This helper function will automatically detect which renderer you should be using.</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> WebGL is the preferred renderer as it is a lot faster. If webGL is not supported by</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> the browser then this function will return a canvas renderer</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> width=800 the width of the renderers view</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> height=600 the height of the renderers view</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> [options] The optional renderer parameters</span><span>
+ </span><span class='KDOC_END'>*/</span><span>
+</span><span class='IDENTIFIER'>native</span><span class='LPAR'>(</span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>PIXI.autoDetectRenderer</span><span class='CLOSING_QUOTE'>&quot;</span><span class='RPAR'>)</span><span>
+</span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>autoDetectRenderer</span><span class='LPAR'>(</span><span class='IDENTIFIER'>width</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>800</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>height</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>600</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>options</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Renderer</span><span class='DOT'>.</span><span class='IDENTIFIER'>Options</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Renderer</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+
+</span><span class='KDOC_START'>/**</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This helper function will automatically detect which renderer you should be using.</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This function is very similar to the autoDetectRenderer function except that is will return a canvas renderer for android.</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Even thought both android chrome supports webGL the canvas implementation perform better at the time of writing.</span><span>
+ </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This function will likely change and update as webGL performance improves on these devices.</span><span>
+ </span><span class='KDOC_END'>*/</span><span>
+</span><span class='IDENTIFIER'>native</span><span class='LPAR'>(</span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>PIXI.autoDetectRecommendedRenderer</span><span class='CLOSING_QUOTE'>&quot;</span><span class='RPAR'>)</span><span>
+</span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>autoDetectRecommendedRenderer</span><span class='LPAR'>(</span><span class='IDENTIFIER'>width</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>800</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>height</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>600</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>options</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Renderer</span><span class='DOT'>.</span><span class='IDENTIFIER'>Options</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Renderer</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+
+</span></td></tr></table></body></html>

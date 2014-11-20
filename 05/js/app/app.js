@@ -270,7 +270,7 @@
                     var tpoint3 = {v: []};
                     var balls = {v: []};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO)};
+                    var stage = {v: new PIXI.Stage(0)};
                     var makeObject = _.net.abesto.kotlin.js.pixi.examples.example_05.main$makeObject(n, points1, points2, points3);
                     var resize = _.net.abesto.kotlin.js.pixi.examples.example_05.main$resize(w, h, renderer);
                     var update = _.net.abesto.kotlin.js.pixi.examples.example_05.main$update(d, vx, vy, vz, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, w, balls, h, renderer, stage);

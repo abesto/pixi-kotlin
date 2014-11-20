@@ -28,10 +28,10 @@
                     this.data = null;
                   },
                   createBunny$f_1: function (data) {
-                    var tmp$0;
+                    var tmp$0, tmp$1;
                     this;
                     if (this.dragging) {
-                      var newPosition = ((tmp$0 = this.data) != null ? tmp$0 : Kotlin.throwNPE()).getLocalPosition(this.parent);
+                      var newPosition = ((tmp$0 = this.data) != null ? tmp$0 : Kotlin.throwNPE()).getLocalPosition((tmp$1 = this.parent) != null ? tmp$1 : Kotlin.throwNPE());
                       this.position.x = newPosition.x;
                       this.position.y = newPosition.y;
                     }
@@ -66,7 +66,7 @@
                   },
                   main: function (args) {
                     var tmp$0;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(9946478), true)};
+                    var stage = {v: new PIXI.Stage(9946478, true)};
                     var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight))};
                     document.body.appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');

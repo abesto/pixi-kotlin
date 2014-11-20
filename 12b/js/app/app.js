@@ -43,7 +43,7 @@
                   main: function (args) {
                     var assetsToLoader = ['logo_small.png', 'data/dragonBones.json', 'data/dragonBones.anim'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(16777215), true)};
+                    var stage = {v: new PIXI.Stage(16777215, true)};
                     var renderer = {v: PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)};
                     renderer.v.view.style.setProperty('display', 'block', '');
                     document.body.appendChild(renderer.v.view);

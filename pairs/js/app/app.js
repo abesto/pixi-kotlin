@@ -43,8 +43,8 @@
                       var tmp$0, tmp$1, tmp$2, tmp$3, tmp$4, tmp$5;
                       (tmp$0 = firstTile.v) != null ? (tmp$0.isSelected = false) : null;
                       (tmp$1 = secondTile.v) != null ? (tmp$1.isSelected = false) : null;
-                      (tmp$2 = firstTile.v) != null ? (tmp$2.tint = Kotlin.Long.ZERO) : null;
-                      (tmp$3 = secondTile.v) != null ? (tmp$3.tint = Kotlin.Long.ZERO) : null;
+                      (tmp$2 = firstTile.v) != null ? (tmp$2.tint = 0) : null;
+                      (tmp$3 = secondTile.v) != null ? (tmp$3.tint = 0) : null;
                       (tmp$4 = firstTile.v) != null ? (tmp$4.alpha = 0.5) : null;
                       (tmp$5 = secondTile.v) != null ? (tmp$5.alpha = 0.5) : null;
                       firstTile.v = null;
@@ -59,7 +59,7 @@
                       if (canPick.v) {
                         if (!this.isSelected) {
                           this.isSelected = true;
-                          this.tint = Kotlin.Long.fromInt(16777215);
+                          this.tint = 16777215;
                           this.alpha = 1.0;
                           if (firstTile.v == null) {
                             firstTile.v = this;
@@ -82,7 +82,7 @@
                     return function () {
                       var tmp$0, tmp$1, tmp$2;
                       var chosenTiles = [];
-                      while (_.kotlin.get_size_eg9ybj$(chosenTiles) < 48) {
+                      while (chosenTiles.length < 48) {
                         var candidate = Math.floor(Math.random() * 44);
                         if (chosenTiles.indexOf(candidate) === -1) {
                           chosenTiles.push(candidate, candidate);
@@ -107,7 +107,7 @@
                           tile.theVal = chosenTiles[i_0 * 6 + j];
                           tile.position.x = 7 + i_0 * 80;
                           tile.position.y = 7 + j * 80;
-                          tile.tint = Kotlin.Long.ZERO;
+                          tile.tint = 0;
                           tile.alpha = 0.5;
                           gameContainer.v.addChild(tile);
                           tile.mousedown = _.net.abesto.kotlin.js.pixi.examples.example_pairs.onTilesLoaded$f(canPick, firstTile, secondTile, gameContainer);
@@ -130,8 +130,8 @@
                     var firstTile = {v: null};
                     var secondTile = {v: null};
                     var canPick = {v: true};
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(8947848))};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(640), Kotlin.Long.fromInt(480))};
+                    var stage = {v: new PIXI.Stage(8947848)};
+                    var renderer = {v: PIXI.autoDetectRenderer(640, 480)};
                     var tileAtlas = ['images.json'];
                     var loader = new PIXI.AssetLoader(tileAtlas);
                     var gameContainer = {v: new PIXI.DisplayObjectContainer()};

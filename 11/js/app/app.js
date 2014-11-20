@@ -12,7 +12,7 @@
                     return function animate() {
                       var tmp$0;
                       requestAnimFrame(animate);
-                      tmp$0 = _.kotlin.get_size_eg9ybj$(bunnys.v) - 1;
+                      tmp$0 = bunnys.v.length - 1;
                       for (var i = 0; i <= tmp$0; i++) {
                         var bunny = bunnys.v[i];
                         bunny.rotation = bunny.rotation + 0.1;
@@ -33,14 +33,14 @@
                   },
                   main: function (args) {
                     var tmp$0;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO)};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
+                    var stage = {v: new PIXI.Stage(0)};
+                    var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
                     renderer.v.view.style.setProperty('width', window.innerWidth.toString() + 'px', '');
                     renderer.v.view.style.setProperty('height', window.innerHeight.toString() + 'px', '');
                     renderer.v.view.style.setProperty('display', 'block', '');
                     document.body.appendChild(renderer.v.view);
-                    var renderTexture = {v: new PIXI.RenderTexture(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
-                    var renderTexture2 = {v: new PIXI.RenderTexture(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
+                    var renderTexture = {v: new PIXI.RenderTexture(800, 600)};
+                    var renderTexture2 = {v: new PIXI.RenderTexture(800, 600)};
                     var currentTexture = renderTexture.v;
                     var outputSprite = {v: new PIXI.Sprite(currentTexture)};
                     outputSprite.v.position.x = 800.0 / 2;
@@ -56,7 +56,7 @@
                     var bunnys = {v: []};
                     tmp$0 = 19;
                     for (var i = 0; i <= tmp$0; i++) {
-                      var bunny = PIXI.Sprite.fromImage(fruits[i % _.kotlin.get_size_eg9ybj$(fruits)]);
+                      var bunny = PIXI.Sprite.fromImage(fruits[i % fruits.length]);
                       bunny.position.x = Math.random() * 400 - 200;
                       bunny.position.y = Math.random() * 400 - 200;
                       bunny.anchor.x = 0.5;

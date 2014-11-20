@@ -5,9 +5,13 @@ import kotlin.js.dom.html.window
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.textures.Texture
 
 
-class Button: PIXI.Sprite(noImpl) {
+class Button : Sprite(noImpl) {
     public var isdown: Boolean = false
     public var isOver: Boolean = false
 }
@@ -17,43 +21,42 @@ fun main(args: Array<String>) {
     // create an new instance of a pixi stage
     // the second parameter is interactivity...
     var interactive = true
-    var stage = PIXI.Stage(0x000000, interactive)
+    var stage = Stage(0x000000, interactive)
 
     // create a renderer instance.
-    var renderer = PIXI.autoDetectRenderer(620, 400)
+    var renderer = autoDetectRenderer(620, 400)
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
 
     // create a background..
-    var background = PIXI.Sprite.fromImage("button_test_BG.jpg")
+    var background = Sprite.fromImage("button_test_BG.jpg")
 
     // add background to stage..
     stage.addChild(background)
 
     // create some textures from an image path
-    var textureButton = PIXI.Texture.fromImage("button.png")
-    var textureButtonDown = PIXI.Texture.fromImage("buttonDown.png")
-    var textureButtonOver = PIXI.Texture.fromImage("buttonOver.png")
+    var textureButton = Texture.fromImage("button.png")
+    var textureButtonDown = Texture.fromImage("buttonDown.png")
+    var textureButtonOver = Texture.fromImage("buttonOver.png")
 
     var buttons: Array<Button> = array()
 
-    var buttonPositions = array(175,75,
-            600-145, 75,
-            600/2 - 20, 400/2 + 10,
-            175, 400-75,
-            600-115, 400-95)
+    var buttonPositions = array(175, 75,
+            600 - 145, 75,
+            600 / 2 - 20, 400 / 2 + 10,
+            175, 400 - 75,
+            600 - 115, 400 - 95)
 
 
-    for (i in 0..4)
-    {
-        var button = PIXI.Sprite(textureButton)
+    for (i in 0..4) {
+        var button = Sprite(textureButton)
 
         button.anchor.x = 0.5
         button.anchor.y = 0.5
 
-        button.position.x = buttonPositions[i*2].toDouble()
-        button.position.y = buttonPositions[i*2 + 1].toDouble()
+        button.position.x = buttonPositions[i * 2].toDouble()
+        button.position.y = buttonPositions[i * 2 + 1].toDouble()
 
         // make the button interactive..
         button.interactive = true
@@ -72,12 +75,9 @@ fun main(args: Array<String>) {
             this as Button
             this.isdown = false
 
-            if(this.isOver)
-            {
+            if (this.isOver) {
                 this.setTexture(textureButtonOver)
-            }
-            else
-            {
+            } else {
                 this.setTexture(textureButton)
             }
         }
@@ -88,14 +88,14 @@ fun main(args: Array<String>) {
             this as Button
             this.isOver = true
 
-            if(!this.isdown) this.setTexture(textureButtonOver)
+            if (!this.isdown) this.setTexture(textureButtonOver)
         }
 
         // set the mouseout callback..
         button.mouseout = { data ->
             this as Button
             this.isOver = false
-            if(!this.isdown) this.setTexture(textureButton)
+            if (!this.isdown) this.setTexture(textureButton)
         }
 
         button.click = { data ->
@@ -123,7 +123,7 @@ fun main(args: Array<String>) {
 
     buttons[1].scale.y = 1.2
 
-    buttons[2].rotation = Math.PI/10
+    buttons[2].rotation = Math.PI / 10
 
     buttons[3].scale.x = 0.8
     buttons[3].scale.y = 0.8
@@ -145,7 +145,7 @@ fun main(args: Array<String>) {
 
 
     // add a logo!
-    var pixiLogo = PIXI.Sprite.fromImage("pixi.png")
+    var pixiLogo = Sprite.fromImage("pixi.png")
     stage.addChild(pixiLogo)
 
     pixiLogo.position.x = 620.0 - 56
@@ -154,7 +154,7 @@ fun main(args: Array<String>) {
     pixiLogo.interactive = true
 
     pixiLogo.click = { data ->
-        var win=window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank")
+        window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank")
     }
     pixiLogo.tap = pixiLogo.click
 }

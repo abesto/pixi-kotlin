@@ -64,13 +64,13 @@
                     };
                   },
                   main$f_5: function (data) {
-                    var win = window.open('https://github.com/GoodBoyDigital/pixi.js', '_blank');
+                    window.open('https://github.com/GoodBoyDigital/pixi.js', '_blank');
                   },
                   main: function (args) {
                     var tmp$0;
                     var interactive = true;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.ZERO, interactive)};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(620), Kotlin.Long.fromInt(400))};
+                    var stage = {v: new PIXI.Stage(0, interactive)};
+                    var renderer = {v: PIXI.autoDetectRenderer(620, 400)};
                     document.body.appendChild(renderer.v.view);
                     var background = PIXI.Sprite.fromImage('button_test_BG.jpg');
                     stage.v.addChild(background);

@@ -30,7 +30,7 @@
                       }
                       tmp$1 = 49;
                       for (var i_0 = 0; i_0 <= tmp$1; i_0++) {
-                        var explosion = new PIXI.MovieClip(explosionTextures);
+                        var explosion = new MovieClip(explosionTextures);
                         explosion.position.x = Math.random() * 800;
                         explosion.position.y = Math.random() * 600;
                         explosion.anchor.x = 0.5;
@@ -38,7 +38,7 @@
                         explosion.rotation = Math.random() * Math.PI;
                         explosion.scale.x = 0.75 + Math.random() * 0.5;
                         explosion.scale.y = explosion.scale.x;
-                        explosion.gotoAndPlay(Kotlin.Long.fromNumber(Math.random() * 27));
+                        explosion.gotoAndPlay_3p81yu$(Math.random() * 27);
                         stage.v.addChild(explosion);
                       }
                       requestAnimFrame(animate);
@@ -49,8 +49,8 @@
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     var explosions = [];
                     var count = 0;
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(16777215))};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(800), Kotlin.Long.fromInt(600))};
+                    var stage = {v: new PIXI.Stage(16777215)};
+                    var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
                     document.body.appendChild(renderer.v.view);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_03.main$animate(renderer, stage);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_03.main$onAssetsLoaded(stage, animate);

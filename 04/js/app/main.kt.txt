@@ -8,9 +8,13 @@ import jquery.jq
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.textures.Texture
 
 
-class Star(var sprite: PIXI.Sprite, var x: Double, var y: Double)
+class Star(var sprite: Sprite, var x: Double, var y: Double)
 
 
 fun main(args: Array<String>) {
@@ -23,18 +27,17 @@ fun main(args: Array<String>) {
     var slideX = w / 2
     var slideY = h / 2
     var stars: Array<Star> = array()
-    var renderer = PIXI.autoDetectRenderer(w, h)
-    var stage = PIXI.Stage(0)
+    var renderer = autoDetectRenderer(w, h)
+    var stage = Stage(0)
 
 
-    fun newWave () {
+    fun newWave() {
         sx = 1.0 + (Math.random() / 20)
         sy = 1.0 + (Math.random() / 20)
         (document.getElementById("sx") as HTMLElement).innerHTML = "SX: " + sx + "<br />SY: " + sy
     }
 
-    fun resize()
-    {
+    fun resize() {
         w = jq(window).width().toLong() - 16
         h = jq(window).height().toLong() - 16
 
@@ -44,30 +47,22 @@ fun main(args: Array<String>) {
         renderer.resize(w, h)
     }
 
-    fun update()
-    {
-        for (i in 0..(starCount-1))
-        {
+    fun update() {
+        for (i in 0..(starCount - 1)) {
             stars[i].sprite.position.x = stars[i].x + slideX
             stars[i].sprite.position.y = stars[i].y + slideY
             stars[i].x = stars[i].x * sx
             stars[i].y = stars[i].y * sy
 
-            if (stars[i].x > w)
-            {
+            if (stars[i].x > w) {
                 stars[i].x = stars[i].x - w
-            }
-            else if (stars[i].x < -w)
-            {
+            } else if (stars[i].x < -w) {
                 stars[i].x = stars[i].x + w
             }
 
-            if (stars[i].y > h)
-            {
+            if (stars[i].y > h) {
                 stars[i].y = stars[i].y - h
-            }
-            else if (stars[i].y < -h)
-            {
+            } else if (stars[i].y < -h) {
                 stars[i].y = stars[i].y + h
             }
         }
@@ -82,13 +77,12 @@ fun main(args: Array<String>) {
 
     fun start() {
 
-        var ballTexture = PIXI.Texture.fromImage("assets/bubble_32x32.png")
+        var ballTexture = Texture.fromImage("assets/bubble_32x32.png")
 
         document.body.appendChild(renderer.view)
 
-        for (i in 0..(starCount-1))
-        {
-            var tempBall = PIXI.Sprite(ballTexture)
+        for (i in 0..(starCount - 1)) {
+            var tempBall = Sprite(ballTexture)
 
             tempBall.position.x = (Math.random() * w) - slideX
             tempBall.position.y = (Math.random() * h) - slideY
@@ -99,10 +93,10 @@ fun main(args: Array<String>) {
             stage.addChild(tempBall)
         }
 
-        (document.getElementById("rnd") as HTMLElement).onclick = {newWave()}
+        (document.getElementById("rnd") as HTMLElement).onclick = { newWave() }
         (document.getElementById("sx") as HTMLElement).innerHTML = "SX: " + sx + "<br />SY: " + sy
         resize()
         requestAnimFrame(::update)
     }
-    jq({start()})
+    jq({ start() })
 }

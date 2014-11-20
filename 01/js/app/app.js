@@ -16,8 +16,8 @@
                     };
                   },
                   main: function (args) {
-                    var stage = new PIXI.Stage(Kotlin.Long.fromInt(6750105));
-                    var renderer = PIXI.autoDetectRenderer(Kotlin.Long.fromInt(400), Kotlin.Long.fromInt(300));
+                    var stage = new PIXI.Stage(6750105);
+                    var renderer = PIXI.autoDetectRenderer(400, 300);
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = new PIXI.Sprite(texture);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_01.main$animate(bunny, renderer, stage);

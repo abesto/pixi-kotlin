@@ -86,8 +86,8 @@
                     var assetsToLoader = ['logo_small.png', 'data/PixieSpineData.json', 'data/Pixie.json', 'data/iP4_BGtile.jpg', 'data/iP4_ground.png'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     loader.load();
-                    var stage = {v: new PIXI.Stage(Kotlin.Long.fromInt(16777215), true)};
-                    var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromInt(1024), Kotlin.Long.fromInt(640))};
+                    var stage = {v: new PIXI.Stage(16777215, true)};
+                    var renderer = {v: PIXI.autoDetectRenderer(1024, 640)};
                     renderer.v.view.style.setProperty('display', 'block', '');
                     renderer.v.view.style.setProperty('width', '100%', '');
                     renderer.v.view.style.setProperty('height', '100%', '');

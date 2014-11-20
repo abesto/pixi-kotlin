@@ -4,15 +4,20 @@ import kotlin.js.dom.html.document
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.renderers.Renderer
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.textures.Texture
+import net.abesto.kotlin.js.pixi.display.Sprite
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    var stage = PIXI.Stage(0x66FF99)
+    var stage = Stage(0x66FF99)
 
     // create a renderer instance
-    val rendererOptions = AutoDetectRendererOptions()
+    val rendererOptions = Renderer.Options()
     rendererOptions.transparent = true
-    var renderer = PIXI.autoDetectRenderer(400, 300, rendererOptions)
+    var renderer = autoDetectRenderer(400, 300, rendererOptions)
 
     // add the renderer view element to the DOM
     document.body.appendChild(renderer.view)
@@ -22,9 +27,9 @@ fun main(args: Array<String>) {
             "")
 
     // create a texture from an image path
-    var texture = PIXI.Texture.fromImage("bunny.png")
+    var texture = Texture.fromImage("bunny.png")
     // create a new Sprite using the texture
-    var bunny = PIXI.Sprite(texture)
+    var bunny = Sprite(texture)
 
     // center the sprites anchor point
     bunny.anchor.x = 0.5

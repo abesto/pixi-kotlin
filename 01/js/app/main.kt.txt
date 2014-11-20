@@ -3,20 +3,23 @@ package net.abesto.kotlin.js.pixi.examples.example_01
 import net.abesto.kotlin.js.pixi.*
 
 import kotlin.js.dom.html.document
-import kotlin.js.dom.html.HTMLElement
+import net.abesto.kotlin.js.pixi.display.Stage
+import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.textures.Texture
+import net.abesto.kotlin.js.pixi.display.Sprite
 
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
-    val stage = PIXI.Stage(0x66FF99)
+    val stage = Stage(0x66FF99)
 
     // create a renderer instance
-    val renderer = PIXI.autoDetectRenderer(400, 300)
+    val renderer = autoDetectRenderer(400, 300)
 
     // create a texture from an image path
-    val texture = PIXI.Texture.fromImage("bunny.png")
+    val texture = Texture.fromImage("bunny.png")
     // create a new Sprite using the texture
-    val bunny = PIXI.Sprite(texture)
+    val bunny = Sprite(texture)
 
     fun animate() {
         requestAnimFrame(::animate)
