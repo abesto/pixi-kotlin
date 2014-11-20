@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html><head><title>RendererOptions.kt xref</title><link rel='stylesheet' type='text/css' href='highlight.css'></link></head><body><table style='white-space: pre; font-size: 10pt; font-family: Monaco, monospace'><tr><td style='margin-right: 1.5em; text-align: right'><a href='#1' name='1'>1</a>
+<a href='#2' name='2'>2</a>
+<a href='#3' name='3'>3</a>
+<a href='#4' name='4'>4</a>
+<a href='#5' name='5'>5</a>
+<a href='#6' name='6'>6</a>
+<a href='#7' name='7'>7</a>
+<a href='#8' name='8'>8</a>
+<a href='#9' name='9'>9</a>
+<a href='#10' name='10'>10</a>
+<a href='#11' name='11'>11</a>
+<a href='#12' name='12'>12</a>
+<a href='#13' name='13'>13</a>
+<a href='#14' name='14'>14</a>
+<a href='#15' name='15'>15</a>
+<a href='#16' name='16'>16</a>
+<a href='#17' name='17'>17</a>
+<a href='#18' name='18'>18</a>
+<a href='#19' name='19'>19</a>
+<a href='#20' name='20'>20</a>
+<a href='#21' name='21'>21</a>
+<a href='#22' name='22'>22</a>
+<a href='#23' name='23'>23</a>
+<a href='#24' name='24'>24</a>
+<a href='#25' name='25'>25</a>
+<a href='#26' name='26'>26</a>
+<a href='#27' name='27'>27</a>
+<a href='#28' name='28'>28</a>
+<a href='#29' name='29'>29</a>
+<a href='#30' name='30'>30</a>
+<a href='#31' name='31'>31</a>
+<a href='#32' name='32'>32</a>
+<a href='#33' name='33'>33</a>
+<a href='#34' name='34'>34</a>
+<a href='#35' name='35'>35</a>
+<a href='#36' name='36'>36</a>
+<a href='#37' name='37'>37</a>
+<a href='#38' name='38'>38</a>
+<a href='#39' name='39'>39</a>
+</td><td><span class='hl-keyword'>package</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>renderers</span><span>
+
+</span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>dom</span><span class='DOT'>.</span><span class='IDENTIFIER'>html5</span><span class='DOT'>.</span><span class='IDENTIFIER'>HTMLCanvasElement</span><span>
+
+</span><span class='IDENTIFIER'>native</span><span class='LPAR'>(</span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>Object</span><span class='CLOSING_QUOTE'>&quot;</span><span class='RPAR'>)</span><span>
+</span><span class='open'>open</span><span> </span><span class='public'>public</span><span> </span><span class='hl-keyword'>class</span><span> </span><span class='IDENTIFIER'>RendererOptions</span><span> </span><span class='LBRACE'>{</span><span>
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> the canvas to use as a view, optional</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>view</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>HTMLCanvasElement</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the render view is transparent, default false</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>transparent</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> sets antialias (only applicable in chrome at the moment)</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>antialias</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> enables drawing buffer preservation, enable this if you need to call toDataUrl on the webgl context</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>preserveDrawingBuffer</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> the resolution of the renderer retina would be 2</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>resolution</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Int</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>1</span><span>
+
+    </span><span class='KDOC_START'>/**</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This sets if the Renderer will clear the context texture or not before the new render pass. If true:</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the Stage is NOT transparent, Pixi will clear to alpha (0, 0, 0, 0).</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the Stage is transparent, Pixi will clear to the target Stage's background color.</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Disable this by setting this to false. For example: if your game has a canvas filling background image, you often don't need this set.</span><span>
+     </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>clearBeforeRender</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
+</span><span class='RBRACE'>}</span></td></tr></table></body></html>

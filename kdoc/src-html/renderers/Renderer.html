@@ -68,42 +68,6 @@
 <a href='#67' name='67'>67</a>
 <a href='#68' name='68'>68</a>
 <a href='#69' name='69'>69</a>
-<a href='#70' name='70'>70</a>
-<a href='#71' name='71'>71</a>
-<a href='#72' name='72'>72</a>
-<a href='#73' name='73'>73</a>
-<a href='#74' name='74'>74</a>
-<a href='#75' name='75'>75</a>
-<a href='#76' name='76'>76</a>
-<a href='#77' name='77'>77</a>
-<a href='#78' name='78'>78</a>
-<a href='#79' name='79'>79</a>
-<a href='#80' name='80'>80</a>
-<a href='#81' name='81'>81</a>
-<a href='#82' name='82'>82</a>
-<a href='#83' name='83'>83</a>
-<a href='#84' name='84'>84</a>
-<a href='#85' name='85'>85</a>
-<a href='#86' name='86'>86</a>
-<a href='#87' name='87'>87</a>
-<a href='#88' name='88'>88</a>
-<a href='#89' name='89'>89</a>
-<a href='#90' name='90'>90</a>
-<a href='#91' name='91'>91</a>
-<a href='#92' name='92'>92</a>
-<a href='#93' name='93'>93</a>
-<a href='#94' name='94'>94</a>
-<a href='#95' name='95'>95</a>
-<a href='#96' name='96'>96</a>
-<a href='#97' name='97'>97</a>
-<a href='#98' name='98'>98</a>
-<a href='#99' name='99'>99</a>
-<a href='#100' name='100'>100</a>
-<a href='#101' name='101'>101</a>
-<a href='#102' name='102'>102</a>
-<a href='#103' name='103'>103</a>
-<a href='#104' name='104'>104</a>
-<a href='#105' name='105'>105</a>
 </td><td><span class='hl-keyword'>package</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>renderers</span><span>
 
 </span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>dom</span><span class='DOT'>.</span><span class='IDENTIFIER'>html5</span><span class='DOT'>.</span><span class='IDENTIFIER'>HTMLCanvasElement</span><span>
@@ -127,44 +91,8 @@
         </span><span class='KDOC_START'>/**</span><span>
          </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> The optional renderer parameters</span><span>
          </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='IDENTIFIER'>options</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Renderer</span><span class='DOT'>.</span><span class='IDENTIFIER'>Options</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>Renderer</span><span class='DOT'>.</span><span class='IDENTIFIER'>Options</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span>
+        </span><span class='IDENTIFIER'>options</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>RendererOptions</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>RendererOptions</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span>
 </span><span class='RPAR'>)</span><span> </span><span class='LBRACE'>{</span><span>
-    </span><span class='IDENTIFIER'>native</span><span class='LPAR'>(</span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>Object</span><span class='CLOSING_QUOTE'>&quot;</span><span class='RPAR'>)</span><span>
-    </span><span class='open'>open</span><span> </span><span class='public'>public</span><span> </span><span class='hl-keyword'>class</span><span> </span><span class='IDENTIFIER'>Options</span><span> </span><span class='LBRACE'>{</span><span>
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> the canvas to use as a view, optional</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>view</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>HTMLCanvasElement</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
-
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the render view is transparent, default false</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>transparent</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
-
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> sets antialias (only applicable in chrome at the moment)</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>antialias</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
-
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> enables drawing buffer preservation, enable this if you need to call toDataUrl on the webgl context</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>preserveDrawingBuffer</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
-
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> the resolution of the renderer retina would be 2</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>resolution</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Int</span><span> </span><span class='EQ'>=</span><span> </span><span class='INTEGER_LITERAL'>1</span><span>
-
-        </span><span class='KDOC_START'>/**</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This sets if the Renderer will clear the context texture or not before the new render pass. If true:</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the Stage is NOT transparent, Pixi will clear to alpha (0, 0, 0, 0).</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> If the Stage is transparent, Pixi will clear to the target Stage's background color.</span><span>
-         </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Disable this by setting this to false. For example: if your game has a canvas filling background image, you often don't need this set.</span><span>
-         </span><span class='KDOC_END'>*/</span><span>
-        </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>clearBeforeRender</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
-    </span><span class='RBRACE'>}</span><span>
-
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>type</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Int</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>PIXI</span><span class='DOT'>.</span><span class='IDENTIFIER'>WEBGL_RENDERER</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
@@ -208,4 +136,5 @@
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> height the new height of the webGL view</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='IDENTIFIER'>native</span><span> </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>resize</span><span class='LPAR'>(</span><span class='IDENTIFIER'>width</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>height</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
-</span><span class='RBRACE'>}</span></td></tr></table></body></html>
+</span><span class='RBRACE'>}</span><span>
+</span></td></tr></table></body></html>

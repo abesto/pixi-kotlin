@@ -48,7 +48,7 @@
                   },
                   init$onAssetsLoaded: function (stage) {
                     return function () {
-                      var bitmapFontText = new BitmapText('bitmap fonts are\n now supported!', _.net.abesto.kotlin.js.pixi.examples.example_10.onAssetsLoaded$f());
+                      var bitmapFontText = new PIXI.BitmapText('bitmap fonts are\n now supported!', _.net.abesto.kotlin.js.pixi.examples.example_10.onAssetsLoaded$f());
                       bitmapFontText.position.x = 620 - bitmapFontText.width - 20;
                       bitmapFontText.position.y = 20.0;
                       stage.addChild(bitmapFontText);

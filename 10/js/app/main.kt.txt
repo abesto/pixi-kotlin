@@ -11,6 +11,7 @@ import net.abesto.kotlin.js.pixi.text.Text
 import net.abesto.kotlin.js.pixi.loaders.AssetLoader
 import net.abesto.kotlin.js.pixi.text.BitmapText
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
+import net.abesto.kotlin.js.pixi.text.BitmapTextStyle
 
 class WebFontFamilies(vararg val families: String)
 
@@ -89,7 +90,7 @@ fun main(args: Array<String>) {
         // use callback
         fun onAssetsLoaded() {
             val bitmapFontText = BitmapText("bitmap fonts are\n now supported!", {
-                val s = BitmapText.Style()
+                val s = BitmapTextStyle()
                 s.font = "35px Desyrel"
                 s.align = "right"
                 s

@@ -30,7 +30,7 @@
                       }
                       tmp$1 = 49;
                       for (var i_0 = 0; i_0 <= tmp$1; i_0++) {
-                        var explosion = new MovieClip(explosionTextures);
+                        var explosion = new PIXI.MovieClip(explosionTextures);
                         explosion.position.x = Math.random() * 800;
                         explosion.position.y = Math.random() * 600;
                         explosion.anchor.x = 0.5;
@@ -38,7 +38,7 @@
                         explosion.rotation = Math.random() * Math.PI;
                         explosion.scale.x = 0.75 + Math.random() * 0.5;
                         explosion.scale.y = explosion.scale.x;
-                        explosion.gotoAndPlay_3p81yu$(Math.random() * 27);
+                        explosion.gotoAndPlay(Math.random() * 27);
                         stage.v.addChild(explosion);
                       }
                       requestAnimFrame(animate);
