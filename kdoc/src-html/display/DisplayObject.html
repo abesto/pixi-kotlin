@@ -294,12 +294,12 @@
     </span><span class='KDOC_START'>/**</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> The position of the displayObject on the x axis relative to the local coordinates of the parent.</span><span>
      </span><span class='KDOC_END'>*/</span><span>
-    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>x</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>x</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Double</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> The position of the displayObject on the y axis relative to the local coordinates of the parent.</span><span>
      </span><span class='KDOC_END'>*/</span><span>
-    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>y</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
+    </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>y</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Double</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> The scale factor of the object.</span><span>
@@ -363,7 +363,7 @@
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>worldAlpha</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Double</span><span> </span><span class='EQ'>=</span><span> </span><span class='FLOAT_CONSTANT'>1.0</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This is the cursor that will be used when the mouse is over this object. To enable this the element must have Interaction = true and buttonMode = true</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> This is the cursor that will be used when the mouse is over this object. To enable this the element must have interactive = true and buttonMode = true</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>defaultCursor</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>String</span><span> </span><span class='EQ'>=</span><span> </span><span class='OPEN_QUOTE'>&quot;</span><span class='REGULAR_STRING_PART'>Pointer</span><span class='CLOSING_QUOTE'>&quot;</span><span>
 
@@ -374,7 +374,7 @@
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>filterArea</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Rectangle</span><span class='QUEST'>?</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>null</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Indicates if the sprite will have touch and mouse Interactivity. It is false by default</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Indicates if the sprite will have touch and mouse interactivity. It is false by default</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>interactive</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Boolean</span><span> </span><span class='EQ'>=</span><span> </span><span class='hl-keyword'>false</span><span>
 
@@ -438,7 +438,7 @@
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>mouseup</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>DisplayObject</span><span class='DOT'>.</span><span class='LPAR'>(</span><span class='IDENTIFIER'>InteractionData</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> A callback that is used when the user releases the mouse's left button that was over the displayObject but is no Inter over the displayObject</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> A callback that is used when the user releases the mouse's left button that was over the displayObject but is no longer over the displayObject</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> for this callback to be fired, the mouse's left button must have been pressed down over the displayObject</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>mouseupoutside</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>DisplayObject</span><span class='DOT'>.</span><span class='LPAR'>(</span><span class='IDENTIFIER'>InteractionData</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
@@ -460,7 +460,7 @@
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>rightup</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>DisplayObject</span><span class='DOT'>.</span><span class='LPAR'>(</span><span class='IDENTIFIER'>InteractionData</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> A callback that is used when the user releases the mouse's right button that was over the displayObject but is no Inter over the displayObject</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> A callback that is used when the user releases the mouse's right button that was over the displayObject but is no longer over the displayObject</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> for this callback to be fired, the mouse's right button must have been pressed down over the displayObject</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>var</span><span> </span><span class='IDENTIFIER'>rightuseupoutside</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>DisplayObject</span><span class='DOT'>.</span><span class='LPAR'>(</span><span class='IDENTIFIER'>InteractionData</span><span class='RPAR'>)</span><span> </span><span class='ARROW'>-&gt;</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>

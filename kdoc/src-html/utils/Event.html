@@ -40,7 +40,7 @@
         </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> The string name of the event that was triggered </span><span class='KDOC_END'>*/</span><span>
         </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>type</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>String</span><span class='COMMA'>,</span><span>
 
-        </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Arbitrary event data to pass aInt </span><span class='KDOC_END'>*/</span><span>
+        </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Arbitrary event data to pass along </span><span class='KDOC_END'>*/</span><span>
         </span><span class='public'>public</span><span> </span><span class='hl-keyword'>val</span><span> </span><span class='IDENTIFIER'>data</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Any</span><span>
 </span><span class='RPAR'>)</span><span> </span><span class='LBRACE'>{</span><span>
     </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> backwards compat with older version of events </span><span class='KDOC_END'>*/</span><span>
@@ -52,6 +52,6 @@
     </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Stops the propagation of events up the scene graph (prevents bubbling). </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>stopPropagation</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
-    </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Stops the propagation of events to sibling listeners (no Inter calls any listeners). </span><span class='KDOC_END'>*/</span><span>
+    </span><span class='KDOC_START'>/**</span><span class='KDOC_TEXT'> Stops the propagation of events to sibling listeners (no longer calls any listeners). </span><span class='KDOC_END'>*/</span><span>
     </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>stopImmediatePropagation</span><span class='LPAR'>(</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 </span><span class='RBRACE'>}</span></td></tr></table></body></html>
