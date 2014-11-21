@@ -11,7 +11,7 @@ public class Event(
         /** The string name of the event that was triggered */
         public val type: String,
 
-        /** Arbitrary event data to pass aInt */
+        /** Arbitrary event data to pass along */
         public val data: Any
 ) {
     /** backwards compat with older version of events */
@@ -23,6 +23,6 @@ public class Event(
     /** Stops the propagation of events up the scene graph (prevents bubbling). */
     public fun stopPropagation(): Unit = noImpl
 
-    /** Stops the propagation of events to sibling listeners (no Inter calls any listeners). */
+    /** Stops the propagation of events to sibling listeners (no longer calls any listeners). */
     public fun stopImmediatePropagation(): Unit = noImpl
 }

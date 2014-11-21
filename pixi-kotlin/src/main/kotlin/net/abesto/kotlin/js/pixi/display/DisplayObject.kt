@@ -24,12 +24,12 @@ abstract public class DisplayObject {
     /**
      * The position of the displayObject on the x axis relative to the local coordinates of the parent.
      */
-    public var x: Number = noImpl
+    public var x: Double = noImpl
 
     /**
      * The position of the displayObject on the y axis relative to the local coordinates of the parent.
      */
-    public var y: Number = noImpl
+    public var y: Double = noImpl
 
     /**
      * The scale factor of the object.
@@ -93,7 +93,7 @@ abstract public class DisplayObject {
     public val worldAlpha: Double = 1.0
 
     /**
-     * This is the cursor that will be used when the mouse is over this object. To enable this the element must have Interaction = true and buttonMode = true
+     * This is the cursor that will be used when the mouse is over this object. To enable this the element must have interactive = true and buttonMode = true
      */
     public var defaultCursor: String = "Pointer"
 
@@ -104,7 +104,7 @@ abstract public class DisplayObject {
     public var filterArea: Rectangle? = null
 
     /**
-     * Indicates if the sprite will have touch and mouse Interactivity. It is false by default
+     * Indicates if the sprite will have touch and mouse interactivity. It is false by default
      */
     public var interactive: Boolean = false
 
@@ -168,7 +168,7 @@ abstract public class DisplayObject {
     public var mouseup: DisplayObject.(InteractionData) -> Unit = noImpl
 
     /**
-     * A callback that is used when the user releases the mouse's left button that was over the displayObject but is no Inter over the displayObject
+     * A callback that is used when the user releases the mouse's left button that was over the displayObject but is no longer over the displayObject
      * for this callback to be fired, the mouse's left button must have been pressed down over the displayObject
      */
     public var mouseupoutside: DisplayObject.(InteractionData) -> Unit = noImpl
@@ -190,7 +190,7 @@ abstract public class DisplayObject {
     public var rightup: DisplayObject.(InteractionData) -> Unit = noImpl
 
     /**
-     * A callback that is used when the user releases the mouse's right button that was over the displayObject but is no Inter over the displayObject
+     * A callback that is used when the user releases the mouse's right button that was over the displayObject but is no longer over the displayObject
      * for this callback to be fired, the mouse's right button must have been pressed down over the displayObject
      */
     public var rightuseupoutside: DisplayObject.(InteractionData) -> Unit = noImpl

@@ -6,7 +6,7 @@ import kotlin.js.dom.html.Event
 import net.abesto.kotlin.js.pixi.display.Sprite
 
 /**
- * Holds all information related to an Interaction event
+ * Holds all information related to an interaction event
  */
 native("PIXI.InteractionData")
 public class InteractionData {
@@ -16,7 +16,7 @@ public class InteractionData {
     public var global: Point = Point()
 
     /**
-     * The target Sprite that was Interacted with
+     * The target Sprite that was interacted with
      */
     public var target: Sprite = noImpl
 

@@ -84,14 +84,14 @@ open public class DisplayObjectContainer : DisplayObject() {
     public fun removeChildren(beginIndex: Int = 0, endIndex: Int = children.size()): Array<DisplayObject> = noImpl
 
     /**
-     * Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children Into consideration.
+     * Retrieves the bounds of the displayObjectContainer as a rectangle. The bounds calculation takes all visible children into consideration.
      *
      * @return The rectangular bounding area
      */
     public fun getBounds(): Rectangle = noImpl
 
     /**
-     * Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children Into consideration.
+     * Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.
      *
      * @return The rectangular bounding area
      */
