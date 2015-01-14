@@ -44,7 +44,7 @@ fun main(args: Array<String>) {
     fun onTilesLoaded() {
         // choose 24 random tile images
         var chosenTiles: Array<Int> = array()
-        while (chosenTiles.size() < 48) {
+        while (chosenTiles.size < 48) {
             var candidate = Math.floor(Math.random() * 44);
             if (chosenTiles.indexOf(candidate) == -1) {
                 chosenTiles.push(candidate, candidate)

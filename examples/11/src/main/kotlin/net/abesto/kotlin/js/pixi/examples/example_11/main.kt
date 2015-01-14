@@ -54,7 +54,7 @@ fun main(args: Array<String>) {
     var bunnys: Array<Sprite> = array()
 
     for (i in 0..19) {
-        var bunny = Sprite.fromImage(fruits[i % fruits.size()])
+        var bunny = Sprite.fromImage(fruits[i % fruits.size])
         bunny.position.x = Math.random() * 400 - 200
         bunny.position.y = Math.random() * 400 - 200
 
@@ -74,7 +74,7 @@ fun main(args: Array<String>) {
 
         requestAnimFrame(::animate)
 
-        for (i in 0..bunnys.size() - 1) {
+        for (i in 0..bunnys.size - 1) {
             var bunny = bunnys[i]
             bunny.rotation += 0.1
         }
