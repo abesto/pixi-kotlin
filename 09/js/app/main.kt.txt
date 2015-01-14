@@ -7,7 +7,7 @@ import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
 import net.abesto.kotlin.js.pixi.textures.Texture
-import net.abesto.kotlin.js.pixi.display.TilingSprite
+import net.abesto.kotlin.js.pixi.extras.TilingSprite
 
 
 fun main(args: Array<String>) {
