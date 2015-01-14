@@ -75,7 +75,7 @@ abstract public class DisplayObject {
     /**
      * Can this object be rendered
      */
-    public var renderable: Boolean = false
+    open public var renderable: Boolean = false
 
     /**
      * The display object container that contains this display object.

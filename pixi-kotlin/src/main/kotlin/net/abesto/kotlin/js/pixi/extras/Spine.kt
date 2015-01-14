@@ -4,13 +4,11 @@ import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 
 native("PIXI.Spine")
 public class Spine(val url: String) : DisplayObjectContainer() {
-    // TODO
+    // TODO Add the rest of the interface
     class object {
-        class AnimationSkeletonData {
+        class SkeletonData {}
 
-        }
-
-        class AnimationStateData(val skeletonData: AnimationSkeletonData) {
+        class AnimationStateData(val skeletonData: SkeletonData) {
             public fun setMixByName(fromName: String, toName: String, duration: Double): Unit = noImpl
         }
 

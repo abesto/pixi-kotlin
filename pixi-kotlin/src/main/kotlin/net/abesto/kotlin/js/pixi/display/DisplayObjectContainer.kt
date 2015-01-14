@@ -88,7 +88,7 @@ open public class DisplayObjectContainer : DisplayObject() {
      *
      * @return The rectangular bounding area
      */
-    public fun getBounds(): Rectangle = noImpl
+    open public fun getBounds(): Rectangle = noImpl
 
     /**
      * Retrieves the non-global local bounds of the displayObjectContainer as a rectangle. The calculation takes all visible children into consideration.

@@ -52,13 +52,13 @@ open public class Sprite(
      * The tint applied to the sprite. This is a hex value. A value of 0xFFFFFF will remove any tint effect.
      * @default 0xFFFFFF
      */
-    public var tint: Int = 0xFFFFFF
+    open public var tint: Int = 0xFFFFFF
 
     /**
      * The blend mode to be applied to the sprite. Set to PIXI.blendModes.NORMAL to remove any blend mode.
      * @default PIXI.blendModes.NORMAL;
      */
-    public var blendMode: Int = PIXI.blendModes.NORMAL
+    open public var blendMode: Int = PIXI.blendModes.NORMAL
 
     /**
      * The shader that will be used to render the texture to the stage. Set to null to remove a current shader.
