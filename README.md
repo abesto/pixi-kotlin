@@ -24,6 +24,5 @@ need a webserver to check out the examples.
 
 ## Roadmap
 
- - contribute a proper gradle kotlin->js plugin to kotlin
  - implement all examples from http://www.pixijs.com/examples/
  - create skeleton project to get started with pixi-kotlin
