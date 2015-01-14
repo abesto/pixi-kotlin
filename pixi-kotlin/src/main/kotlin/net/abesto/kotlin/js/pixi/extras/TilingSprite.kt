@@ -1,6 +1,7 @@
-package net.abesto.kotlin.js.pixi.display
+package net.abesto.kotlin.js.pixi.extras
 
 import net.abesto.kotlin.js.pixi.textures.Texture
+import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 import net.abesto.kotlin.js.pixi.geom.Point
 
 native("PIXI.TilingSprite")
