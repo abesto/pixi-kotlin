@@ -220,7 +220,7 @@ abstract public class DisplayObject {
     /**
      * Retrieves the bounds of the displayObject as a rectangle object
      */
-    public fun getBounds(matrix: Matrix): Rectangle = noImpl
+    open public fun getBounds(matrix: Matrix): Rectangle = noImpl
 
     /**
      * Retrieves the local bounds of the displayObject as a rectangle object

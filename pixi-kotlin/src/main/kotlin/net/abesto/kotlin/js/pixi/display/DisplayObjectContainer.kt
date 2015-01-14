@@ -112,10 +112,10 @@ open public class DisplayObjectContainer : DisplayObject() {
     /**
      * The width of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
      */
-    public var width: Double = noImpl
+    public open var width: Double = noImpl
 
     /**
      * The height of the displayObjectContainer, setting this will actually modify the scale to achieve the value set
      */
-    public var height: Double = noImpl
+    public open var height: Double = noImpl
 }
