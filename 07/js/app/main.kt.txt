@@ -9,13 +9,14 @@ import net.abesto.kotlin.js.pixi.renderers.Renderer
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
 import net.abesto.kotlin.js.pixi.textures.Texture
 import net.abesto.kotlin.js.pixi.display.Sprite
+import net.abesto.kotlin.js.pixi.renderers.RendererOptions
 
 fun main(args: Array<String>) {
     // create an new instance of a pixi stage
     var stage = Stage(0x66FF99)
 
     // create a renderer instance
-    val rendererOptions = Renderer.Options()
+    val rendererOptions = RendererOptions()
     rendererOptions.transparent = true
     var renderer = autoDetectRenderer(400, 300, rendererOptions)
 
