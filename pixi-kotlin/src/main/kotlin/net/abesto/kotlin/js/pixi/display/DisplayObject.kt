@@ -106,7 +106,7 @@ abstract public class DisplayObject {
     /**
      * Indicates if the sprite will have touch and mouse interactivity. It is false by default
      */
-    public var interactive: Boolean = false
+    open public var interactive: Boolean = false
 
     /**
      * Sets a mask for the displayObject. A mask is an object that limits the visibility of an object to the shape of the mask applied to it.
