@@ -7,7 +7,6 @@ buildscript {
 	}
 
 	repositories {
-		mavenLocal()
 		jcenter()
 		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
 	}
@@ -20,8 +19,8 @@ buildscript {
 
 subprojects {
 	repositories {
-		mavenLocal()
 		jcenter()
+		maven { url 'http://oss.sonatype.org/content/repositories/snapshots' }
 	}
 
 }
@@ -36,6 +35,8 @@ project(':pixi-kotlin') {
 	task jarSources(type:Jar){
 		from sourceSets.main.allSource
 		classifier = 'source'
+		manifest.attributes.put("Specification-Title", "Kotlin JavaScript Lib")
+		manifest.attributes.put("Kotlin-JS-Module-Name", "pixi")
 	}
 	artifacts {
 		compile jarSources
@@ -86,13 +87,12 @@ project(':examples') {
 		apply plugin: "kotlin2js"
 
 		dependencies {
-			compile project(':pixi-kotlin'),
-					"org.jetbrains.kotlin:kotlin-js-library:$kotlinVersion"
+			compile "org.jetbrains.kotlin:kotlin-js-library:$kotlinVersion",
+					project(":pixi-kotlin")
 		}
 
 		compileKotlin2Js.kotlinOptions.outputFile = "${projectDir}/web/js/app/app.js"
 		compileKotlin2Js.kotlinOptions.sourceMap = true
-		copyKotlinJs.into "${projectDir}/web/js/lib"
 
 		task('copyKotlinSources', type: Copy) {
 			from project.sourceSets.main.allSource.files
@@ -100,6 +100,14 @@ project(':examples') {
 			rename '(.*)\\.kt', '$1.kt.txt'
 		}
 		tasks.build.dependsOn copyKotlinSources
+
+		task('copyKotlinJs', type: Copy) {
+			from zipTree(project.configurations.compile.find { it.name.contains "kotlin-js-library" })
+			include 'kotlin.js'
+			into "${projectDir}/web/js/lib/"
+		}
+		tasks.build.dependsOn copyKotlinJs
+		tasks.clean.dependsOn cleanCopyKotlinJs
 
 		task('cleanCopyKotlinSources', type: Delete) {
 			project.sourceSets.main.allSource.files.each {
@@ -140,8 +148,7 @@ project(':examples') {
 		task cleanGenerateExampleIndexHtml(type: Delete) {
 			delete "${generateExampleIndexHtml.destinationDir}/index.html"
 		}
-
-		build.dependsOn ':pixi-kotlin:jarSources', generateExampleIndexHtml
+		build.dependsOn generateExampleIndexHtml
 		clean.dependsOn cleanGenerateExampleIndexHtml
 	}
 }
