@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleHome" value="/usr/local/Library/LinkedKegs/gradle/libexec" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/examples" />
+            <option value="$PROJECT_DIR$/examples/01" />
+            <option value="$PROJECT_DIR$/examples/02" />
+            <option value="$PROJECT_DIR$/examples/03" />
+            <option value="$PROJECT_DIR$/examples/04" />
+            <option value="$PROJECT_DIR$/examples/05" />
+            <option value="$PROJECT_DIR$/examples/06" />
+            <option value="$PROJECT_DIR$/examples/07" />
+            <option value="$PROJECT_DIR$/examples/08" />
+            <option value="$PROJECT_DIR$/examples/09" />
+            <option value="$PROJECT_DIR$/examples/10" />
+            <option value="$PROJECT_DIR$/examples/11" />
+            <option value="$PROJECT_DIR$/examples/12" />
+            <option value="$PROJECT_DIR$/examples/12b" />
+            <option value="$PROJECT_DIR$/examples/12c" />
+            <option value="$PROJECT_DIR$/examples/pairs" />
+            <option value="$PROJECT_DIR$/pixi-kotlin" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
