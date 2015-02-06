@@ -61,7 +61,7 @@ open public class Texture(
          * @param crossorigin  Whether requests should be treated as crossorigin
          * @param scaleMode See {{#crossLink "PIXI/scaleModes:property"}}PIXI.scaleModes{{/crossLink}} for possible values
          */
-        public fun fromImage(imageUrl: String, crossorigin: Boolean, scaleMode: Int): Texture = noImpl
+        public fun fromImage(imageUrl: String, crossorigin: Boolean = noImpl, scaleMode: Int = noImpl): Texture = noImpl
 
         /**
          * Helper function that returns a Texture objected based on the given frame id.
