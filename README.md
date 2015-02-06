@@ -26,3 +26,4 @@ need a webserver to check out the examples.
 
  - implement all examples from http://www.pixijs.com/examples/
  - create skeleton project to get started with pixi-kotlin
+ - [#1](https://github.com/abesto/pixi-kotlin/issues/1): Generate some / most of the bindings from Pixi.js documentation strings
