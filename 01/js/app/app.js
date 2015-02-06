@@ -18,16 +18,16 @@
                   main: function (args) {
                     var stage = new PIXI.Stage(6750105);
                     var renderer = PIXI.autoDetectRenderer(400, 300);
+                    document.body.appendChild(renderer.view);
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = new PIXI.Sprite(texture);
-                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_01.main$animate(bunny, renderer, stage);
-                    document.body.appendChild(renderer.view);
-                    requestAnimFrame(animate);
                     bunny.anchor.x = 0.5;
                     bunny.anchor.y = 0.5;
                     bunny.position.x = 200.0;
                     bunny.position.y = 150.0;
                     stage.addChild(bunny);
+                    var animate = _.net.abesto.kotlin.js.pixi.examples.example_01.main$animate(bunny, renderer, stage);
+                    requestAnimFrame(animate);
                   }
                 })
               })

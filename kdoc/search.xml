@@ -221,6 +221,16 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#addEventListener(kotlin.String, kotlin.Function1)</href>
+  <name>addEventListener() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#addEventListener(kotlin.String, kotlin.Function1)</href>
+  <name>addEventListener() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/utils/EventTarget.html#addEventListener(kotlin.String, kotlin.Function1)</href>
   <name>addEventListener() [net.abesto.kotlin.js.pixi.utils.EventTarget]</name>
   <kind>fun</kind>
@@ -314,6 +324,16 @@
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#assetURLs</href>
   <name>assetURLs [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
   <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#baseTexture</href>
+  <name>baseTexture [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#baseTexture</href>
+  <name>baseTexture [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/display/MovieClip.html#blendMode</href>
@@ -466,6 +486,11 @@
   <kind>val</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#clear()</href>
+  <name>clear() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/RendererOptions.html#clearBeforeRender</href>
   <name>clearBeforeRender [net.abesto.kotlin.js.pixi.renderers.RendererOptions]</name>
   <kind>var</kind>
@@ -541,6 +566,16 @@
   <kind>val</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#crop</href>
+  <name>crop [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#crop</href>
+  <name>crop [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#crossorigin</href>
   <name>crossorigin [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
   <kind>val</kind>
@@ -606,6 +641,16 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#destroy(kotlin.Boolean)</href>
+  <name>destroy() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#destroy(kotlin.Boolean)</href>
+  <name>destroy() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/text/BitmapText.html#dirty</href>
   <name>dirty [net.abesto.kotlin.js.pixi.text.BitmapText]</name>
   <kind>var</kind>
@@ -621,6 +666,16 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#dispatchEvent(kotlin.String, kotlin.Any)</href>
+  <name>dispatchEvent() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#dispatchEvent(kotlin.String, kotlin.Any)</href>
+  <name>dispatchEvent() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/utils/EventTarget.html#dispatchEvent(kotlin.String, kotlin.Any)</href>
   <name>dispatchEvent() [net.abesto.kotlin.js.pixi.utils.EventTarget]</name>
   <kind>fun</kind>
@@ -628,6 +683,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#emit(kotlin.String, kotlin.Any)</href>
   <name>emit() [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#emit(kotlin.String, kotlin.Any)</href>
+  <name>emit() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#emit(kotlin.String, kotlin.Any)</href>
+  <name>emit() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -881,6 +946,16 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#frame</href>
+  <name>frame [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#frame</href>
+  <name>frame [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/display/DisplayObjectContainer.html#generateTexture(kotlin.Int, kotlin.Int, net.abesto.kotlin.js.pixi.renderers.Renderer)</href>
   <name>generateTexture() [net.abesto.kotlin.js.pixi.display.DisplayObjectContainer]</name>
   <kind>fun</kind>
@@ -926,6 +1001,11 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#getBase64()</href>
+  <name>getBase64() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/display/DisplayObjectContainer.html#getBounds()</href>
   <name>getBounds() [net.abesto.kotlin.js.pixi.display.DisplayObjectContainer]</name>
   <kind>fun</kind>
@@ -968,6 +1048,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/text/Text.html#getBounds()</href>
   <name>getBounds() [net.abesto.kotlin.js.pixi.text.Text]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#getCanvas()</href>
+  <name>getCanvas() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1048,6 +1133,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/text/Text.html#getChildIndex(net.abesto.kotlin.js.pixi.display.DisplayObject)</href>
   <name>getChildIndex() [net.abesto.kotlin.js.pixi.text.Text]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#getImage()</href>
+  <name>getImage() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1311,6 +1401,16 @@
   <kind>val</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#height</href>
+  <name>height [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#height</href>
+  <name>height [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/display/DisplayObjectContainer.html#hitArea</href>
   <name>hitArea [net.abesto.kotlin.js.pixi.display.DisplayObjectContainer]</name>
   <kind>var</kind>
@@ -1413,6 +1513,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#listeners(kotlin.String)</href>
   <name>listeners() [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#listeners(kotlin.String)</href>
+  <name>listeners() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#listeners(kotlin.String)</href>
+  <name>listeners() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1746,8 +1856,28 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#noFrame</href>
+  <name>noFrame [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#noFrame</href>
+  <name>noFrame [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#off(kotlin.String, kotlin.Function1)</href>
   <name>off() [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#off(kotlin.String, kotlin.Function1)</href>
+  <name>off() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#off(kotlin.String, kotlin.Function1)</href>
+  <name>off() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1758,6 +1888,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#on(kotlin.String, kotlin.Function1)</href>
   <name>on() [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#on(kotlin.String, kotlin.Function1)</href>
+  <name>on() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#on(kotlin.String, kotlin.Function1)</href>
+  <name>on() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1783,6 +1923,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/loaders/AssetLoader.html#once(kotlin.String, kotlin.Function1)</href>
   <name>once() [net.abesto.kotlin.js.pixi.loaders.AssetLoader]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#once(kotlin.String, kotlin.Function1)</href>
+  <name>once() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#once(kotlin.String, kotlin.Function1)</href>
+  <name>once() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -1961,6 +2111,16 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#removeAllEventListeners(kotlin.String)</href>
+  <name>removeAllEventListeners() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#removeAllEventListeners(kotlin.String)</href>
+  <name>removeAllEventListeners() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/utils/EventTarget.html#removeAllEventListeners(kotlin.String)</href>
   <name>removeAllEventListeners() [net.abesto.kotlin.js.pixi.utils.EventTarget]</name>
   <kind>fun</kind>
@@ -2091,6 +2251,16 @@
   <kind>fun</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#removeEventListener(kotlin.String, kotlin.Function1)</href>
+  <name>removeEventListener() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#removeEventListener(kotlin.String, kotlin.Function1)</href>
+  <name>removeEventListener() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>fun</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/utils/EventTarget.html#removeEventListener(kotlin.String, kotlin.Function1)</href>
   <name>removeEventListener() [net.abesto.kotlin.js.pixi.utils.EventTarget]</name>
   <kind>fun</kind>
@@ -2191,8 +2361,28 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#renderer</href>
+  <name>renderer [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#requiresUpdate</href>
+  <name>requiresUpdate [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#requiresUpdate</href>
+  <name>requiresUpdate [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#resize(kotlin.Number, kotlin.Number)</href>
   <name>resize() [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#resize(kotlin.Int, kotlin.Int, kotlin.Boolean)</href>
+  <name>resize() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -2208,6 +2398,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/textures/BaseTexture.html#resolution</href>
   <name>resolution [net.abesto.kotlin.js.pixi.textures.BaseTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#resolution</href>
+  <name>resolution [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
   <kind>var</kind>
 </search>
 <search>
@@ -2533,6 +2728,16 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/text/Text.html#setChildIndex(net.abesto.kotlin.js.pixi.display.DisplayObject, kotlin.Int)</href>
   <name>setChildIndex() [net.abesto.kotlin.js.pixi.text.Text]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#setFrame(net.abesto.kotlin.js.pixi.geom.Rectangle)</href>
+  <name>setFrame() [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#setFrame(net.abesto.kotlin.js.pixi.geom.Rectangle)</href>
+  <name>setFrame() [net.abesto.kotlin.js.pixi.textures.Texture]</name>
   <kind>fun</kind>
 </search>
 <search>
@@ -3321,6 +3526,16 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#trim</href>
+  <name>trim [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#trim</href>
+  <name>trim [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/renderers/Renderer.html#type</href>
   <name>type [net.abesto.kotlin.js.pixi.renderers.Renderer]</name>
   <kind>val</kind>
@@ -3389,6 +3604,16 @@
   <href>net/abesto/kotlin/js/pixi/extras/Spine.html#url</href>
   <name>url [net.abesto.kotlin.js.pixi.extras.Spine]</name>
   <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#valid</href>
+  <name>valid [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#valid</href>
+  <name>valid [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/renderers/RendererOptions.html#view</href>
@@ -3499,6 +3724,16 @@
   <href>net/abesto/kotlin/js/pixi/textures/BaseTexture.html#width</href>
   <name>width [net.abesto.kotlin.js.pixi.textures.BaseTexture]</name>
   <kind>val</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#width</href>
+  <name>width [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
+  <kind>var</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/textures/Texture.html#width</href>
+  <name>width [net.abesto.kotlin.js.pixi.textures.Texture]</name>
+  <kind>var</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/TextStyle.html#wordWrap</href>

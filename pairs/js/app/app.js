@@ -82,7 +82,7 @@
                     return function () {
                       var tmp$0, tmp$1, tmp$2;
                       var chosenTiles = [];
-                      while (chosenTiles.length < 48) {
+                      while (Kotlin.modules['stdlib'].kotlin.get_size_eg9ybj$(chosenTiles) < 48) {
                         var candidate = Math.floor(Math.random() * 44);
                         if (chosenTiles.indexOf(candidate) === -1) {
                           chosenTiles.push(candidate, candidate);
