@@ -45,7 +45,7 @@ fun main(args: Array<String>) {
 
     fun animate() {
         // just for fun, lets rotate mr rabbit a little
-        for (i in 0 .. 100)
+        for (i in 0 .. 99)
         {
             val alien = aliens[i]
             alien.rotation += 0.1

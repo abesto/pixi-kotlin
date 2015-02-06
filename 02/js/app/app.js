@@ -11,7 +11,7 @@
                   main$animate: function (aliens, count, alienContainer, renderer, stage) {
                     return function animate() {
                       var tmp$0;
-                      tmp$0 = 100;
+                      tmp$0 = 99;
                       for (var i = 0; i <= tmp$0; i++) {
                         var alien = aliens[i];
                         alien.rotation = alien.rotation + 0.1;
