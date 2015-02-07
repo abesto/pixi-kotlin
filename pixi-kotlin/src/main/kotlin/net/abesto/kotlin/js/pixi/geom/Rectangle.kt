@@ -17,7 +17,7 @@ public class Rectangle(
 
         /** The overall height of this rectangle */
         public var height: Double = 0.0
-) {
+): Shape {
     /**
      * Creates a clone of this Rectangle
      * @return a copy of the rectangle

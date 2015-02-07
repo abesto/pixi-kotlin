@@ -266,3 +266,7 @@ project(':examples:12c') {
 	ext.isFullscreen = true
 	ext.originalExampleUrl = "http://www.goodboydigital.com/pixijs/examples/12-3/"
 }
+
+project(':examples:13') {
+	description = 'Graphics'
+}
