@@ -10,8 +10,8 @@
                 example_12: Kotlin.definePackage(null, /** @lends _.net.abesto.kotlin.js.pixi.examples.example_12 */ {
                   onAssetsLoaded$f: function (spineBoy) {
                     return function (it) {
-                      spineBoy.v.state.setAnimationByName('jump', false);
-                      spineBoy.v.state.addAnimationByName('walk', true);
+                      spineBoy.state.setAnimationByName(0, 'jump', false);
+                      spineBoy.state.addAnimationByName(0, 'walk', true, 0);
                     };
                   },
                   onAssetsLoaded$f_0: function (it) {
@@ -19,18 +19,18 @@
                   },
                   main$onAssetsLoaded: function (stage) {
                     return function () {
-                      var spineBoy = {v: new PIXI.Spine('data/spineboy.anim')};
-                      spineBoy.v.position.x = window.innerWidth / 2;
-                      spineBoy.v.position.y = window.innerHeight;
-                      spineBoy.v.scale.x = window.innerHeight / 400;
-                      spineBoy.v.scale.y = spineBoy.v.scale.x;
-                      spineBoy.v.stateData.setMixByName('walk', 'jump', 0.2);
-                      spineBoy.v.stateData.setMixByName('jump', 'walk', 0.4);
-                      spineBoy.v.state.setAnimationByName('walk', true);
-                      stage.v.addChild(spineBoy.v);
-                      stage.v.click = _.net.abesto.kotlin.js.pixi.examples.example_12.onAssetsLoaded$f(spineBoy);
+                      var spineBoy = new PIXI.Spine('data/spineboy.json');
+                      spineBoy.position.x = window.innerWidth / 2;
+                      spineBoy.position.y = window.innerHeight;
+                      spineBoy.scale.x = window.innerHeight / 400;
+                      spineBoy.scale.y = spineBoy.scale.x;
+                      spineBoy.stateData.setMixByName('walk', 'jump', 0.2);
+                      spineBoy.stateData.setMixByName('jump', 'walk', 0.4);
+                      spineBoy.state.setAnimationByName(0, 'walk', true);
+                      stage.addChild(spineBoy);
+                      stage.click = _.net.abesto.kotlin.js.pixi.examples.example_12.onAssetsLoaded$f(spineBoy);
                       var logo = PIXI.Sprite.fromImage('logo_small.png');
-                      stage.v.addChild(logo);
+                      stage.addChild(logo);
                       logo.anchor.x = 1.0;
                       logo.position.x = window.innerWidth;
                       logo.scale.x = 0.5;
@@ -45,19 +45,18 @@
                   main$animate: function (renderer, stage) {
                     return function animate() {
                       requestAnimFrame(animate);
-                      renderer.v.render(stage.v);
+                      renderer.render(stage);
                     };
                   },
                   main: function (args) {
-                    var stage = {v: new PIXI.Stage(16777215, true)};
-                    var renderer = {v: PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)};
-                    renderer.v.view.style.setProperty('display', 'block', '');
-                    document.body.appendChild(renderer.v.view);
-                    var assetsToLoader = ['data/spineboy.json', 'data/spineboy.anim'];
+                    var assetsToLoader = ['data/spineboy.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
+                    loader.load();
+                    var stage = new PIXI.Stage(16777215, true);
+                    var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
+                    document.body.appendChild(renderer.view);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_12.main$onAssetsLoaded(stage);
                     loader.onComplete = onAssetsLoaded;
-                    loader.load();
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_12.main$animate(renderer, stage);
                     requestAnimFrame(animate);
                   }

@@ -356,6 +356,11 @@
   <kind>val</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/extras/Spine.html#autoUpdate</href>
+  <name>autoUpdate [net.abesto.kotlin.js.pixi.extras.Spine]</name>
+  <kind>var</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/textures/RenderTexture.html#baseTexture</href>
   <name>baseTexture [net.abesto.kotlin.js.pixi.textures.RenderTexture]</name>
   <kind>var</kind>
@@ -3186,6 +3191,11 @@
   <kind>var</kind>
 </search>
 <search>
+  <href>net/abesto/kotlin/js/pixi/extras/Spine.html#skeleton</href>
+  <name>skeleton [net.abesto.kotlin.js.pixi.extras.Spine]</name>
+  <kind>val</kind>
+</search>
+<search>
   <href>net/abesto/kotlin/js/pixi/textures/BaseTexture.html#source</href>
   <name>source [net.abesto.kotlin.js.pixi.textures.BaseTexture]</name>
   <kind>var</kind>
@@ -3943,6 +3953,11 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/textures/BaseTexture.html#unloadFromGPU()</href>
   <name>unloadFromGPU() [net.abesto.kotlin.js.pixi.textures.BaseTexture]</name>
+  <kind>fun</kind>
+</search>
+<search>
+  <href>net/abesto/kotlin/js/pixi/extras/Spine.html#update(kotlin.Number)</href>
+  <name>update() [net.abesto.kotlin.js.pixi.extras.Spine]</name>
   <kind>fun</kind>
 </search>
 <search>
