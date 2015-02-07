@@ -11,47 +11,54 @@ import net.abesto.kotlin.js.pixi.display.Sprite
 
 
 fun main(args: Array<String>) {
-    // create an new instance of a pixi stage
-    var stage = Stage(0xFFFFFF, true)
-
-    // create a renderer instance
-    var renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
-
-    // set the canvas width and height to fill the screen
-    renderer.view.style.setProperty("display", "block", "")
-
-    // add render view to DOM
-    document.body.appendChild(renderer.view)
-
     // create an array of assets to load
-    val assetsToLoader = array("data/spineboy.json", "data/spineboy.anim")
+
+    val assetsToLoader = array("data/spineboy.json")
 
     // create a new loader
     val loader = AssetLoader(assetsToLoader)
 
-    fun onAssetsLoaded() {
-        var spineBoy = Spine("data/spineboy.anim")
+    //begin load
+    loader.load()
 
-        spineBoy.position.x = window.innerWidth / 2
+
+    // create an new instance of a pixi stage
+    val stage = Stage(0xFFFFFF, true)
+
+    // create a renderer instance
+    val renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
+
+    // add render view to DOM
+    document.body.appendChild(renderer.view)
+
+    fun onAssetsLoaded()
+    {
+        // create a spine boy
+        val spineBoy = Spine("data/spineboy.json")
+
+        // set the position
+        spineBoy.position.x = window.innerWidth/2
         spineBoy.position.y = window.innerHeight
 
         spineBoy.scale.x = window.innerHeight / 400
         spineBoy.scale.y = spineBoy.scale.x
+
         // set up the mixes!
         spineBoy.stateData.setMixByName("walk", "jump", 0.2)
         spineBoy.stateData.setMixByName("jump", "walk", 0.4)
 
-        spineBoy.state.setAnimationByName("walk", true)
+        // play animation
+        spineBoy.state.setAnimationByName(0, "walk", true)
 
 
         stage.addChild(spineBoy)
 
-        stage.click = {
-            spineBoy.state.setAnimationByName("jump", false)
-            spineBoy.state.addAnimationByName("walk", true)
+        stage.click =  {
+            spineBoy.state.setAnimationByName(0, "jump", false)
+            spineBoy.state.addAnimationByName(0, "walk", true, 0)
         }
 
-        var logo = Sprite.fromImage("logo_small.png")
+        val logo = Sprite.fromImage("logo_small.png")
         stage.addChild(logo)
 
 
@@ -65,11 +72,9 @@ fun main(args: Array<String>) {
         logo.click = { window.open("https://github.com/GoodBoyDigital/pixi.js", "_blank") }
         logo.tap = logo.click
     }
+
     // use callback
     loader.onComplete = ::onAssetsLoaded
-
-    //begin load
-    loader.load()
 
     fun animate() {
         requestAnimFrame(::animate)
