@@ -45,13 +45,14 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var assetsToLoader = ['SpriteSheet.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     var explosions = [];
                     var count = 0;
                     var stage = {v: new PIXI.Stage(16777215)};
                     var renderer = {v: PIXI.autoDetectRenderer(800, 600)};
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_03.main$animate(renderer, stage);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_03.main$onAssetsLoaded(stage, animate);
                     loader.onComplete = onAssetsLoaded;

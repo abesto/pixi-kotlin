@@ -36,6 +36,7 @@
                       firstTile.v = null;
                       secondTile.v = null;
                       canPick.v = true;
+                      return null;
                     };
                   },
                   f_0: function (firstTile, secondTile, canPick) {
@@ -50,6 +51,7 @@
                       firstTile.v = null;
                       secondTile.v = null;
                       canPick.v = true;
+                      return null;
                     };
                   },
                   onTilesLoaded$f: function (canPick, firstTile, secondTile, gameContainer) {
@@ -82,7 +84,7 @@
                     return function () {
                       var tmp$0, tmp$1, tmp$2;
                       var chosenTiles = [];
-                      while (Kotlin.modules['stdlib'].kotlin.get_size_eg9ybj$(chosenTiles) < 48) {
+                      while (chosenTiles.length < 48) {
                         var candidate = Math.floor(Math.random() * 44);
                         if (chosenTiles.indexOf(candidate) === -1) {
                           chosenTiles.push(candidate, candidate);
@@ -127,6 +129,7 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var firstTile = {v: null};
                     var secondTile = {v: null};
                     var canPick = {v: true};
@@ -138,7 +141,7 @@
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$animate(renderer, stage);
                     var onTilesLoaded = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$onTilesLoaded(gameContainer, canPick, firstTile, secondTile);
                     stage.v.addChild(gameContainer.v);
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     loader.onComplete = _.net.abesto.kotlin.js.pixi.examples.example_pairs.main$f(onTilesLoaded);
                     loader.load();
                     requestAnimFrame(_.net.abesto.kotlin.js.pixi.examples.example_pairs.main$f_0(animate));

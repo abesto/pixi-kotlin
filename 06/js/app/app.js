@@ -67,20 +67,22 @@
                     window.open('https://github.com/GoodBoyDigital/pixi.js', '_blank');
                   },
                   main: function (args) {
-                    var tmp$0;
+                    var tmp$0, tmp$1;
                     var interactive = true;
                     var stage = {v: new PIXI.Stage(0, interactive)};
                     var renderer = {v: PIXI.autoDetectRenderer(620, 400)};
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     var background = PIXI.Sprite.fromImage('button_test_BG.jpg');
                     stage.v.addChild(background);
                     var textureButton = {v: PIXI.Texture.fromImage('button.png')};
                     var textureButtonDown = {v: PIXI.Texture.fromImage('buttonDown.png')};
                     var textureButtonOver = {v: PIXI.Texture.fromImage('buttonOver.png')};
-                    var buttons = [];
-                    var buttonPositions = [175, 75, 600 - 145, 75, (600 / 2 | 0) - 20, (400 / 2 | 0) + 10, 175, 400 - 75, 600 - 115, 400 - 95];
-                    tmp$0 = 4;
-                    for (var i = 0; i <= tmp$0; i++) {
+                    var t = [];
+                    var buttons = t;
+                    var t_0 = [175, 75, 600 - 145, 75, (600 / 2 | 0) - 20, (400 / 2 | 0) + 10, 175, 400 - 75, 600 - 115, 400 - 95];
+                    var buttonPositions = t_0;
+                    tmp$1 = 4;
+                    for (var i = 0; i <= tmp$1; i++) {
                       var button = new PIXI.Sprite(textureButton.v);
                       button.anchor.x = 0.5;
                       button.anchor.y = 0.5;

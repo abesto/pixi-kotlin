@@ -1,8 +1,9 @@
 package net.abesto.kotlin.js.pixi.examples.example_13
 
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
-import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.primitives.Graphics
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 
@@ -17,7 +18,7 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(620, 380)
 
     // add render view to DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     val graphics = Graphics()
 

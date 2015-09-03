@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_06
 
-import kotlin.js.dom.html.document
-import kotlin.js.dom.html.window
+import kotlin.browser.*
+import org.w3c.dom.*
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
     var renderer = autoDetectRenderer(620, 400)
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     // create a background..
     var background = Sprite.fromImage("button_test_BG.jpg")

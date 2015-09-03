@@ -49,12 +49,13 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var assetsToLoader = ['data/spineboy.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     loader.load();
                     var stage = new PIXI.Stage(16777215, true);
                     var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_12.main$onAssetsLoaded(stage);
                     loader.onComplete = onAssetsLoaded;
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_12.main$animate(renderer, stage);

@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_05
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
+import org.w3c.dom.*
 import jquery.jq
 
 import net.abesto.kotlin.js.pixi.*
@@ -24,13 +24,13 @@ fun main(args: Array<String>) {
     var vx = 0.0
     var vy = 0.0
     var vz = 0.0
-    var points1: Array<Double> = array()
-    var points2: Array<Double> = array()
-    var points3: Array<Double> = array()
-    var tpoint1: Array<Double> = array()
-    var tpoint2: Array<Double> = array()
-    var tpoint3: Array<Double> = array()
-    var balls: Array<Sprite> = array()
+    var points1: Array<Double> = arrayOf()
+    var points2: Array<Double> = arrayOf()
+    var points3: Array<Double> = arrayOf()
+    var tpoint1: Array<Double> = arrayOf()
+    var tpoint2: Array<Double> = arrayOf()
+    var tpoint3: Array<Double> = arrayOf()
+    var balls: Array<Sprite> = arrayOf()
     var renderer = autoDetectRenderer(w, h)
     var stage = Stage(0)
 
@@ -238,7 +238,7 @@ fun main(args: Array<String>) {
 
         var ballTexture = Texture.fromImage("assets/pixel.png")
 
-        document.body.appendChild(renderer.view)
+        document.body!!.appendChild(renderer.view)
 
         makeObject(0)
 

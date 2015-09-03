@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_12b
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.pixi.loaders.AssetLoader
 import net.abesto.kotlin.js.pixi.display.Stage
@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
     renderer.view.style.setProperty("display", "block", "")
 
     // add render view to DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     var dragon: Spine
 

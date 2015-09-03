@@ -1,7 +1,6 @@
 package net.abesto.kotlin.js.pixi.examples.example_08
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
 
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.pixi.InteractionData
@@ -24,7 +23,7 @@ fun main(args: Array<String>) {
     var renderer = autoDetectRenderer(window.innerWidth.toLong(), window.innerHeight.toLong())
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
     renderer.view.style.setProperty("position", "absolute", "")
     renderer.view.style.setProperty("top", "0px", "")
     renderer.view.style.setProperty("left", "0px", "")

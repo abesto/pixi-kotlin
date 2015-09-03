@@ -16,9 +16,10 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var stage = new PIXI.Stage(6750105);
                     var renderer = PIXI.autoDetectRenderer(400, 300);
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = new PIXI.Sprite(texture);
                     bunny.anchor.x = 0.5;

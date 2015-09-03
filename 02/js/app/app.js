@@ -43,6 +43,7 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var assetsToLoader = ['SpriteSheet.json'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     loader.load();
@@ -51,7 +52,7 @@
                     var count = {v: 0.0};
                     var stage = new PIXI.Stage(16777215);
                     var renderer = PIXI.autoDetectRenderer(800, 600);
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var alienContainer = new PIXI.DisplayObjectContainer();
                     alienContainer.position.x = 400.0;
                     alienContainer.position.y = 300.0;

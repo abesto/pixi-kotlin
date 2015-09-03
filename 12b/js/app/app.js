@@ -48,13 +48,15 @@
                     };
                   },
                   main: function (args) {
-                    var assetsToLoader = ['logo_small.png', 'data/dragon.json'];
+                    var tmp$0;
+                    var t = ['logo_small.png', 'data/dragon.json'];
+                    var assetsToLoader = t;
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     loader.load();
                     var stage = new PIXI.Stage(16777215, true);
                     var renderer = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight);
                     renderer.view.style.setProperty('display', 'block', '');
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var dragon = {v: null};
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_12b.main$animate(dragon, renderer, stage);
                     var onAssetsLoaded = _.net.abesto.kotlin.js.pixi.examples.example_12b.main$onAssetsLoaded(dragon, stage, animate);

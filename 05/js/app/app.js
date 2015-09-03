@@ -231,12 +231,12 @@
                   },
                   main$start: function (renderer, makeObject, n, points1, tpoint1, points2, tpoint2, points3, tpoint3, balls, stage, resize, nextObject, update) {
                     return function () {
-                      var tmp$0;
+                      var tmp$0, tmp$1;
                       var ballTexture = PIXI.Texture.fromImage('assets/pixel.png');
-                      document.body.appendChild(renderer.v.view);
+                      ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                       makeObject(0);
-                      tmp$0 = n.v - 1;
-                      for (var i = 0; i <= tmp$0; i++) {
+                      tmp$1 = n.v - 1;
+                      for (var i = 0; i <= tmp$1; i++) {
                         tpoint1.v[i] = points1.v[i];
                         tpoint2.v[i] = points2.v[i];
                         tpoint3.v[i] = points3.v[i];

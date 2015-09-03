@@ -48,7 +48,7 @@
 <search>
   <href>net/abesto/kotlin/js/pixi/geom/Geometry.html</href>
   <name>Geometry [net.abesto.kotlin.js.pixi.geom]</name>
-  <kind>trait</kind>
+  <kind>interface</kind>
 </search>
 <search>
   <href>net/abesto/kotlin/js/pixi/primitives/Graphics.html</href>

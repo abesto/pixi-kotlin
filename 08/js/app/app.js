@@ -65,17 +65,17 @@
                     };
                   },
                   main: function (args) {
-                    var tmp$0;
+                    var tmp$0, tmp$1;
                     var stage = {v: new PIXI.Stage(9946478, true)};
                     var renderer = {v: PIXI.autoDetectRenderer(Kotlin.Long.fromNumber(window.innerWidth), Kotlin.Long.fromNumber(window.innerHeight))};
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
                     renderer.v.view.style.setProperty('top', '0px', '');
                     renderer.v.view.style.setProperty('left', '0px', '');
                     var texture = {v: PIXI.Texture.fromImage('bunny.png')};
                     var createBunny = _.net.abesto.kotlin.js.pixi.examples.example_08.main$createBunny(texture, stage);
-                    tmp$0 = 9;
-                    for (var i = 0; i <= tmp$0; i++) {
+                    tmp$1 = 9;
+                    for (var i = 0; i <= tmp$1; i++) {
                       createBunny(Math.random() * window.innerWidth, Math.random() * window.innerHeight);
                     }
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_08.main$animate(renderer, stage);

@@ -83,6 +83,7 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var assetsToLoader = ['logo_small.png', 'data/Pixie.json', 'data/iP4_BGtile.jpg', 'data/iP4_ground.png'];
                     var loader = new PIXI.AssetLoader(assetsToLoader);
                     loader.load();
@@ -91,7 +92,7 @@
                     renderer.view.style.setProperty('display', 'block', '');
                     renderer.view.style.setProperty('width', '100%', '');
                     renderer.view.style.setProperty('height', '100%', '');
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var postition = {v: 0.0};
                     var background = {v: null};
                     var background2 = {v: null};

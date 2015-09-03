@@ -1,6 +1,6 @@
 package net.abesto.kotlin.js.pixi.examples.example_07
 
-import kotlin.js.dom.html.document
+import kotlin.browser.*
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
@@ -21,10 +21,10 @@ fun main(args: Array<String>) {
     var renderer = autoDetectRenderer(400, 300, rendererOptions)
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
     renderer.view.style.setProperty("position", "absolute", "")
     renderer.view.style.setProperty("top",
-            document.getElementById("textHolder").getBoundingClientRect().top.toString() + "px",
+            document.getElementById("textHolder")!!.getBoundingClientRect().top.toString() + "px",
             "")
 
     // create a texture from an image path

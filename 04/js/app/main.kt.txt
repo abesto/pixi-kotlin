@@ -1,10 +1,8 @@
 package net.abesto.kotlin.js.pixi.examples.example_04
 
-import kotlin.js.dom.html.document
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.HTMLElement
+import kotlin.browser.*
+import org.w3c.dom.*
 import jquery.jq
-
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
@@ -79,7 +77,7 @@ fun main(args: Array<String>) {
 
         var ballTexture = Texture.fromImage("assets/bubble_32x32.png")
 
-        document.body.appendChild(renderer.view)
+        document.body!!.appendChild(renderer.view)
 
         for (i in 0..(starCount - 1)) {
             var tempBall = Sprite(ballTexture)

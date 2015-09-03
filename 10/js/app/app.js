@@ -68,6 +68,7 @@
                     };
                   },
                   main$init: function () {
+                    var tmp$0;
                     var stage = new PIXI.Stage(6750105);
                     var background = PIXI.Sprite.fromImage('textDemoBG.jpg');
                     stage.addChild(background);
@@ -94,12 +95,12 @@
                     loader.onComplete = onAssetsLoaded;
                     loader.load();
                     var renderer = {v: PIXI.autoDetectRenderer(620, 400)};
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     var animate = _.net.abesto.kotlin.js.pixi.examples.example_10.init$animate(count, score, countingText, spinningText, renderer, stage);
                     requestAnimFrame(animate);
                   },
                   main: function (args) {
-                    var tmp$0;
+                    var tmp$0, tmp$1, tmp$2;
                     var init = _.net.abesto.kotlin.js.pixi.examples.example_10.main$init;
                     window.WebFontConfig = new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontConfig(new _.net.abesto.kotlin.js.pixi.examples.example_10.WebFontFamilies(['Snippet', 'Arvo:700italic', 'Podkova:700']), init);
                     var wf = document.createElement('script');
@@ -112,8 +113,8 @@
                     wf.setAttribute('src', tmp$0 + '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js');
                     wf.setAttribute('type', 'text/javascript');
                     wf.setAttribute('async', 'true');
-                    var s = document.getElementsByTagName('script').item(0);
-                    s.parentNode.insertBefore(wf, s);
+                    var s = (tmp$1 = document.getElementsByTagName('script').item(0)) != null ? tmp$1 : Kotlin.throwNPE();
+                    ((tmp$2 = s.parentNode) != null ? tmp$2 : Kotlin.throwNPE()).insertBefore(wf, s);
                   }
                 })
               })

@@ -1,9 +1,9 @@
 package net.abesto.kotlin.js.pixi.examples.example_10
 
+import kotlin.browser.*
+import org.w3c.dom.*
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
-import kotlin.js.dom.html.Window
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.TextStyle
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.display.Sprite
@@ -22,7 +22,7 @@ class WebFontConfig(
 
 // This trick coupled with (window as WebFontWindow) allows us to set global variables on the Window object.
 // In our example it's needed to configure the async webfont loader.
-native trait WebFontWindow : Window {
+native interface WebFontWindow : Window {
     var WebFontConfig: WebFontConfig
 }
 
@@ -84,7 +84,7 @@ fun main(args: Array<String>) {
         stage.addChild(spinningText)
         stage.addChild(countingText)
         // create a new loader
-        var assetsToLoader = array("desyrel.fnt")
+        var assetsToLoader = arrayOf("desyrel.fnt")
         var loader = AssetLoader(assetsToLoader)
 
         // use callback
@@ -109,7 +109,7 @@ fun main(args: Array<String>) {
         // create a renderer instance
         var renderer = autoDetectRenderer(620, 400)
         // add the renderer view element to the DOM
-        document.body.appendChild(renderer.view)
+        document.body!!.appendChild(renderer.view)
 
         fun animate() {
             requestAnimFrame(::animate)
@@ -143,6 +143,6 @@ fun main(args: Array<String>) {
             "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js")
     wf.setAttribute("type", "text/javascript")
     wf.setAttribute("async", "true")
-    val s = document.getElementsByTagName("script").item(0)
-    s.parentNode.insertBefore(wf, s)
+    val s = document.getElementsByTagName("script").item(0)!!
+    s.parentNode!!.insertBefore(wf, s)
 }

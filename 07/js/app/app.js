@@ -16,13 +16,14 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0, tmp$1;
                     var stage = {v: new PIXI.Stage(6750105)};
                     var rendererOptions = new Object();
                     rendererOptions.transparent = true;
                     var renderer = {v: PIXI.autoDetectRenderer(400, 300, rendererOptions)};
-                    document.body.appendChild(renderer.v.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
                     renderer.v.view.style.setProperty('position', 'absolute', '');
-                    renderer.v.view.style.setProperty('top', document.getElementById('textHolder').getBoundingClientRect().top.toString() + 'px', '');
+                    renderer.v.view.style.setProperty('top', ((tmp$1 = document.getElementById('textHolder')) != null ? tmp$1 : Kotlin.throwNPE()).getBoundingClientRect().top.toString() + 'px', '');
                     var texture = PIXI.Texture.fromImage('bunny.png');
                     var bunny = {v: new PIXI.Sprite(texture)};
                     bunny.v.anchor.x = 0.5;

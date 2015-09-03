@@ -1,9 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_03
 
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
 
-import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.loaders.AssetLoader
 import net.abesto.kotlin.js.pixi.display.MovieClip
 import net.abesto.kotlin.js.pixi.display.Stage
@@ -13,13 +14,13 @@ import net.abesto.kotlin.js.pixi.textures.Texture
 
 fun main(args: Array<String>) {
     // create an array of assets to load
-    val assetsToLoader = array("SpriteSheet.json")
+    val assetsToLoader = arrayOf("SpriteSheet.json")
 
     // create a new loader
     val loader = AssetLoader(assetsToLoader)
 
     // holder to store aliens
-    var explosions: Array<MovieClip> = array()
+    var explosions: Array<MovieClip> = arrayOf()
 
     var count = 0
 
@@ -30,7 +31,7 @@ fun main(args: Array<String>) {
     var renderer = autoDetectRenderer(800, 600)
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view);
+    document.body!!.appendChild(renderer.view);
 
     fun animate() {
         requestAnimFrame({ animate() });
@@ -39,7 +40,7 @@ fun main(args: Array<String>) {
 
     fun onAssetsLoaded() {
         // create an array to store the textures
-        var explosionTextures: Array<Texture> = array()
+        var explosionTextures: Array<Texture> = arrayOf()
 
         for (i in 0..25) {
             var texture = Texture.fromFrame("Explosion_Sequence_A " + (i + 1) + ".png");

@@ -33,10 +33,11 @@
                     };
                   },
                   main: function (args) {
+                    var tmp$0;
                     var stage = new PIXI.Stage(16777215, true);
                     stage.interactive = true;
                     var renderer = PIXI.autoDetectRenderer(620, 380);
-                    document.body.appendChild(renderer.view);
+                    ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.view);
                     var graphics = new PIXI.Graphics();
                     graphics.beginFill(16724736);
                     graphics.lineStyle(10, 16767232, 1.0);

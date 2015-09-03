@@ -70,7 +70,7 @@
 <a href='#69' name='69'>69</a>
 </td><td><span class='hl-keyword'>package</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>renderers</span><span>
 
-</span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>dom</span><span class='DOT'>.</span><span class='IDENTIFIER'>html5</span><span class='DOT'>.</span><span class='IDENTIFIER'>HTMLCanvasElement</span><span>
+</span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>org</span><span class='DOT'>.</span><span class='IDENTIFIER'>w3c</span><span class='DOT'>.</span><span class='IDENTIFIER'>dom</span><span class='DOT'>.</span><span class='IDENTIFIER'>HTMLCanvasElement</span><span>
 </span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>display</span><span class='DOT'>.</span><span class='IDENTIFIER'>Stage</span><span>
 </span><span class='import'>import</span><span> </span><span class='IDENTIFIER'>net</span><span class='DOT'>.</span><span class='IDENTIFIER'>abesto</span><span class='DOT'>.</span><span class='IDENTIFIER'>kotlin</span><span class='DOT'>.</span><span class='IDENTIFIER'>js</span><span class='DOT'>.</span><span class='IDENTIFIER'>pixi</span><span class='DOT'>.</span><span class='IDENTIFIER'>PIXI</span><span>
 
@@ -125,15 +125,15 @@
 
     </span><span class='KDOC_START'>/**</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Renders the stage to its webGL view</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> stage the Stage element to be rendered</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span> </span><span class='IDENTIFIER'>stage</span><span> </span><span class='KDOC_TEXT'>the Stage element to be rendered</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='IDENTIFIER'>native</span><span> </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>render</span><span class='LPAR'>(</span><span class='IDENTIFIER'>stage</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Stage</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 
     </span><span class='KDOC_START'>/**</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> Resizes the view to the specified width and height.</span><span>
      </span><span class='KDOC_LEADING_ASTERISK'>*</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> width the new width of the webGL view</span><span>
-     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span class='KDOC_TEXT'> height the new height of the webGL view</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span> </span><span class='IDENTIFIER'>width</span><span> </span><span class='KDOC_TEXT'>the new width of the webGL view</span><span>
+     </span><span class='KDOC_LEADING_ASTERISK'>*</span><span class='KDOC_TEXT'> </span><span class='KDOC_TAG_NAME'>@param</span><span> </span><span class='IDENTIFIER'>height</span><span> </span><span class='KDOC_TEXT'>the new height of the webGL view</span><span>
      </span><span class='KDOC_END'>*/</span><span>
     </span><span class='IDENTIFIER'>native</span><span> </span><span class='public'>public</span><span> </span><span class='hl-keyword'>fun</span><span> </span><span class='IDENTIFIER'>resize</span><span class='LPAR'>(</span><span class='IDENTIFIER'>width</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span class='COMMA'>,</span><span> </span><span class='IDENTIFIER'>height</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Number</span><span class='RPAR'>)</span><span class='COLON'>:</span><span> </span><span class='IDENTIFIER'>Unit</span><span> </span><span class='EQ'>=</span><span> </span><span class='IDENTIFIER'>noImpl</span><span>
 </span><span class='RBRACE'>}</span><span>

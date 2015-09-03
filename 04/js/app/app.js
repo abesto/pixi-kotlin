@@ -15,9 +15,10 @@
                   }),
                   main$newWave: function (sx, sy) {
                     return function () {
+                      var tmp$0;
                       sx.v = 1.0 + Math.random() / 20;
                       sy.v = 1.0 + Math.random() / 20;
-                      document.getElementById('sx').innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
+                      ((tmp$0 = document.getElementById('sx')) != null ? tmp$0 : Kotlin.throwNPE()).innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
                     };
                   },
                   main$resize: function (w, h, slideX, slideY, renderer) {
@@ -56,17 +57,17 @@
                     };
                   },
                   start$f: function (newWave) {
-                    return function () {
+                    return function (it) {
                       newWave();
                     };
                   },
                   main$start: function (renderer, starCount, w, slideX, h, slideY, stars, stage, newWave, sx, sy, resize, update) {
                     return function () {
-                      var tmp$0;
+                      var tmp$0, tmp$1, tmp$2, tmp$3;
                       var ballTexture = PIXI.Texture.fromImage('assets/bubble_32x32.png');
-                      document.body.appendChild(renderer.v.view);
-                      tmp$0 = starCount.v - 1;
-                      for (var i = 0; i <= tmp$0; i++) {
+                      ((tmp$0 = document.body) != null ? tmp$0 : Kotlin.throwNPE()).appendChild(renderer.v.view);
+                      tmp$1 = starCount.v - 1;
+                      for (var i = 0; i <= tmp$1; i++) {
                         var tempBall = new PIXI.Sprite(ballTexture);
                         tempBall.position.x = Math.random() * w.v.toNumber() - slideX.v.toNumber();
                         tempBall.position.y = Math.random() * h.v.toNumber() - slideY.v.toNumber();
@@ -75,8 +76,8 @@
                         stars.v.push(new _.net.abesto.kotlin.js.pixi.examples.example_04.Star(tempBall, tempBall.position.x, tempBall.position.y));
                         stage.v.addChild(tempBall);
                       }
-                      document.getElementById('rnd').onclick = _.net.abesto.kotlin.js.pixi.examples.example_04.start$f(newWave);
-                      document.getElementById('sx').innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
+                      ((tmp$2 = document.getElementById('rnd')) != null ? tmp$2 : Kotlin.throwNPE()).onclick = _.net.abesto.kotlin.js.pixi.examples.example_04.start$f(newWave);
+                      ((tmp$3 = document.getElementById('sx')) != null ? tmp$3 : Kotlin.throwNPE()).innerHTML = 'SX: ' + sx.v + '<br />SY: ' + sy.v;
                       resize();
                       requestAnimFrame(update);
                     };
@@ -94,7 +95,8 @@
                     var sy = {v: 1.0 + Math.random() / 20};
                     var slideX = {v: w.v.div(Kotlin.Long.fromInt(2))};
                     var slideY = {v: h.v.div(Kotlin.Long.fromInt(2))};
-                    var stars = {v: []};
+                    var t = [];
+                    var stars = {v: t};
                     var renderer = {v: PIXI.autoDetectRenderer(w.v, h.v)};
                     var stage = {v: new PIXI.Stage(0)};
                     var newWave = _.net.abesto.kotlin.js.pixi.examples.example_04.main$newWave(sx, sy);

@@ -1,9 +1,10 @@
 package net.abesto.kotlin.js.pixi.examples.example_02
 
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
 
-import kotlin.js.dom.html.document
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
 import net.abesto.kotlin.js.pixi.loaders.AssetLoader
@@ -13,7 +14,7 @@ import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 
 fun main(args: Array<String>) {
     // create an array of assets to load, in the form of json files generated from TexturePacker
-    val assetsToLoader = array("SpriteSheet.json")
+    val assetsToLoader = arrayOf("SpriteSheet.json")
 
     // create a new loader
     val loader = AssetLoader(assetsToLoader)
@@ -22,8 +23,8 @@ fun main(args: Array<String>) {
     loader.load()
 
     // holder to store aliens
-    val aliens: Array<Sprite> = array()
-    val alienFrames = array("eggHead.png", "flowerTop.png", "helmlok.png", "skully.png")
+    val aliens: Array<Sprite> = arrayOf()
+    val alienFrames = arrayOf("eggHead.png", "flowerTop.png", "helmlok.png", "skully.png")
 
     var count = 0.0
 
@@ -34,7 +35,7 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(800, 600)
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     // create an empty container
     val alienContainer = DisplayObjectContainer()
