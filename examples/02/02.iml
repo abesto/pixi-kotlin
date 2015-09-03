@@ -17,6 +17,17 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="pixi-kotlin-pixi-kotlin" exported="" />
-    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-js-library:0.1-SNAPSHOT" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: org.jetbrains.kotlin:kotlin-js-library:0.12.613" level="project" />
+    <orderEntry type="module-library">
+      <library name="&lt;Kotlin JavaScript library&gt;">
+        <CLASSES>
+          <root url="kotlin-js-meta://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-js-library/0.12.613/61c429feaedb16fc9316389ceb7f971d4d9708c1/kotlin-js-library-0.12.613.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-js-library/0.12.613/7630105d9932f9f6b84fcceae22b44d3ce71f251/kotlin-js-library-0.12.613-sources.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

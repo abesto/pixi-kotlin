@@ -5,7 +5,7 @@ import net.abesto.kotlin.js.pixi.display.DisplayObjectContainer
 native("PIXI.Spine")
 public class Spine(val url: String) : DisplayObjectContainer() {
     // TODO Add the rest of the interface
-    class object {
+    companion object {
         class SkeletonData {}
         
         class Skeleton {

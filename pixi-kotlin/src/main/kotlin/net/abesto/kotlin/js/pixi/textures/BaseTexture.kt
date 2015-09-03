@@ -14,7 +14,7 @@ public class BaseTexture(
         /** Should be one of the PIXI.scaleMode consts */
         public var scaleMode: Int = PIXI.scaleModes.DEFAULT
 ) {
-    class object {
+    companion object {
         /**
          * Helper function that creates a base texture from the given canvas element.
          *

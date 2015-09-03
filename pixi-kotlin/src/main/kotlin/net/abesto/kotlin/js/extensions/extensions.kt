@@ -1,8 +1,7 @@
 package net.abesto.kotlin.js.extensions
 
 
-import kotlin.js.dom.html.Window
-import org.w3c.dom.Element
+import org.w3c.dom.*
 
 import jquery.JQuery
 

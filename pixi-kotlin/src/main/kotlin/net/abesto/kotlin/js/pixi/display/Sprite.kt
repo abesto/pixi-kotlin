@@ -20,7 +20,7 @@ open public class Sprite(
         public var texture: Texture
 ) : DisplayObjectContainer() {
 
-    class object {
+    companion object {
         /**
          * Helper function that creates a sprite that will contain a texture from the TextureCache based on the frameId
          * The frame ids are created when a Texture packer file has been loaded

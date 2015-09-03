@@ -52,7 +52,7 @@ open public class Texture(
      */
     public fun setFrame(frame: Rectangle): Unit = noImpl
     
-    class object {
+    companion object StaticMethods {
         /**
          * Helper function that creates a Texture object from the given image url.
          * If the image is not in the texture cache it will be  created and loaded.

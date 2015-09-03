@@ -1,8 +1,8 @@
 package net.abesto.kotlin.js.pixi.examples.example_01
 
-import net.abesto.kotlin.js.pixi.*
+import kotlin.browser.*
 
-import kotlin.js.dom.html.document
+import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
 import net.abesto.kotlin.js.pixi.textures.Texture
@@ -17,7 +17,7 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(400, 300)
 
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     // create a texture from an image path
     val texture = Texture.fromImage("bunny.png")

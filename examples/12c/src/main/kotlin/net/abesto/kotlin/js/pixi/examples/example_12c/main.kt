@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_12c
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.pixi.loaders.AssetLoader
 import net.abesto.kotlin.js.pixi.display.Stage
@@ -13,7 +13,7 @@ import net.abesto.kotlin.js.pixi.extras.Spine
 fun main(args: Array<String>) {
     // create an array of assets to load
 
-    val assetsToLoader = array("logo_small.png", "data/Pixie.json", "data/iP4_BGtile.jpg", "data/iP4_ground.png")
+    val assetsToLoader = arrayOf("logo_small.png", "data/Pixie.json", "data/iP4_BGtile.jpg", "data/iP4_ground.png")
 
     // create a new loader
     val loader = AssetLoader(assetsToLoader)
@@ -33,7 +33,7 @@ fun main(args: Array<String>) {
     renderer.view.style.setProperty("height", "100%", "")
 
     // add render view to DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     var postition = 0.0
     var background: Sprite

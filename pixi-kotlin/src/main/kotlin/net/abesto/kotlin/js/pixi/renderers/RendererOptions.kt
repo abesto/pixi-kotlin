@@ -1,6 +1,6 @@
 package net.abesto.kotlin.js.pixi.renderers
 
-import kotlin.js.dom.html5.HTMLCanvasElement
+import org.w3c.dom.HTMLCanvasElement
 
 native("Object")
 open public class RendererOptions {

@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_12
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
@@ -13,7 +13,7 @@ import net.abesto.kotlin.js.pixi.display.Sprite
 fun main(args: Array<String>) {
     // create an array of assets to load
 
-    val assetsToLoader = array("data/spineboy.json")
+    val assetsToLoader = arrayOf("data/spineboy.json")
 
     // create a new loader
     val loader = AssetLoader(assetsToLoader)
@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
 
     // add render view to DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     fun onAssetsLoaded()
     {

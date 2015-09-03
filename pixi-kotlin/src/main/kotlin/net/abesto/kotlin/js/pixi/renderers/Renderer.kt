@@ -1,6 +1,6 @@
 package net.abesto.kotlin.js.pixi.renderers
 
-import kotlin.js.dom.html5.HTMLCanvasElement
+import org.w3c.dom.HTMLCanvasElement
 import net.abesto.kotlin.js.pixi.display.Stage
 import net.abesto.kotlin.js.pixi.PIXI
 

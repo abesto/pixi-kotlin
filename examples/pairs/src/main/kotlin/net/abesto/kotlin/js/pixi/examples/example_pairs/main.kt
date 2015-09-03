@@ -1,7 +1,6 @@
 package net.abesto.kotlin.js.pixi.examples.example_pairs
 
-import kotlin.js.dom.html.window
-import kotlin.js.dom.html.document
+import kotlin.browser.*
 
 import net.abesto.kotlin.js.pixi.*
 import net.abesto.kotlin.js.extensions.*
@@ -23,13 +22,13 @@ fun main(args: Array<String>) {
     // second tile picked up by the player
     var secondTile: Tile?
     // can the player pick up a tile?
-    var canPick = true
+    var canPick: Boolean = true
     // create an new instance of a pixi stage with a grey background
     var stage = Stage(0x888888)
     // create a renderer instance width=640 height=480
     var renderer = autoDetectRenderer(640, 480)
     // importing a texture atlas created with texturepacker
-    var tileAtlas = array("images.json")
+    var tileAtlas = arrayOf("images.json")
     // create a new loader
     var loader = AssetLoader(tileAtlas)
     // create an empty container
@@ -43,8 +42,8 @@ fun main(args: Array<String>) {
 
     fun onTilesLoaded() {
         // choose 24 random tile images
-        var chosenTiles: Array<Int> = array()
-        while (chosenTiles.size < 48) {
+        var chosenTiles: Array<Int> = arrayOf()
+        while (chosenTiles.size() < 48) {
             var candidate = Math.floor(Math.random() * 44);
             if (chosenTiles.indexOf(candidate) == -1) {
                 chosenTiles.push(candidate, candidate)
@@ -109,6 +108,7 @@ fun main(args: Array<String>) {
                                         firstTile = null
                                         secondTile = null
                                         canPick = true
+                                        null
                                     }, 1000);
                                 }
                                 // we picked different tiles
@@ -124,6 +124,7 @@ fun main(args: Array<String>) {
                                         firstTile = null
                                         secondTile = null
                                         canPick = true
+                                        null
                                     }, 1000)
                                 }
                             }
@@ -138,7 +139,7 @@ fun main(args: Array<String>) {
 
     stage.addChild(gameContainer)
     // add the renderer view element to the DOM
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
     // use callback
     loader.onComplete = { onTilesLoaded() }
     //begin load

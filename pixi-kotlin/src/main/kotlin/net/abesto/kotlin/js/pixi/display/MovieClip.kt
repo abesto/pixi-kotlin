@@ -12,7 +12,7 @@ public class MovieClip(
         public var textures: Array<Texture>
 ) : Sprite(textures[0]) {
 
-    class object {
+    companion object {
         /**
          * A short hand way of creating a movieclip from an array of frame ids
          *

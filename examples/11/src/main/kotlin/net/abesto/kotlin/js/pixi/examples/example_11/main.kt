@@ -1,7 +1,7 @@
 package net.abesto.kotlin.js.pixi.examples.example_11
 
-import kotlin.js.dom.html.document
-import kotlin.js.dom.html.window
+import kotlin.browser.*
+
 import net.abesto.kotlin.js.pixi.requestAnimFrame
 import net.abesto.kotlin.js.extensions.*
 import net.abesto.kotlin.js.pixi.utils.autoDetectRenderer
@@ -24,7 +24,7 @@ fun main(args: Array<String>) {
 
     renderer.view.style.setProperty("display", "block", "")
 
-    document.body.appendChild(renderer.view)
+    document.body!!.appendChild(renderer.view)
 
     var renderTexture = RenderTexture(800, 600)
     var renderTexture2 = RenderTexture(800, 600)
@@ -46,15 +46,15 @@ fun main(args: Array<String>) {
     bunnyContainer.position.y = 600.0 / 2
 
     stage.addChild(bunnyContainer)
-    var fruits = array("spinObj_01.png", "spinObj_02.png",
+    var fruits = arrayOf("spinObj_01.png", "spinObj_02.png",
             "spinObj_03.png", "spinObj_04.png",
             "spinObj_05.png", "spinObj_06.png",
             "spinObj_07.png", "spinObj_08.png")
 
-    var bunnys: Array<Sprite> = array()
+    var bunnys: Array<Sprite> = arrayOf()
 
     for (i in 0..19) {
-        var bunny = Sprite.fromImage(fruits[i % fruits.size])
+        var bunny = Sprite.fromImage(fruits[i % fruits.size()])
         bunny.position.x = Math.random() * 400 - 200
         bunny.position.y = Math.random() * 400 - 200
 
@@ -74,7 +74,7 @@ fun main(args: Array<String>) {
 
         requestAnimFrame(::animate)
 
-        for (i in 0..bunnys.size - 1) {
+        for (i in 0..bunnys.size() - 1) {
             var bunny = bunnys[i]
             bunny.rotation += 0.1
         }

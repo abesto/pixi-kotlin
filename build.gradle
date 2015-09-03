@@ -3,7 +3,7 @@ version = '0.0.1'
 
 buildscript {
 	ext {
-		kotlinVersion = '0.10.195'
+		kotlinVersion = '0.12.613'
 	}
 
 	repositories {
