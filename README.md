@@ -1,5 +1,9 @@
 # pixi-kotlin
 
+This project is **vaporware** as of 2015. September 05. At that point most examples with Pixi v2 were working and the implemented API was in a pretty nice shape. Unfortunately I don't have the time and motivation to keep up with the rapid pace of development of Pixi - good on them, by the way! Feel free to pick up this project if you want to.
+
+----------------------
+
 Kotlin wrapper for Pixi.js
 
 Currently in "no, don't use it, I'm just playing around" state. A few examples are already implemented: http://abesto.github.io/pixi-kotlin/
