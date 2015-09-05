@@ -28,9 +28,9 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(1024, 640)
 
     // set the canvas width and height to fill the screen
-    renderer.view.style.setProperty("display", "block", "")
-    renderer.view.style.setProperty("width", "100%", "")
-    renderer.view.style.setProperty("height", "100%", "")
+    renderer.view.style.display = "block"
+    renderer.view.style.width = "100%"
+    renderer.view.style.height = "100%"
 
     // add render view to DOM
     document.body!!.appendChild(renderer.view)

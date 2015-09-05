@@ -134,15 +134,15 @@ fun main(args: Array<String>) {
             google = WebFontFamilies("Snippet", "Arvo:700italic", "Podkova:700"),
             active = ::init
     )
-    val wf = document.createElement("script")
+    val wf = document.createElement("script") as HTMLScriptElement
     wf.setAttribute("src", (if ("https:" == window.location.protocol) {
         "https"
     } else {
         "http"
     }) +
             "://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js")
-    wf.setAttribute("type", "text/javascript")
-    wf.setAttribute("async", "true")
+    wf.type = "text/javascript"
+    wf.async = true
     val s = document.getElementsByTagName("script").item(0)!!
     s.parentNode!!.insertBefore(wf, s)
 }

@@ -22,10 +22,8 @@ fun main(args: Array<String>) {
 
     // add the renderer view element to the DOM
     document.body!!.appendChild(renderer.view)
-    renderer.view.style.setProperty("position", "absolute", "")
-    renderer.view.style.setProperty("top",
-            document.getElementById("textHolder")!!.getBoundingClientRect().top.toString() + "px",
-            "")
+    renderer.view.style.position = "absolute"
+    renderer.view.style.top = document.getElementById("textHolder")!!.getBoundingClientRect().top.toString() + "px"
 
     // create a texture from an image path
     var texture = Texture.fromImage("bunny.png")

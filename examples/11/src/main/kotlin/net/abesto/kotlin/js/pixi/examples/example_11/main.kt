@@ -19,10 +19,10 @@ fun main(args: Array<String>) {
     // create a renderer instance
     var renderer = autoDetectRenderer(800, 600)
 
-    renderer.view.style.setProperty("width", "${window.innerWidth}px", "")
-    renderer.view.style.setProperty("height", "${window.innerHeight}px", "")
+    renderer.view.style.width = "${window.innerWidth}px"
+    renderer.view.style.height = "${window.innerHeight}px"
 
-    renderer.view.style.setProperty("display", "block", "")
+    renderer.view.style.display = "block"
 
     document.body!!.appendChild(renderer.view)
 

@@ -29,7 +29,7 @@ fun main(args: Array<String>) {
     val renderer = autoDetectRenderer(window.innerWidth, window.innerHeight)
 
     // set the canvas width and height to fill the screen
-    renderer.view.style.setProperty("display", "block", "")
+    renderer.view.style.display = "block"
 
     // add render view to DOM
     document.body!!.appendChild(renderer.view)
